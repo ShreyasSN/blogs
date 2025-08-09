@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shreyas&apos;s Blogs</title>
+    <description>Place to share my thoughts and experiences in the tech world.</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sat, 09 Aug 2025 21:29:27 +0530</pubDate>
+    <lastBuildDate>Sat, 09 Aug 2025 21:29:27 +0530</lastBuildDate>
+    <generator>Jekyll v4.4.1</generator>
+    
+      <item>
+        <title>Two Pointers</title>
+        <description>
+</description>
+        <pubDate>Fri, 25 Jul 2025 00:00:00 +0530</pubDate>
+        <link>http://localhost:4000/2025/07/25/two-pointers/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025/07/25/two-pointers/</guid>
+        
+        <category>C++</category>
+        
+        <category>Algorithms</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Tree Concepts</title>
+        <description>
+</description>
+        <pubDate>Fri, 25 Jul 2025 00:00:00 +0530</pubDate>
+        <link>http://localhost:4000/2025/07/25/tree-concepts/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025/07/25/tree-concepts/</guid>
+        
+        <category>C++</category>
+        
+        <category>Algorithms</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Topological Sort</title>
+        <description>
+</description>
+        <pubDate>Fri, 25 Jul 2025 00:00:00 +0530</pubDate>
+        <link>http://localhost:4000/2025/07/25/topological-sort/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025/07/25/topological-sort/</guid>
+        
+        <category>C++</category>
+        
+        <category>Algorithms</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Shortest Path In Graph</title>
+        <description>
+</description>
+        <pubDate>Fri, 25 Jul 2025 00:00:00 +0530</pubDate>
+        <link>http://localhost:4000/2025/07/25/shortest-path/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025/07/25/shortest-path/</guid>
+        
+        <category>C++</category>
+        
+        <category>Algorithms</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Monotoneous Stack</title>
+        <description>
+</description>
+        <pubDate>Fri, 25 Jul 2025 00:00:00 +0530</pubDate>
+        <link>http://localhost:4000/2025/07/25/monotoneous-stack/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025/07/25/monotoneous-stack/</guid>
+        
+        <category>C++</category>
+        
+        <category>Algorithms</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Linked List - Best For Designing Data Structure?</title>
+        <description>
+</description>
+        <pubDate>Fri, 25 Jul 2025 00:00:00 +0530</pubDate>
+        <link>http://localhost:4000/2025/07/25/linked-list/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025/07/25/linked-list/</guid>
+        
+        <category>C++</category>
+        
+        <category>Algorithms</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Lazy Segment Tree</title>
+        <description>
+</description>
+        <pubDate>Fri, 25 Jul 2025 00:00:00 +0530</pubDate>
+        <link>http://localhost:4000/2025/07/25/lazy-segment-tree/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025/07/25/lazy-segment-tree/</guid>
+        
+        <category>C++</category>
+        
+        <category>Algorithms</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Favourit Problem Set From Competetive Programming Contests</title>
+        <description>
+</description>
+        <pubDate>Fri, 25 Jul 2025 00:00:00 +0530</pubDate>
+        <link>http://localhost:4000/2025/07/25/favourite-competetive-programming-questions/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025/07/25/favourite-competetive-programming-questions/</guid>
+        
+        <category>C++</category>
+        
+        <category>Algorithms</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Power of Disjoint Union Set</title>
+        <description>
+</description>
+        <pubDate>Fri, 25 Jul 2025 00:00:00 +0530</pubDate>
+        <link>http://localhost:4000/2025/07/25/disjoint-union-set/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025/07/25/disjoint-union-set/</guid>
+        
+        <category>C++</category>
+        
+        <category>Algorithms</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Graph Traversing</title>
+        <description>
+</description>
+        <pubDate>Fri, 25 Jul 2025 00:00:00 +0530</pubDate>
+        <link>http://localhost:4000/2025/07/25/dfs-and-bfs/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025/07/25/dfs-and-bfs/</guid>
+        
+        <category>C++</category>
+        
+        <category>Algorithms</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

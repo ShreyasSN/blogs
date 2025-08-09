@@ -1,0 +1,126 @@
+body {
+  font-family: 'Playfair Display', serif;
+}
+
+.pager.centered {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding-left: 0;
+}
+.pager.centered li {
+    margin: 0 10px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin: 32px;
+  align-items: stretch;
+}
+
+.blog-grid-item {
+  min-width: 250px;
+  min-height: 250px;
+  width: 100%;
+  background: #fff;
+  border: 0.5px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.blog-grid-image {
+  width: 100%;
+  aspect-ratio: 1/1; 
+  max-height: 250px; 
+  min-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 12px 12px 0 12px;
+  flex-shrink: 0;
+}
+
+.blog-grid-image:hover {
+  cursor: pointer;
+}
+
+.blog-grid-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-grid-content {
+  flex: 1 1 auto;
+  padding: 0 12px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* height: 40%;  Remove this line */
+}
+
+
+.blog-grid-item:hover {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.blog-grid-item a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+
+.blog-grid-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  /* font-weight: bold; */
+  font-weight: 400;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.blog-grid-tags {
+  margin-top: auto;
+}
+
+.blog-grid-tags .tag {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #333;
+  font-size: 12px;
+  font-style: italic;
+  border-radius: 3px;
+  padding: 2px 8px;
+  margin-right: 4px;
+  margin-top: 4px;
+}
+
+
+@media (max-width: 1020px) {
+  .blog-grid {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
+
+    .blog-grid-title {
+    font-size: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-grid-title {
+    font-size: 6px;
+  }
+}
