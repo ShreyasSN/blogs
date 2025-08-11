@@ -19,7 +19,7 @@ layout: default
           <a href="{{ post.url | prepend: site.baseurl }}">
             {% if post.header-img %}
             <div class="blog-grid-image">
-              <img src="{{ post.header-img | absolute_url }}" alt="{{ post.title }}" />
+              <img style="cursor: pointer;" src="{{ post.header-img | absolute_url }}" alt="{{ post.title }}" />
             </div>
             {% endif %}
             <div class="blog-grid-content">
