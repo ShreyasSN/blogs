@@ -12,6 +12,20 @@ body {
     margin: 0 10px;
 }
 
+/* //////////////////  */
+.blog-full-content {
+  background: #1a1919;
+  color: #DDE6ED;
+}
+
+.blog-grid-item { 
+  background: #27374D;
+}
+
+.blog-grid-tags .tag {
+  background: #9DB2BF;
+}
+/* /////////////////// */
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -24,8 +38,7 @@ body {
   min-width: 250px;
   min-height: 250px;
   width: 100%;
-  background: #fff;
-  border: 0.5px solid #ccc;
+  /* border: 0.5px solid #ccc; */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -92,7 +105,7 @@ body {
 
 .blog-grid-tags .tag {
   display: inline-block;
-  background: #f0f0f0;
+  /* background: #f0f0f0; */
   color: #333;
   font-size: 12px;
   font-style: italic;

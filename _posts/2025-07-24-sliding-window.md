@@ -4,7 +4,7 @@ title:      "Sliding Window"
 subtitle:   "All patterns of classical dp"
 date:       2025-07-25
 author:     "Shreyas S N"
-header-img: "img/post-bg-os-metro.jpg"
+header-img: "img/post/slidingwindow.png"
 header-mask: 0.3
 catalog:    true
 tags:
