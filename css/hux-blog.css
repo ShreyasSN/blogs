@@ -127,7 +127,7 @@
 }
 .side-catalog .catalog-body .active {
   border-radius: 4px;
-  background-color: #f5f5f5;
+  background-color: #003380;
 }
 .side-catalog .catalog-body .active a {
   color: #0085a1 !important;
@@ -758,7 +758,7 @@ hr.small {
   max-width: 100px;
   margin: 15px auto;
   border-width: 4px;
-  border-color: white;
+  border-color: #3b3b3b;
 }
 pre,
 .table-responsive {
