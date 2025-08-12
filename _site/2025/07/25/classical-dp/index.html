@@ -12,10 +12,10 @@
 
     <!-- Open Graph -->
     <meta property="og:title"
-        content="Classical Dynamic Programming Problems - Shreyas's Blog">
+        content="binary search Programming Problems - Shreyas's Blog">
     
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Classical Problems of DP
+    <meta property="og:description" content="Binary Search
 ">
     
     <meta property="article:published_time" content=" 2025-07-25T00:00:00Z">
@@ -31,23 +31,23 @@
     <meta property="og:url" content="http://localhost:4000/2025/07/25/classical-dp/">
     <meta property="og:site_name" content="Shreyas's Blog">
 
-    <title>Classical Dynamic Programming Problems - Shreyas's Blog</title>
+    <title>binary search Programming Problems - Shreyas's Blog</title>
 
     <!-- Web App Manifest -->
-    <link rel="manifest" href="/blogs/pwa/manifest.json">
+    <link rel="manifest" href="/pwa/manifest.json">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/blogs/img/favicon.ico">
+    <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="http://localhost:4000/blogs/2025/07/25/classical-dp/">
+    <link rel="canonical" href="http://localhost:4000/2025/07/25/classical-dp/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/blogs/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/blogs/css/hux-blog.min.css">
-    <link rel="stylesheet" href="/blogs/css/blogs.css">
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+    <link rel="stylesheet" href="/css/blogs.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -89,7 +89,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/blogs/">Shreyas's Blogs</a>
+                <a class="navbar-brand" href="/">Shreyas's Blogs</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -97,26 +97,26 @@
                 <div class="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="/blogs/">Home</a>
+                            <a href="/">Home</a>
                         </li>
                         
                         
                         
                         
                         <li>
-                            <a href="/blogs/about/">About</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                         
                         
                         <li>
-                            <a href="/blogs/archive/">Archive</a>
+                            <a href="/archive/">Archive</a>
                         </li>
                         
                         
                         
                         <li>
-                            <a href="/blogs/arts/">Arts</a>
+                            <a href="/arts/">Arts</a>
                         </li>
                         
                         
@@ -216,7 +216,7 @@
 
     <!-- Image to hack wechat -->
 <!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
-<!-- <img src="/blogs/img/post/dp.png" width="0" height="0"> -->
+<!-- <img src="/img/post/dp.png" width="0" height="0"> -->
 
 <!-- Post Header -->
 
@@ -225,7 +225,7 @@
 <style type="text/css">
   header.intro-header {
     position: relative;
-    background-image: url('/blogs/img/post/dp.png');
+    background-image: url('/img/post/dp.png');
 
     background: {
         {
@@ -270,12 +270,12 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/blogs/archive/?tag=Algorithms" title="Algorithms">Algorithms</a>
+              <a class="tag" href="/archive/?tag=Algorithms" title="Algorithms">Algorithms</a>
               
             </div>
-            <h1>Classical Dynamic Programming Problems</h1>
+            <h1>binary search Programming Problems</h1>
             
-            <h2 class="subheading">All patterns of classical dp</h2>
+            <h2 class="subheading">All patterns of classical bs</h2>
             <span class="meta">Posted by Shreyas S N on
               July 25, 2025</span>
           </div>
@@ -303,18 +303,154 @@
         <!-- Multi-Lingual -->
         
 
-        <h1 id="classical-problems-of-dp">Classical Problems of DP</h1>
+        <h1 id="binary-search">Binary Search</h1>
 
-<h2 id="lis">LIS</h2>
+<h2 id="runtime-analysis">Runtime analysis</h2>
 
-<h2 id="lcs">LCS</h2>
+\[T(n)=T(\frac{n}{2})+O(1)=O(\log n)\]
+
+<h2 id="take-note">Take note…</h2>
+
+<ul>
+  <li>Is array sorted?
+    <ul>
+      <li>If not, can you sort it and still preserve information?</li>
+    </ul>
+  </li>
+  <li>Can the array be separated into two distinct parts where the first half satisfies a condition while the other does not?</li>
+</ul>
+
+<h2 id="techniques">Techniques</h2>
+
+<h3 id="peak-finding">Peak finding</h3>
+
+<p>Move towards the direction of larger/smaller values relative to the mid-point chosen.</p>
+
+<ul>
+  <li>This does not work with arrays that can have duplicates (naively picking a direction to move in could be disastrous)</li>
+  <li>This can only produce local peaks</li>
+</ul>
+
+<h3 id="peak-finding-in-rotated-arrays">Peak finding in rotated arrays</h3>
+
+<p>The arrays always exhibit the following properties:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">nums[0] &gt; nums[-1]</code></li>
+  <li>There are essentially 2 sorted arrays, the boundary can be found by comparing <code class="language-plaintext highlighter-rouge">nums[i]</code> against <code class="language-plaintext highlighter-rouge">nums[0]</code>
+    <ul>
+      <li>If <code class="language-plaintext highlighter-rouge">nums[i] &gt; nums[0]</code>, <code class="language-plaintext highlighter-rouge">i</code> is in the first half, otherwise, it is in the second half</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Problems commonly test to see if you can identify these properties (such as <a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/">Find Minimum in Rotated Sorted Array</a> or <a href="https://leetcode.com/problems/search-in-rotated-sorted-array/">Search in Rotated Sorted Array</a>)</p>
+
+<ul>
+  <li>Use <code class="language-plaintext highlighter-rouge">nums[0]</code> as a marker for determining where <code class="language-plaintext highlighter-rouge">i</code> is in the array</li>
+</ul>
+
+<h3 id="apply-binary-search-to-matrices">Apply binary search to matrices</h3>
+
+<p>Try using the values of the arrays as a range or treating using the pure index like <code class="language-plaintext highlighter-rouge">(0, 0)</code> to <code class="language-plaintext highlighter-rouge">(n - 1, n - 1)</code> has the last index as <code class="language-plaintext highlighter-rouge">(n * n) - 1</code></p>
+
+<ul>
+  <li>These problems are harder to notice but a common property that can be found is when the matrix is sorted in some order (row)</li>
+</ul>
+
+<p>Problems can include <a href="https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/description/">searching a fully sorted 2D matrix</a> or modifying binary search to search the matrix in a consistent manner such as <a href="https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/solutions/1322101/c-java-python-maxheap-minheap-binary-search-picture-explain-clean-concise/">Kth Smallest Element in a Sorted Matrix</a></p>
+
+<h2 id="general-template">General template</h2>
+
+<h3 id="first-tabs">First tabs</h3>
+
+<ul id="log" class="tab" data-tab="656f62f6-6bfa-49e4-ab88-0d05044d2687" data-name="log">
+  
+      <li class="active" id="log-php">
+          <a href="#">php </a>
+      </li>
+  
+      <li id="log-js">
+          <a href="#">js </a>
+      </li>
+  
+      <li id="log-ruby">
+          <a href="#">ruby </a>
+      </li>
+  
+</ul>
+<ul class="tab-content" id="656f62f6-6bfa-49e4-ab88-0d05044d2687" data-name="log">
+  
+      <li class="active">
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nb">var_dump</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+</li>
+  
+      <li>
+<p>asdfoi ljas d;lfkj 
+ asdlkj;l kas</p>
+
+<p>safldkjal;skdjf
+ asl;kfj;lkasjdfl;kjas;ldkfj;laksjfd 
+ as;flkja; 
+ szzdf;lkjas al kj;lak sj;l ;laskj ;lkajsdf ;la a’sj ;lka</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+</li>
+  
+      <li>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nx">pputs</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+</li>
+  
+</ul>
+
+<h3 id="second-tabs">Second tabs</h3>
+
+<ul id="data-struct" class="tab" data-tab="6c818c66-231e-4a0a-8817-6dc2f2c3c03a" data-name="data-struct">
+  
+      <li class="active" id="data-struct-yaml">
+          <a href="#">yaml </a>
+      </li>
+  
+      <li id="data-struct-json">
+          <a href="#">json </a>
+      </li>
+  
+</ul>
+<ul class="tab-content" id="6c818c66-231e-4a0a-8817-6dc2f2c3c03a" data-name="data-struct">
+  
+      <li class="active">
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="na">hello</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s1">'</span><span class="s">whatsup'</span>
+  <span class="pi">-</span> <span class="s1">'</span><span class="s">hi'</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+</li>
+  
+      <li>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+    </span><span class="nl">"hello"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"whatsup"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hi"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+</li>
+  
+</ul>
 
 
         <hr style="visibility: hidden;">
         <ul class="pager">
           
           <li class="previous">
-            <a href="/blogs/2025/07/25/binary-search/" data-toggle="tooltip"
+            <a href="/2025/07/25/binary-search/" data-toggle="tooltip"
               data-placement="top" title="Binary Search">
               Previous<br>
               <span>Binary Search</span>
@@ -323,7 +459,7 @@
           
           
           <li class="next">
-            <a href="/blogs/2025/07/25/segment-tree/" data-toggle="tooltip"
+            <a href="/2025/07/25/segment-tree/" data-toggle="tooltip"
               data-placement="top" title="Simple Segment Tree">
               Next<br>
               <span>Simple Segment Tree</span>
@@ -369,7 +505,7 @@
     
         <hr class="hidden-sm hidden-xs">
     
-    <h5><a href="/blogs/archive/">FEATURED TAGS</a></h5>
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
     <div class="tags">
         
         
@@ -378,12 +514,12 @@
         
         
                 <a data-sort="0004" 
-                    href="/blogs/archive/?tag=C%2B%2B"
+                    href="/archive/?tag=C%2B%2B"
                     title="C++"
                     rel="12">C++</a>
         
                 <a data-sort="0000" 
-                    href="/blogs/archive/?tag=Algorithms"
+                    href="/archive/?tag=Algorithms"
                     title="Algorithms"
                     rel="16">Algorithms</a>
     </div>
@@ -397,6 +533,8 @@
   </div>
 </article>
 
+
+<script src="/js/jekyll-tabs.js"></script>
 <!-- add support for mathjax by voleking-->
 
 
@@ -496,22 +634,22 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/blogs/js/jquery.min.js "></script>
+<script src="/js/jquery.min.js "></script>
 
 <!-- Bootstrap Core JavaScript -->
 <!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
-<script src="/blogs/js/bootstrap.min.js "></script>
+<script src="/js/bootstrap.min.js "></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/blogs/js/hux-blog.min.js "></script>
+<script src="/js/hux-blog.min.js "></script>
 
 <!-- Simple Jekyll Search -->
-<script src="/blogs/js/simple-jekyll-search.min.js"></script>
+<script src="/js/simple-jekyll-search.min.js"></script>
 
 <!-- Service Worker -->
 
-<script src="/blogs/js/snackbar.js "></script>
-<script src="/blogs/js/sw-registration.js "></script>
+<script src="/js/snackbar.js "></script>
+<script src="/js/sw-registration.js "></script>
 
 
 <!-- async load function -->
@@ -611,7 +749,7 @@
      * Doc: https://github.com/davist11/jQuery-One-Page-Nav
      * Fork by Hux to support padding
      */
-    async("/blogs/js/jquery.nav.js", function () {
+    async("/js/jquery.nav.js", function () {
         $('.catalog-body').onePageNav({
             currentClass: "active",
             changeHash: !1,
@@ -646,7 +784,7 @@
     SimpleJekyllSearch({
         searchInput: document.getElementById('search-input'),
         resultsContainer: document.getElementById('search-results'),
-        json: '/search.json',
+        json: '',
         searchResultTemplate: '<div class="post-preview item"><a href="{url}"><h2 class="post-title">{title}</h2><h3 class="post-subtitle">{subtitle}</h3><hr></a></div>',
         noResultsText: 'No results',
         limit: 50,

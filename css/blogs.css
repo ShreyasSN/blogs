@@ -3,28 +3,52 @@ body {
 }
 
 .pager.centered {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding-left: 0;
-}
-.pager.centered li {
-    margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding-left: 0;
 }
 
+.pager.centered li {
+  margin: 0 10px;
+}
+
+.hint {
+  border-left: 4px solid #2b90d9;
+  background: #f0f6fc;
+  padding: 0.75em 1em;
+  margin: 1em 0;
+  border-radius: 4px;
+}
+
+.hint.tip {
+  border-color: #2ecc71;
+}
+
+.hint.warning {
+  border-color: #e67e22;
+}
+
+.hint.danger {
+  border-color: #e74c3c;
+}
+
+
 /* //////////////////  */
+
 .blog-full-content {
   background: #1a1919;
   color: #DDE6ED;
 }
 
-.blog-grid-item { 
+.blog-grid-item {
   background: #27374D;
 }
 
 .blog-grid-tags .tag {
   background: #9DB2BF;
 }
+
 /* /////////////////// */
 .blog-grid {
   display: grid;
@@ -38,6 +62,7 @@ body {
   min-width: 250px;
   min-height: 250px;
   width: 100%;
+  transition-duration: 0.25s;
   /* border: 0.5px solid #ccc; */
   display: flex;
   flex-direction: column;
@@ -47,8 +72,8 @@ body {
 
 .blog-grid-image {
   width: 100%;
-  aspect-ratio: 1/1; 
-  max-height: 250px; 
+  aspect-ratio: 1/1;
+  max-height: 250px;
   min-height: 0;
   display: flex;
   justify-content: center;
@@ -79,7 +104,9 @@ body {
 
 
 .blog-grid-item:hover {
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0 0 6px rgba(0, 0, 0, 0.3); */
+  background: #202d3f;
+  transition-duration: 0.25s;
 }
 
 .blog-grid-item a {
@@ -118,20 +145,96 @@ body {
 
 @media (max-width: 1020px) {
   .blog-grid {
-    grid-template-columns: repeat(1, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, minmax(200px, 2fr));
   }
 
-    .blog-grid-title {
+  /* .blog-grid-title {
     font-size: 6px;
-  }
+  } */
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .blog-grid {
     grid-template-columns: 1fr;
   }
 
-  .blog-grid-title {
+  /* .blog-grid-title {
     font-size: 6px;
-  }
+  } */
+}
+
+/* ///////// JEKYLL TABS //////////  */
+.tab {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #30363d; /* GitHub dark border */
+}
+
+.tab > li {
+  margin: 0;
+}
+
+.tab > li > a {
+  display: block;
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #c9d1d9; /* GitHub text color */
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-bottom: none;
+  background-color: transparent;
+  border-radius: 6px 6px 0 0;
+  transition: background-color 0.2s ease;
+}
+
+.tab > li > a:hover {
+  background-color: #21262d; /* GitHub hover background */
+  color: #f0f6fc;
+}
+
+.tab > li.active > a {
+  background-color: #003380; /* Matches dark background */
+  border-color: #30363d #30363d transparent;
+  color: #f0f6fc;
+  font-weight: 600;
+}
+
+.tab-content {
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 0 6px 6px 6px;
+  padding: 16px;
+}
+
+.tab-content > li {
+  display: none;
+}
+
+.tab-content > li.active {
+  display: block;
+}
+
+/* The 2 following blocks can be removed if the script is not configured to show the toast message */
+#jekyll-tabs-copy-to-clipboard-message {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  right: 50%;
+  bottom: 30px;
+}
+
+#jekyll-tabs-copy-to-clipboard-message.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
