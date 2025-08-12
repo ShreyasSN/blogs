@@ -99,7 +99,7 @@ layout: default
 </article>
 
 
-<script src="/js/jekyll-tabs.js"></script>
+<script src="{{ "/js/jekyll-tabs.js" | prepend: site.baseurl }}"></script>
 <!-- add support for mathjax by voleking-->
 {% if page.mathjax %}
 {% include mathjax_support.html %}
