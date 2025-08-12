@@ -113,7 +113,7 @@
     } ,
   
     {
-      "title"    : "binary search Programming Problems",
+      "title"    : "Classical Dynamic Programming",
       "subtitle" : "All patterns of classical bs",
       "tags"     : "Algorithms",
       "url"      : "/2025/07/25/classical-dp/",
