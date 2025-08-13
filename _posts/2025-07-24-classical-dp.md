@@ -14,4 +14,3 @@ tags:
 
 > dots connecting to reach goal where each dots is a sub-task that builds up to solution
 
-![alt text](segment-tree3.png)

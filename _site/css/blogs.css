@@ -1,5 +1,5 @@
 body {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant', serif; 
 }
 
 .pager.centered {
@@ -119,7 +119,7 @@ body {
 
 
 .blog-grid-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant', serif; 
   font-size: 22px;
   font-weight: 400;
   margin-bottom: 8px;
