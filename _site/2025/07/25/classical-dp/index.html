@@ -15,7 +15,9 @@
         content="Classical Dynamic Programming - Shreyas's Blog">
     
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Binary Search
+    <meta property="og:description" content="
+  dots connecting to reach goal where each dots is a sub-task that builds up to solution
+
 ">
     
     <meta property="article:published_time" content=" 2025-07-25T00:00:00Z">
@@ -55,7 +57,8 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -303,163 +306,10 @@
         <!-- Multi-Lingual -->
         
 
-        <h1 id="binary-search">Binary Search</h1>
+        <blockquote>
+  <p>dots connecting to reach goal where each dots is a sub-task that builds up to solution</p>
+</blockquote>
 
-<h2 id="runtime-analysis">Runtime analysis</h2>
-
-\[\nabla_\boldsymbol{x} J(\boldsymbol{x})\]
-
-<p>This is inline math: $e^{i\pi} + 1 = 0$</p>
-
-<p>And this is block math:</p>
-
-<p>\(\int_0^\infty e^{-x^2} \, dx = \frac{\sqrt{\pi}}{2}\)
-… we have <code class="language-plaintext highlighter-rouge">\(x_1 = 132\)</code> and <code class="language-plaintext highlighter-rouge">\(x_2 = 370\)</code> and so …
-… we have $x_1 = 132$ and $x_2 = 370$ and so …
-\begin{array}{cc}
-  a &amp; b \<br />
-  c &amp; c
-\end{array}</p>
-
-\begin{equation}
-(A)'_{i,j} = A_{j,i}
-\end{equation}
-
-<h2 id="take-note">Take note…</h2>
-
-<ul>
-  <li>Is array sorted?
-    <ul>
-      <li>If not, can you sort it and still preserve information?</li>
-    </ul>
-  </li>
-  <li>Can the array be separated into two distinct parts where the first half satisfies a condition while the other does not?</li>
-</ul>
-
-<h2 id="techniques">Techniques</h2>
-
-<h3 id="peak-finding">Peak finding</h3>
-
-<p>Move towards the direction of larger/smaller values relative to the mid-point chosen.</p>
-
-<ul>
-  <li>This does not work with arrays that can have duplicates (naively picking a direction to move in could be disastrous)</li>
-  <li>This can only produce local peaks</li>
-</ul>
-
-<h3 id="peak-finding-in-rotated-arrays">Peak finding in rotated arrays</h3>
-
-<p>The arrays always exhibit the following properties:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">nums[0] &gt; nums[-1]</code></li>
-  <li>There are essentially 2 sorted arrays, the boundary can be found by comparing <code class="language-plaintext highlighter-rouge">nums[i]</code> against <code class="language-plaintext highlighter-rouge">nums[0]</code>
-    <ul>
-      <li>If <code class="language-plaintext highlighter-rouge">nums[i] &gt; nums[0]</code>, <code class="language-plaintext highlighter-rouge">i</code> is in the first half, otherwise, it is in the second half</li>
-    </ul>
-  </li>
-</ul>
-
-<p>Problems commonly test to see if you can identify these properties (such as <a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/">Find Minimum in Rotated Sorted Array</a> or <a href="https://leetcode.com/problems/search-in-rotated-sorted-array/">Search in Rotated Sorted Array</a>)</p>
-
-<ul>
-  <li>Use <code class="language-plaintext highlighter-rouge">nums[0]</code> as a marker for determining where <code class="language-plaintext highlighter-rouge">i</code> is in the array</li>
-</ul>
-
-<h3 id="apply-binary-search-to-matrices">Apply binary search to matrices</h3>
-
-<p>Try using the values of the arrays as a range or treating using the pure index like <code class="language-plaintext highlighter-rouge">(0, 0)</code> to <code class="language-plaintext highlighter-rouge">(n - 1, n - 1)</code> has the last index as <code class="language-plaintext highlighter-rouge">(n * n) - 1</code></p>
-
-<ul>
-  <li>These problems are harder to notice but a common property that can be found is when the matrix is sorted in some order (row)</li>
-</ul>
-
-<p>Problems can include <a href="https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/description/">searching a fully sorted 2D matrix</a> or modifying binary search to search the matrix in a consistent manner such as <a href="https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/solutions/1322101/c-java-python-maxheap-minheap-binary-search-picture-explain-clean-concise/">Kth Smallest Element in a Sorted Matrix</a></p>
-
-<h2 id="general-template">General template</h2>
-
-<h3 id="first-tabs">First tabs</h3>
-
-<ul id="log" class="tab" data-tab="b16fe774-fd21-4dd3-a014-c750969f8b3d" data-name="log">
-  
-      <li class="active" id="log-php">
-          <a href="#">php </a>
-      </li>
-  
-      <li id="log-js">
-          <a href="#">js </a>
-      </li>
-  
-      <li id="log-ruby">
-          <a href="#">ruby </a>
-      </li>
-  
-</ul>
-<ul class="tab-content" id="b16fe774-fd21-4dd3-a014-c750969f8b3d" data-name="log">
-  
-      <li class="active">
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="nb">var_dump</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">);</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-</li>
-  
-      <li>
-<p>asdfoi ljas d;lfkj 
- asdlkj;l kas</p>
-
-<p>safldkjal;skdjf
- asl;kfj;lkasjdfl;kjas;ldkfj;laksjfd 
- as;flkja; 
- szzdf;lkjas al kj;lak sj;l ;laskj ;lkajsdf ;la a’sj ;lka</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">);</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-</li>
-  
-      <li>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="nx">pputs</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-</li>
-  
-</ul>
-
-<h3 id="second-tabs">Second tabs</h3>
-
-<ul id="data-struct" class="tab" data-tab="ba74ef81-9de9-4cbd-94fd-c4dead5ea0d3" data-name="data-struct">
-  
-      <li class="active" id="data-struct-yaml">
-          <a href="#">yaml </a>
-      </li>
-  
-      <li id="data-struct-json">
-          <a href="#">json </a>
-      </li>
-  
-</ul>
-<ul class="tab-content" id="ba74ef81-9de9-4cbd-94fd-c4dead5ea0d3" data-name="data-struct">
-  
-      <li class="active">
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="na">hello</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s1">'</span><span class="s">whatsup'</span>
-  <span class="pi">-</span> <span class="s1">'</span><span class="s">hi'</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-</li>
-  
-      <li>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
-    </span><span class="nl">"hello"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"whatsup"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hi"</span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></div></div>
-</li>
-  
-</ul>
 
 
         <hr style="visibility: hidden;">

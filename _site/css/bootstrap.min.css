@@ -1504,7 +1504,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: inherit;
+  font-family: 'Cormorant', sans-serif;
   font-weight: 500;
   line-height: 1.1;
   color: inherit
@@ -1917,7 +1917,7 @@ code {
   padding: 2px 4px;
   font-size: 90%;
   /* color: #c7254e; */
-  color: rgb(239, 104, 1);
+  color: rgb(255, 0, 0);
   background-color: #2f2f2f;
   /* CODE COLOR */
   /* background-color: #f9f2f4; */
@@ -7631,7 +7631,7 @@ button.close {
   width: 20px;
   height: 20px;
   margin-top: -10px;
-  font-family: serif;
+  font-family: 'Cormorant', serif; 
   line-height: 1
 }
 
