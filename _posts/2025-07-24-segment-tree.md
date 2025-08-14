@@ -7,6 +7,7 @@ author:     "Shreyas S N"
 header-img: "img/post/segtree.png"
 header-mask: 0.3
 catalog:    true
+mathjax: true
 tags:
     - Algorithms
 ---
@@ -309,7 +310,9 @@ This implementation still has some problems: we are using up to twice as much me
 
 ### Bottom-Up Implementation
 
-Let's change the definition of the implicit segment tree layout. Instead of relying on the parent-to-child relationship, we first forcefully assign all the leaf nodes numbers in the  $[n, 2n)$ range, and then recursively define the parent of node $k$ to be equal to node $\lfloor \frac{k}{2} \rfloor$.
+Let's change the definition of the implicit segment tree layout. Instead of relying on the parent-to-child relationship, we first forcefully assign all the leaf nodes numbers in the $[n, 2n)$  range, and then recursively define the parent of node $k$ to be equal to node $\lfloor \frac{k}{2} \rfloor$.
+
+$\Sigma = \{0, 1\}$
 
 This structure is largely the same as before: you can still reach the root (node $1$) by dividing any node number by two, and each node still has at most two children: $2k$ and $(2k + 1)$, as anything else yields a different parent number when floor-divided by two. The advantage we get is that we've forced the last layer to be contiguous and start from $n$, so we can use the array of half the size:
 

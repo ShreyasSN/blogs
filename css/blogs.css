@@ -36,9 +36,19 @@ body {
 
 /* //////////////////  */
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant', serif; 
+  color: rgb(209, 209, 209);
+}
+
+.post-container {
+  font-size: 17px;
+}
+
 .blog-full-content {
   background: #1a1919;
-  color: #b1afaf;
+  /* color: #bdbdbd; */
+  color: gray;
 }
 
 .blog-grid-item {

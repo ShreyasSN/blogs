@@ -702,7 +702,9 @@ We can do largely the same with the prefix sum query, adding the sum stored in t
 
 <h3 id="bottom-up-implementation">Bottom-Up Implementation</h3>
 
-<p>Let’s change the definition of the implicit segment tree layout. Instead of relying on the parent-to-child relationship, we first forcefully assign all the leaf nodes numbers in the  $[n, 2n)$ range, and then recursively define the parent of node $k$ to be equal to node $\lfloor \frac{k}{2} \rfloor$.</p>
+<p>Let’s change the definition of the implicit segment tree layout. Instead of relying on the parent-to-child relationship, we first forcefully assign all the leaf nodes numbers in the $[n, 2n)$  range, and then recursively define the parent of node $k$ to be equal to node $\lfloor \frac{k}{2} \rfloor$.</p>
+
+<p>$\Sigma = {0, 1}$</p>
 
 <p>This structure is largely the same as before: you can still reach the root (node $1$) by dividing any node number by two, and each node still has at most two children: $2k$ and $(2k + 1)$, as anything else yields a different parent number when floor-divided by two. The advantage we get is that we’ve forced the last layer to be contiguous and start from $n$, so we can use the array of half the size:</p>
 
@@ -1409,7 +1411,29 @@ why b-ary Fenwick tree is not a good idea
 
 <script src="/js/jekyll-tabs.js"></script>
 <!-- add support for mathjax by voleking-->
-<!--  -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    SVG: {
+      scale: 90
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true,
+    }
+  });
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG">
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 
 
 
