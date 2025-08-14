@@ -7,7 +7,7 @@ author: "Shreyas S N"
 header-img: "img/post/dp.png"
 header-mask: 0.3
 catalog: true
-page-mathjax: true
+mathjax: true
 tags:
   - Algorithms
 ---

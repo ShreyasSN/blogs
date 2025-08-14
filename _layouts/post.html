@@ -101,10 +101,10 @@ layout: default
 
 <script src="{{ "/js/jekyll-tabs.js" | prepend: site.baseurl }}"></script>
 <!-- add support for mathjax by voleking-->
-<!-- {% if page.mathjax %} -->
-<!-- {% include mathjax_support.html %} -->
+{% if page.mathjax %}
+{% include mathjax_support.html %}
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-<!-- {% endif %} -->
+{% endif %}
 
 {% if site.netease_comment %}
 <!-- 网易云跟帖JS代码 start -->
