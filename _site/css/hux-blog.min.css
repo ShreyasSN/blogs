@@ -1943,8 +1943,9 @@ img::-moz-selection {
   color: #ddd
 }
 
-.MathJax_SVG_Display {
-  overflow: auto;
+.MJXc-display {
+  overflow-y: hidden;
+  overflow-x: auto;
   -webkit-overflow-scrolling: touch
 }
 
