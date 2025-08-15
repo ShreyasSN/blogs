@@ -13,4 +13,3 @@ tags:
 ---
 
 > dots connecting to reach goal where each dots is a sub-task that builds up to solution
-
