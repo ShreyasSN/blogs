@@ -1504,7 +1504,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Cormorant', sans-serif;
+  font-family: 'Montaga', sans-serif;
   font-weight: 500;
   line-height: 1.1;
   color: inherit
@@ -7631,7 +7631,7 @@ button.close {
   width: 20px;
   height: 20px;
   margin-top: -10px;
-  font-family: 'Cormorant', serif; 
+  font-family: 'Montaga', serif; 
   line-height: 1
 }
 

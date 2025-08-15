@@ -796,7 +796,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Cormorant', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  font-family: 'Montaga', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
   line-height: 1.7;
   line-height: 1.1;
   font-weight: 700
@@ -1237,11 +1237,13 @@ samp {
     backface-visibility: hidden
   }
 
-  .navbar-custom.is-fixed {
+  .navbar-custom.is-fixed { 
     position: fixed;
     top: -61px;
-    background-color: rgba(255, 255, 255, .9);
-    border-bottom: 1px solid #f2f2f2;
+    /* NAVBAR */
+    background-color: #8AB6F9;
+    /* background-color: rgba(255, 255, 255, .9); */
+    border-bottom: 1px solid #000000;
     -webkit-transition: -webkit-transform .3s;
     -moz-transition: -moz-transform .3s;
     transition: transform .3s
@@ -1253,7 +1255,7 @@ samp {
 
   .navbar-custom.is-fixed .navbar-brand:hover,
   .navbar-custom.is-fixed .navbar-brand:focus {
-    color: #0085a1
+    color: #00246B
   }
 
   .navbar-custom.is-fixed .nav li a {
@@ -1262,7 +1264,7 @@ samp {
 
   .navbar-custom.is-fixed .nav li a:hover,
   .navbar-custom.is-fixed .nav li a:focus {
-    color: #0085a1
+    color: #00246B
   }
 
   .navbar-custom.is-visible {
