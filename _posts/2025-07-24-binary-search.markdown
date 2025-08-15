@@ -32,7 +32,7 @@ How do you usualy check a meaning of an word using dictionary? for me. i just op
 and cross check if the first letter comes before or after the page like that way i repeatedly do to get an exact word im looking for.
 Isn't it surprise how much time it saves and not have to iteratively search from starting to end of the dictrionary.
 
-and here we go, likwise we first calculate middile of range \[l, r] then check
+and here we go, likwise we first calculate middile of range $[l, r]$ then check
 
 $$
 \text{bsearch}(arr, k) =
