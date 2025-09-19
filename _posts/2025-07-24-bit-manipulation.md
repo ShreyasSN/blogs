@@ -1,0 +1,14 @@
+---
+layout: post
+title: "Bit Manipulation"
+subtitle: "All patterns of binary search"
+date: 2025-07-25
+author: "Shreyas S N"
+header-img: "img/post/ac-automation.png"
+header-mask: 0.3
+catalog: true
+mathjax: true
+tags:
+  - C++
+  - Algorithms
+---

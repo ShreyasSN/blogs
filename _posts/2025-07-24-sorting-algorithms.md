@@ -8,7 +8,8 @@ header-img: "img/post-bg-unix-linux.jpg"
 header-mask: 0.3
 catalog:    true
 tags:
-    - Algorithms
+  - Algorithms
+  - Level-1
 ---
 
 # Classical Problems of DP

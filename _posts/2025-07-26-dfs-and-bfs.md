@@ -8,6 +8,6 @@ header-img: "img/post/dfs.png"
 header-mask: 0.3
 catalog:    true
 tags:
-    - C++
-    - Algorithms
+  - Algorithms
+  - Level-1
 ---

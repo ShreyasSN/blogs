@@ -20,7 +20,6 @@
 
   
     TopCoder Binary Search Article
-    Codeforces — ITMO Academy: Pilot Course (Enroll in this course)
   
 
 ">
@@ -34,6 +33,8 @@
     <meta property="article:tag" content="C++">
     
     <meta property="article:tag" content="Algorithms">
+    
+    <meta property="article:tag" content="Level-1">
     
     
     <meta property="og:image" content="http://localhost:4000https://github.com/shreyassn.png">
@@ -285,6 +286,8 @@
               
               <a class="tag" href="/archive/?tag=Algorithms" title="Algorithms">Algorithms</a>
               
+              <a class="tag" href="/archive/?tag=Level-1" title="Level-1">Level-1</a>
+              
             </div>
             <h1>Binary Search</h1>
             
@@ -321,32 +324,36 @@
 
   <ul>
     <li><a href="https://www.topcoder.com/community/competitive-programming/tutorials/binary-search">TopCoder Binary Search Article</a></li>
-    <li><a href="https://codeforces.com/edu/course/2">Codeforces — ITMO Academy: Pilot Course</a> <em>(Enroll in this course)</em></li>
   </ul>
 </blockquote>
 
-<h2 id="exact-index">Exact Index</h2>
+<h3 id="binary-search">Binary Search</h3>
 
-<p>Searching for an element in a given array was always been a fun task but when it comes for retriveing in most opitimistic time complexity and
-space complexity trick us into pit hole of thinking loop. Binary search is one among them. It comes with $log(n)$ time complexity and $O(1)$
-space complexity. further we can implement branchless binary search too for low level hardware usage to optimise cpu operations,
-lets keep it aside as of now.</p>
+<p>Searching for an element in a given array has always been an interesting task, but when it comes to retrieving it with the most optimal time and space complexity, we often fall into the trap of looping approaches. Binary Search, however, is a method that comes in handy, as it strikes a balance between both time and auxiliary complexities. It works in $O(log n)$ time and uses $O(1)$ space. Additionally, we can even implement a <a href="https://probablydance.com/2023/04/27/beautiful-branchless-binary-search/">branchless binary search</a> for low-level hardware usage to optimize CPU operations.</p>
 
-<p>How does binary search words?
-For any given <code class="language-plaintext highlighter-rouge">sorted array</code> we can apply binary search to retrive index of an target element.
-Famous example given to explain is a searching of an page number of an word present in a dictionay.
-How do you usualy check a meaning of an word using dictionary? for me. i just open dictionary on middle and look at the word on this page
-and cross check if the first letter comes before or after the page like that way i repeatedly do to get an exact word im looking for.
-Isn’t it surprise how much time it saves and not have to iteratively search from starting to end of the dictrionary.</p>
+<h3 id="how-does-binary-search-work">How does Binary Search work?</h3>
 
-<p>and here we go, likwise we first calculate middile of range $[l, r]$ then check</p>
+<p>For any given <code class="language-plaintext highlighter-rouge">sorted array</code>, we can apply binary search to retrieve the index of a target element.</p>
+
+<p>A famous analogy is looking up the page number of a word in a dictionary. How do you usually check the meaning of a word there? Personally, I open the dictionary in the middle, look at the first word on that page, and compare its initial letter with the word I’m searching for. Depending on whether it comes before or after, I then keep narrowing down the range until I get to the exact word. Isn’t it surprising how much time it saves compared to checking every page sequentially?</p>
+
+<p>Similarly, in binary search, we first calculate the middle of a range \([l, r]\). Usually its calculated as $mid = (l + r) / 2$
+but when \(l\) or \(r\) are very large, adding them directly (\(l + r\)) can cause integer overflow. To avoid that, you can use this trick $mid = l + (r - l)/2$</p>
 
 \[\text{bsearch}(arr, k) =
 \begin{cases}
    \text{return mid} &amp; \text{if } arr[\text{mid}] = k \\
-   \text{right} \gets \text{mid} - 1 &amp; \text{if } arr[\text{mid}] &gt; k \\
-   \text{left} \gets \text{mid} + 1 &amp; \text{if } arr[\text{mid}] &lt; k
+   \text{right} \gets \text{mid} - 1 &amp; \text{if k is present left of arr[mid]} \\
+   \text{left} \gets \text{mid} + 1 &amp; \text{if k is present right of arr[mid]}
 \end{cases}\]
+
+<p>Lets visualize things
+<img width="500" src="/img/in-post/post-binary-search/bs1.svg" />
+<small class="img-hint">Binary Search</small></p>
+
+<h3 id="find-exact-index-of-target-in-an-array">Find exact index of target in an array</h3>
+
+<p>Get started with this <a href="https://leetcode.com/problems/binary-search/description/">problem</a></p>
 
 <p>Getting exact index pattern of binary search could be applied wide range
 and it is somewhat direct question. little difficulty could be seen in problem
@@ -380,6 +387,8 @@ when asked to retrieve <code class="language-plaintext highlighter-rouge">Kth op
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<h3 id="questionlist-1-get-exact-position-of-target">QuestionList-1: Get exact position of target</h3>
+
 <h3 id="return-index-of-firstlast-occurrence">Return index of First/Last Occurrence</h3>
 
 <p>Lets say a number is occuring more than 1 times. In this sitution we gotta return index of either of first or last occurance.</p>
@@ -390,7 +399,7 @@ when asked to retrieve <code class="language-plaintext highlighter-rouge">Kth op
   <thead>
     <tr>
       <th>variant</th>
-      <th>return type</th>
+      <th>return</th>
       <th>changes to do in $if()$</th>
     </tr>
   </thead>
@@ -408,7 +417,7 @@ when asked to retrieve <code class="language-plaintext highlighter-rouge">Kth op
   </tbody>
 </table>
 
-<ul id="bs" class="tab" data-tab="41f768aa-61a7-45b5-998e-4ad8ad9f2ca8" data-name="bs">
+<ul id="bs" class="tab" data-tab="30783fd0-787d-464f-99f4-7202bb003d9d" data-name="bs">
   
       <li class="active" id="bs-first-occurrence">
           <a href="#">first occurrence </a>
@@ -419,10 +428,10 @@ when asked to retrieve <code class="language-plaintext highlighter-rouge">Kth op
       </li>
   
 </ul>
-<ul class="tab-content" id="41f768aa-61a7-45b5-998e-4ad8ad9f2ca8" data-name="bs">
+<ul class="tab-content" id="30783fd0-787d-464f-99f4-7202bb003d9d" data-name="bs">
   
       <li class="active">
-<p>make sure use <code class="language-plaintext highlighter-rouge">&gt;=</code></p>
+<p>make sure use of $\leq$ as this will help pointer to slide to very begining of target of multiple occurrence.</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -475,7 +484,9 @@ when asked to retrieve <code class="language-plaintext highlighter-rouge">Kth op
   
 </ul>
 
-<h2 id="t-t-f-f-sequence">[T, T, F, F] Sequence</h2>
+<p><a href="https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array">Find First and Last Position of Element in Sorted Array</a></p>
+
+<h3 id="t-t-f-f-sequence">[T, T, F, F] Sequence</h3>
 
 <p>Till now we have seen of $\text{[False, False, True, True]}$ form of monotonic sequence. Now lets see of it reverse. Its important pattern where lot of hidden problems can be expected in such sequence and this is one of the tie breaker from beginner and intermediate.</p>
 
@@ -486,7 +497,7 @@ Seen in problems where we construct a candidate solution and check if the curren
 
 <p>This pattern frequently appears in medium-to-hard problems.</p>
 
-<ul id="var" class="tab" data-tab="e04961c1-09a3-423e-9521-362430891897" data-name="var">
+<ul id="var" class="tab" data-tab="7a4d1d8f-9a5d-48bf-9182-044f3d78aca2" data-name="var">
   
       <li class="active" id="var-variations-1">
           <a href="#">variations_1 </a>
@@ -497,7 +508,7 @@ Seen in problems where we construct a candidate solution and check if the curren
       </li>
   
 </ul>
-<ul class="tab-content" id="e04961c1-09a3-423e-9521-362430891897" data-name="var">
+<ul class="tab-content" id="7a4d1d8f-9a5d-48bf-9182-044f3d78aca2" data-name="var">
   
       <li class="active">
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
@@ -547,7 +558,100 @@ Seen in problems where we construct a candidate solution and check if the curren
   
 </ul>
 
-<h2 id="minimax-problems">Minimax Problems</h2>
+<h3 id="c-stl-lower_bound-and-upper_bound">C++ STL <em>lower_bound()</em> and <em>upper_bound()</em></h3>
+
+<p>C++ has this in-built functions which returns iterator to the element present in container. Both $\text{lower_bound()}$ and $\text{upper_bound()}$ available under header file <code class="language-plaintext highlighter-rouge">#include &lt;algorithm&gt;</code></p>
+
+<p>lets say $f_i$ be <em>find first element</em> i will be using fi in below like fi &gt; target, which translates to find first element &gt; target</p>
+
+<p>This functions were compiled from <a href="https://codeforces.com/blog/entry/113032">blog</a>.</p>
+<ul id="stl" class="tab" data-tab="47e68cac-9580-41f3-bc14-606d76f34bc4" data-name="stl">
+  
+      <li class="active" id="stl--f-i----target">
+          <a href="#">$f_i$ &gt; Target </a>
+      </li>
+  
+      <li id="stl--f-i----geq--target">
+          <a href="#">$f_i$ $\geq$ Target </a>
+      </li>
+  
+</ul>
+<ul class="tab-content" id="47e68cac-9580-41f3-bc14-606d76f34bc4" data-name="stl">
+  
+      <li class="active">
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>  <span class="kt">int</span> <span class="nf">firstGreater</span><span class="p">(</span><span class="n">vector</span> <span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">upper_bound</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">target</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">it</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">it</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+  <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+</li>
+  
+      <li>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>  <span class="kt">int</span> <span class="nf">firstGreaterEqual</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">lower_bound</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">target</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">it</span> <span class="o">==</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">it</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+  <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+</li>
+  
+</ul>
+
+<ul id="stl1" class="tab" data-tab="2da2f808-8819-48a1-bfce-6e9151c84be5" data-name="stl1">
+  
+      <li class="active" id="stl1--f-i----target">
+          <a href="#">$f_i$ &lt; Target </a>
+      </li>
+  
+      <li id="stl1--f-i----leq--target">
+          <a href="#">$f_i$ $\leq$ Target </a>
+      </li>
+  
+</ul>
+<ul class="tab-content" id="2da2f808-8819-48a1-bfce-6e9151c84be5" data-name="stl1">
+  
+      <li class="active">
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>  <span class="kt">int</span> <span class="nf">firstLess</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span> <span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">lower_bound</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">arr</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">target</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">==</span> <span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+      <span class="k">return</span> <span class="p">(</span><span class="n">it</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+</li>
+  
+      <li>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>  <span class="kt">int</span> <span class="nf">firstLessEqual</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span> <span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">upper_bound</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">target</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">==</span> <span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+      <span class="k">return</span> <span class="p">(</span><span class="n">it</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+</li>
+  
+</ul>
+
+<h3 id="minimax-problems">Minimax Problems</h3>
 
 <p>Usually hard-level in LeetCode.
 When a question is about <code class="language-plaintext highlighter-rouge">minimizing the maximum value</code>, it can often be solved using the minimax binary search pattern.</p>
@@ -614,7 +718,7 @@ When a question is about <code class="language-plaintext highlighter-rouge">mini
 
 <h3 id="finding-the-k-th-element">Finding the K-th Element</h3>
 
-<p><strong>Fixed-start binary search</strong> on subarrays ending with a <strong>monotonic window</strong>.</p>
+<p>Fixed-start binary search on subarrays ending with a monotonic window.</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -643,20 +747,8 @@ When a question is about <code class="language-plaintext highlighter-rouge">mini
 25
 26
 27
-28
-29
-30
-31
-32
-33
 </pre></td><td class="rouge-code"><pre><span class="n">ll</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span> <span class="n">ll</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="n">ll</span><span class="o">&gt;</span> <span class="n">pref</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">pref</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">pref</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-    <span class="p">}</span>
-
     <span class="n">ll</span> <span class="n">totalCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">start</span><span class="p">)</span> <span class="p">{</span>
@@ -665,8 +757,8 @@ When a question is about <code class="language-plaintext highlighter-rouge">mini
 
         <span class="k">while</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
             <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-            <span class="n">ll</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">pref</span><span class="p">[</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">pref</span><span class="p">[</span><span class="n">start</span><span class="p">];</span>
-            <span class="n">ll</span> <span class="n">score</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+
+            <span class="n">ll</span> <span class="n">score</span> <span class="o">=</span> <span class="cm">/* operation */</span>
 
             <span class="k">if</span> <span class="p">(</span><span class="n">score</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">validEnd</span> <span class="o">=</span> <span class="n">m</span><span class="p">;</span>
@@ -683,6 +775,19 @@ When a question is about <code class="language-plaintext highlighter-rouge">mini
     <span class="k">return</span> <span class="n">totalCount</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li><a href="https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/">Kth Smallest Element in a Sorted Matrix</a></li>
+  <li><a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/">Kth Smallest Element in a BST</a></li>
+  <li><a href="https://leetcode.com/problems/kth-missing-positive-number/">Kth Missing Positive Number</a></li>
+  <li><a href="https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/">Find First and Last Position of Element in Sorted Array</a></li>
+  <li><a href="https://leetcode.com/problems/search-insert-position/">Search Insert Position</a></li>
+  <li><a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/">Find Minimum in Rotated Sorted Array</a></li>
+  <li><a href="https://leetcode.com/problems/find-peak-element/">Find Peak Element</a></li>
+  <li><a href="https://leetcode.com/problems/koko-eating-bananas/">Koko Eating Bananas</a></li>
+  <li><a href="https://leetcode.com/problems/first-bad-version/">First Bad Version</a></li>
+  <li><a href="https://leetcode.com/problems/median-of-two-sorted-arrays/">Median of Two Sorted Arrays</a></li>
+</ul>
 
 <h3 id="segment-tree--k-th-element-binary-search">Segment Tree + K-th Element Binary Search</h3>
 
@@ -750,42 +855,80 @@ Segment Tree is useful for operations like max/min, OR/AND, GCD/LCM, frequency c
 53
 54
 55
-</pre></td><td class="rouge-code"><pre><span class="k">struct</span> <span class="nc">SegTree</span> <span class="p">{</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">t</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-
-    <span class="n">SegTree</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-        <span class="n">t</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span><span class="p">);</span>
-        <span class="n">build</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+</pre></td><td class="rouge-code"><pre><span class="k">namespace</span> <span class="n">rangeQuery</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">S</span><span class="p">,</span> <span class="k">auto</span> <span class="n">op</span><span class="p">,</span> <span class="k">auto</span> <span class="n">e</span><span class="p">&gt;</span>
+  <span class="k">struct</span> <span class="nc">init</span> <span class="p">{</span>
+<span class="nl">public:</span>
+  <span class="n">init</span><span class="p">()</span> <span class="o">:</span> <span class="n">init</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="k">explicit</span> <span class="nf">init</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">S</span> <span class="n">init_val</span> <span class="o">=</span> <span class="n">e</span><span class="p">())</span> <span class="o">:</span> <span class="n">init</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">init_val</span><span class="p">))</span> <span class="p">{}</span>
+  <span class="k">explicit</span> <span class="nf">init</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">)</span> <span class="o">:</span> <span class="n">_n</span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">()))</span> <span class="p">{</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">32</span> <span class="o">-</span> <span class="n">__builtin_clz</span><span class="p">(</span><span class="n">_n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">));</span>
+    <span class="n">log</span> <span class="o">=</span> <span class="n">__builtin_ctz</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">size</span><span class="p">,</span> <span class="n">e</span><span class="p">());</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">_n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="n">d</span><span class="p">[</span><span class="n">size</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span> <span class="n">set</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span> <span class="n">S</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">+=</span> <span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">log</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">set</span><span class="p">(</span><span class="n">p</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="n">S</span> <span class="n">get</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">+</span> <span class="n">size</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="n">S</span> <span class="n">get_all</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="p">}</span>
+  <span class="n">S</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="n">S</span> <span class="n">sml</span> <span class="o">=</span> <span class="n">e</span><span class="p">(),</span> <span class="n">smr</span> <span class="o">=</span> <span class="n">e</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">l</span> <span class="o">+=</span> <span class="n">size</span><span class="p">,</span> <span class="n">r</span> <span class="o">+=</span> <span class="n">size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">;</span> <span class="n">l</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="n">sml</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="n">sml</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="n">l</span><span class="o">++</span><span class="p">]);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="n">smr</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="o">--</span><span class="n">r</span><span class="p">],</span> <span class="n">smr</span><span class="p">);</span>
     <span class="p">}</span>
-
-    <span class="kt">int</span> <span class="nf">merge</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">l</span> <span class="o">|</span> <span class="n">r</span><span class="p">;</span> <span class="p">}</span>
-
-    <span class="kt">void</span> <span class="nf">build</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">1</span><span class="p">]);</span>
-    <span class="p">}</span>
-
-    <span class="kt">void</span> <span class="nf">modify</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span> <span class="kt">int</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">p</span> <span class="o">+=</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">;</span> <span class="n">p</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="n">t</span><span class="p">[</span><span class="n">p</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="n">p</span> <span class="o">^</span> <span class="mi">1</span><span class="p">]);</span>
-    <span class="p">}</span>
-
-    <span class="kt">int</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">l</span> <span class="o">+=</span> <span class="n">n</span><span class="p">,</span> <span class="n">r</span> <span class="o">+=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">;</span> <span class="n">l</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="p">)</span>  <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="n">res</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">t</span><span class="p">[</span><span class="n">l</span><span class="o">++</span><span class="p">]);</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="n">res</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="o">--</span><span class="n">r</span><span class="p">],</span> <span class="n">res</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="k">return</span> <span class="nf">op</span><span class="p">(</span><span class="n">sml</span><span class="p">,</span> <span class="n">smr</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">_n</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">log</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;</span> <span class="n">d</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="nf">set</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">k</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">1</span><span class="p">]);</span> <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+<span class="k">struct</span> <span class="nc">info</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">v</span><span class="p">;</span>
+  <span class="n">info</span><span class="p">()</span> <span class="o">:</span> <span class="n">v</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="n">info</span><span class="p">(</span><span class="kt">int</span> <span class="n">_v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">_v</span><span class="p">;</span>
+  <span class="p">}</span>
 <span class="p">};</span>
+<span class="n">info</span> <span class="nf">e</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">info</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="p">}</span>
+<span class="n">info</span> <span class="nf">op</span><span class="p">(</span><span class="k">const</span> <span class="n">info</span> <span class="o">&amp;</span><span class="n">l</span><span class="p">,</span> <span class="k">const</span> <span class="n">info</span> <span class="o">&amp;</span><span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span><span class="n">l</span><span class="p">.</span><span class="n">v</span> <span class="o">+</span> <span class="n">r</span><span class="p">.</span><span class="n">v</span><span class="p">};</span>
+<span class="p">}</span>
+<span class="k">using</span> <span class="n">segtree</span> <span class="o">=</span> <span class="n">rangeQuery</span><span class="o">::</span><span class="n">init</span><span class="o">&lt;</span><span class="n">info</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">e</span><span class="o">&gt;</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="nl">public:</span>
     <span class="kt">int</span> <span class="n">minimumDifference</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-        <span class="n">SegTree</span> <span class="n">seg</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="n">info</span><span class="o">&gt;</span> <span class="n">t</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">info</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="n">segtree</span> <span class="n">seg</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
 
         <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="n">INT_MAX</span><span class="p">;</span>
         <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">start</span><span class="p">)</span> <span class="p">{</span>
@@ -794,7 +937,7 @@ Segment Tree is useful for operations like max/min, OR/AND, GCD/LCM, frequency c
             <span class="k">while</span> <span class="p">(</span><span class="n">lo</span> <span class="o">&lt;=</span> <span class="n">hi</span><span class="p">)</span> <span class="p">{</span>
                 <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span>
 
-                <span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="n">seg</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">mid</span><span class="p">);</span>
+                <span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="n">seg</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">mid</span><span class="p">).</span><span class="n">v</span><span class="p">;</span>
                 <span class="n">res</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">abs</span><span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="n">val</span><span class="p">));</span>
 
                 <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">==</span> <span class="n">k</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
@@ -806,10 +949,21 @@ Segment Tree is useful for operations like max/min, OR/AND, GCD/LCM, frequency c
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+<blockquote>
+  <p style="color:gree; font-size:2em"> I strongly encaourage to enroll this in codeforce and try to solve </p>
+  <p>As of now should be able to solve the problems(not necesserly to get AC, I strongly encourage to recognise pattern or get approach  on how to solve) from <a href="https://codeforces.com/edu/course/2">Codeforces — ITMO Academy: Pilot Course</a> <em>(Enroll in this course otherwise cannot access)</em></p>
+</blockquote>
+
+<h3 id="parallel-binary-search">Parallel Binary Search</h3>
+
+<h3 id="binary-seach-on-rotated-array">Binary seach on rotated array</h3>
+
+<p>simple yet tricky and also its kind of special binary search variant i admire. Questions such as
+get peak/low value of unique/duplicate array can be asked. If you know that than any other variations can easily be solved if given roatated array of sorted array</p>
 
 <h3 id="template-competetive-programming">Template Competetive Programming</h3>
 
-<ul id="cf" class="tab" data-tab="e2da42c2-23d7-48d3-b110-ff9bcd30e9ff" data-name="cf">
+<ul id="cf" class="tab" data-tab="2204204f-c29e-4633-b0d9-424b67c8d604" data-name="cf">
   
       <li class="active" id="cf-cp-template">
           <a href="#">CP Template </a>
@@ -820,9 +974,12 @@ Segment Tree is useful for operations like max/min, OR/AND, GCD/LCM, frequency c
       </li>
   
 </ul>
-<ul class="tab-content" id="e2da42c2-23d7-48d3-b110-ff9bcd30e9ff" data-name="cf">
+<ul class="tab-content" id="2204204f-c29e-4633-b0d9-424b67c8d604" data-name="cf">
   
       <li class="active">
+<p><code class="language-plaintext highlighter-rouge">firstTSeq</code> set to <code class="language-plaintext highlighter-rouge">true</code> when the given solution space in the monotonic sequence of the form <code class="language-plaintext highlighter-rouge">[T,T,F,F]</code>
+<code class="language-plaintext highlighter-rouge">Lbound</code> lower_bound</p>
+
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -842,9 +999,12 @@ Segment Tree is useful for operations like max/min, OR/AND, GCD/LCM, frequency c
   <span class="k">return</span> <span class="p">(</span><span class="n">Lbound</span> <span class="o">?</span> <span class="n">l</span> <span class="o">:</span> <span class="n">l</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+
 </li>
   
       <li>
+<p>Not recommended but can be used to slighly improvement run time milli seconds.</p>
+
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -912,20 +1072,37 @@ Segment Tree is useful for operations like max/min, OR/AND, GCD/LCM, frequency c
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+
 </li>
   
+</ul>
+
+<h3 id="special-problems">Special Problems</h3>
+
+<ul>
+  <li><a href="https://leetcode.com/problems/median-of-two-sorted-arrays/">Median of Two Sorted Arrays</a></li>
+  <li><a href="https://leetcode.com/problems/search-in-rotated-sorted-array">Search in Rotated Sorted Array</a></li>
+  <li><a href="https://leetcode.com/problems/search-a-2d-matrix">Search in 2D matrix</a></li>
 </ul>
 
 
         <hr style="visibility: hidden;">
         <ul class="pager">
           
+          <li class="previous">
+            <a href="/2025/07/25/aho-corasick/" data-toggle="tooltip"
+              data-placement="top" title="Aho-Corasick Automation">
+              Previous<br>
+              <span>Aho-Corasick Automation</span>
+            </a>
+          </li>
+          
           
           <li class="next">
-            <a href="/2025/07/25/classical-dp/" data-toggle="tooltip"
-              data-placement="top" title="Classical Dynamic Programming">
+            <a href="/2025/07/25/bit-manipulation/" data-toggle="tooltip"
+              data-placement="top" title="Bit Manipulation">
               Next<br>
-              <span>Classical Dynamic Programming</span>
+              <span>Bit Manipulation</span>
             </a>
           </li>
           
@@ -976,15 +1153,25 @@ Segment Tree is useful for operations like max/min, OR/AND, GCD/LCM, frequency c
         
         
         
-                <a data-sort="0004" 
+                <a data-sort="0017" 
                     href="/archive/?tag=C%2B%2B"
                     title="C++"
-                    rel="12">C++</a>
+                    rel="5">C++</a>
         
-                <a data-sort="0000" 
+                <a data-sort="0005" 
                     href="/archive/?tag=Algorithms"
                     title="Algorithms"
-                    rel="16">Algorithms</a>
+                    rel="17">Algorithms</a>
+        
+                <a data-sort="0014" 
+                    href="/archive/?tag=Level-1"
+                    title="Level-1"
+                    rel="8">Level-1</a>
+        
+                <a data-sort="0016" 
+                    href="/archive/?tag=Level-2"
+                    title="Level-2"
+                    rel="6">Level-2</a>
     </div>
 </section>
 

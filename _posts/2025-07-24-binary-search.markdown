@@ -11,37 +11,42 @@ mathjax: true
 tags:
   - C++
   - Algorithms
+  - Level-1
 ---
 
 > Beginners:
 >
 > - [TopCoder Binary Search Article](https://www.topcoder.com/community/competitive-programming/tutorials/binary-search)
-> - [Codeforces — ITMO Academy: Pilot Course](https://codeforces.com/edu/course/2) _(Enroll in this course)_
 
-## Exact Index
+### Binary Search
 
-Searching for an element in a given array was always been a fun task but when it comes for retriveing in most opitimistic time complexity and
-space complexity trick us into pit hole of thinking loop. Binary search is one among them. It comes with $log(n)$ time complexity and $O(1)$
-space complexity. further we can implement branchless binary search too for low level hardware usage to optimise cpu operations,
-lets keep it aside as of now.
+Searching for an element in a given array has always been an interesting task, but when it comes to retrieving it with the most optimal time and space complexity, we often fall into the trap of looping approaches. Binary Search, however, is a method that comes in handy, as it strikes a balance between both time and auxiliary complexities. It works in $O(log n)$ time and uses $O(1)$ space. Additionally, we can even implement a [branchless binary search](https://probablydance.com/2023/04/27/beautiful-branchless-binary-search/) for low-level hardware usage to optimize CPU operations.
 
-How does binary search words?
-For any given `sorted array` we can apply binary search to retrive index of an target element.
-Famous example given to explain is a searching of an page number of an word present in a dictionay.
-How do you usualy check a meaning of an word using dictionary? for me. i just open dictionary on middle and look at the word on this page
-and cross check if the first letter comes before or after the page like that way i repeatedly do to get an exact word im looking for.
-Isn't it surprise how much time it saves and not have to iteratively search from starting to end of the dictrionary.
+### How does Binary Search work?
 
-and here we go, likwise we first calculate middile of range $[l, r]$ then check
+For any given `sorted array`, we can apply binary search to retrieve the index of a target element.
+
+A famous analogy is looking up the page number of a word in a dictionary. How do you usually check the meaning of a word there? Personally, I open the dictionary in the middle, look at the first word on that page, and compare its initial letter with the word I’m searching for. Depending on whether it comes before or after, I then keep narrowing down the range until I get to the exact word. Isn’t it surprising how much time it saves compared to checking every page sequentially?
+
+Similarly, in binary search, we first calculate the middle of a range $$[l, r]$$. Usually its calculated as $mid = (l + r) / 2$
+but when $$l$$ or $$r$$ are very large, adding them directly ($$l + r$$) can cause integer overflow. To avoid that, you can use this trick $mid = l + (r - l)/2$
 
 $$
 \text{bsearch}(arr, k) =
 \begin{cases}
    \text{return mid} & \text{if } arr[\text{mid}] = k \\
-   \text{right} \gets \text{mid} - 1 & \text{if } arr[\text{mid}] > k \\
-   \text{left} \gets \text{mid} + 1 & \text{if } arr[\text{mid}] < k
+   \text{right} \gets \text{mid} - 1 & \text{if k is present left of arr[mid]} \\
+   \text{left} \gets \text{mid} + 1 & \text{if k is present right of arr[mid]}
 \end{cases}
 $$
+
+Lets visualize things
+<img width="500" src="{{ "/img/in-post/post-binary-search/bs1.svg" | prepend: site.baseurl }}" />
+<small class="img-hint">Binary Search</small>
+
+### Find exact index of target in an array
+
+Get started with this [problem](https://leetcode.com/problems/binary-search/description/)
 
 Getting exact index pattern of binary search could be applied wide range
 and it is somewhat direct question. little difficulty could be seen in problem
@@ -50,6 +55,7 @@ when asked to retrieve `Kth optimal result of op(arr[i], arr[j])` where $1 \leq 
 here is a simple template for getting exact index of and k
 
 take a closer look on $ l \leq r $. We use $\leq$ when we have to return answer within the loop.
+
 
 ```cpp
 int binarySearch(vector<int>& arr, int k) {
@@ -65,13 +71,15 @@ int binarySearch(vector<int>& arr, int k) {
 }
 ```
 
+### QuestionList-1: Get exact position of target
+
 ### Return index of First/Last Occurrence
 
 Lets say a number is occuring more than 1 times. In this sitution we gotta return index of either of first or last occurance.
 
 a small changes brings pointer to first/last occurance
 
-| variant          | return type       | changes to do in $if()$                |
+| variant          | return            | changes to do in $if()$                |
 | ---------------- | ----------------- | -------------------------------------- |
 | First occurrence | return $left$     | $if\ (arr[mid] \geq k)\ \ right = mid$ |
 | Last occurrence  | return $left - 1$ | $if\ (arr[mid] > k)\ \ right = mid$    |
@@ -79,7 +87,7 @@ a small changes brings pointer to first/last occurance
 {% tabs bs %}
 {% tab bs first occurrence %}
 
-make sure use `>=`
+make sure use of $\leq$ as this will help pointer to slide to very begining of target of multiple occurrence.
 
 ```cpp
 int firstOccurrence() {
@@ -113,7 +121,9 @@ int lastOccurrence() {
 {% endtab %}
 {% endtabs %}
 
-## \[T, T, F, F] Sequence
+[Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array)
+
+### \[T, T, F, F] Sequence
 
 Till now we have seen of $\text{[False, False, True, True]}$ form of monotonic sequence. Now lets see of it reverse. Its important pattern where lot of hidden problems can be expected in such sequence and this is one of the tie breaker from beginner and intermediate.
 
@@ -157,7 +167,68 @@ int firstTrueSeq() {
 {% endtab %}
 {% endtabs %}
 
-## Minimax Problems
+### C++ STL _lower_bound()_ and _upper_bound()_
+
+C++ has this in-built functions which returns iterator to the element present in container. Both $\text{lower_bound()}$ and $\text{upper_bound()}$ available under header file `#include <algorithm>`
+
+lets say $f_i$ be _find first element_ i will be using fi in below like fi > target, which translates to find first element > target
+
+This functions were compiled from [blog](https://codeforces.com/blog/entry/113032).
+{% tabs stl %}
+
+  {% tab stl $f_i$ > Target %}
+
+  ```cpp
+  int firstGreater(vector <int>& a, int target) {
+      auto it = upper_bound(a.begin(), a.end(), target);
+      return it = a.end() ? -1 : it - a.begin();
+  }
+  ```
+
+  {% endtab %}
+
+  {% tab stl $f_i$ $\geq$ Target %}
+
+  ```cpp
+  int firstGreaterEqual(vector<int>& a, int target) {
+      auto it = lower_bound(a.begin(), a.end(), target);
+      return it == a.end() ? -1 : it - a.begin();
+  }
+  ```
+
+  {% endtab %}
+
+{% endtabs %}
+
+{% tabs stl1 %}
+
+  {% tab stl1 $f_i$ < Target %}
+
+  ```cpp
+  int firstLess(vector<int>& a , int target) {
+      auto it = lower_bound(a.begin(), arr.end(), target);
+      if (it == a.begin()) return -1;
+      return (it - a.begin()) - 1;
+  }
+  ```
+
+  {% endtab %}
+
+  {% tab stl1 $f_i$ $\leq$ Target %}
+
+  ```cpp
+  int firstLessEqual(vector<int>& a , int target) {
+      auto it = upper_bound(a.begin(), a.end(), target);
+      if (it == a.begin()) return -1;
+      return (it - a.begin()) - 1;
+  }
+  ```
+
+  {% endtab %}
+
+{% endtabs %}
+
+### Minimax Problems
 
 Usually hard-level in LeetCode.
 When a question is about `minimizing the maximum value`, it can often be solved using the minimax binary search pattern.
@@ -196,17 +267,11 @@ int minimax_binarySearch(vector<int>& nums, int k) {
 
 ### Finding the K-th Element
 
-**Fixed-start binary search** on subarrays ending with a **monotonic window**.
+Fixed-start binary search on subarrays ending with a monotonic window.
 
 ```cpp
 ll binary_search(vector<int> &nums, ll k) {
     int n = nums.size();
-    vector<ll> pref(n + 1, 0);
-
-    for (int i = 0; i < n; i++) {
-        pref[i + 1] = pref[i] + nums[i];
-    }
-
     ll totalCount = 0;
 
     for (int start = 0; start < n; ++start) {
@@ -215,8 +280,8 @@ ll binary_search(vector<int> &nums, ll k) {
 
         while (l <= r) {
             int m = l + (r - l) / 2;
-            ll sum = pref[m + 1] - pref[start];
-            ll score = sum * (m - start + 1);
+
+            ll score = /* operation */
 
             if (score < k) {
                 validEnd = m;
@@ -234,6 +299,17 @@ ll binary_search(vector<int> &nums, ll k) {
 }
 ```
 
+- [Kth Smallest Element in a Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/)
+- [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
+- [Kth Missing Positive Number](https://leetcode.com/problems/kth-missing-positive-number/)
+- [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+- [Search Insert Position](https://leetcode.com/problems/search-insert-position/)
+- [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
+- [Find Peak Element](https://leetcode.com/problems/find-peak-element/)
+- [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)
+- [First Bad Version](https://leetcode.com/problems/first-bad-version/)
+- [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+
 ### Segment Tree + K-th Element Binary Search
 
 Use **Segment Tree** + Binary Search to guess the optimal segment.
@@ -244,42 +320,61 @@ Use **Segment Tree** + Binary Search to guess the optimal segment.
 Below code implements LeetCode `3171. Find Subarray With Bitwise OR Closest to K`.
 
 ```cpp
-struct SegTree {
-    vector<int> t;
-    int n;
-
-    SegTree(vector<int>& a) {
-        n = a.size();
-        t.resize(2 * n);
-        build(a);
+namespace rangeQuery {
+  template <class S, auto op, auto e>
+  struct init {
+public:
+  init() : init(0) {}
+  explicit init(int n, S init_val = e()) : init(std::vector<S>(n, init_val)) {}
+  explicit init(const std::vector<S> &v) : _n(int(v.size())) {
+    size = 1 << (32 - __builtin_clz(_n - 1));
+    log = __builtin_ctz(size);
+    d = std::vector<S>(2 * size, e());
+    for (int i = 0; i < _n; i++) { d[size + i] = v[i]; }
+    for (int i = size - 1; i >= 1; i--) { set(i); }
+  }
+  void update(int p, S x) {
+    d[p += size] = x;
+    for (int i = 1; i <= log; i++) set(p >> i);
+  }
+  S get(int p) const {
+    return d[p + size];
+  }
+  S get_all() const { return d[1]; }
+  S query(int l, int r) const {
+    S sml = e(), smr = e();
+    for (l += size, r += size + 1; l < r; l >>= 1, r >>= 1) {
+      if (l & 1) sml = op(sml, d[l++]);
+      if (r & 1) smr = op(d[--r], smr);
     }
-
-    int merge(int l, int r) { return l | r; }
-
-    void build(vector<int>& a) {
-        for (int i = 0; i < n; i++) t[i + n] = a[i];
-        for (int i = n - 1; i > 0; --i) t[i] = merge(t[i << 1], t[i << 1 | 1]);
-    }
-
-    void modify(int p, int value) {
-        for (t[p += n] = value; p > 1; p >>= 1) t[p >> 1] = merge(t[p], t[p ^ 1]);
-    }
-
-    int query(int l, int r) {
-        int res = 0;
-        for (l += n, r += n + 1; l < r; l >>= 1, r >>= 1)  {
-            if (l & 1) res = merge(res, t[l++]);
-            if (r & 1) res = merge(t[--r], res);
-        }
-        return res;
-    }
+    return op(sml, smr);
+  }
+private:
+    int _n, size, log;
+    std::vector<S> d;
+    void set(int k) { d[k] = op(d[k << 1], d[k << 1 | 1]); }
+  };
+}
+struct info {
+  int v;
+  info() : v(0) {}
+  info(int _v) {
+    v = _v;
+  }
 };
+info e() { return info(0); }
+info op(const info &l, const info &r) {
+  return {l.v + r.v};
+}
+using segtree = rangeQuery::init<info, op, e>;
 
 class Solution {
 public:
     int minimumDifference(vector<int>& a, int k) {
         int n = a.size();
-        SegTree seg(a);
+        vector<info> t(n);
+        for(int i=0; i<n; i++) t[i] = info(a[i]);
+        segtree seg(t);
 
         int res = INT_MAX;
         for (int start = 0; start < n; ++start) {
@@ -288,7 +383,7 @@ public:
             while (lo <= hi) {
                 int mid = (lo + hi) >> 1;
 
-                int val = seg.query(start, mid);
+                int val = seg.query(start, mid).v;
                 res = min(res, abs(k - val));
 
                 if (val == k) return 0;
@@ -300,11 +395,23 @@ public:
     }
 };
 ```
+> <p style="color:gree; font-size:2em"> I strongly encaourage to enroll this in codeforce and try to solve </p>
+> As of now should be able to solve the problems(not necesserly to get AC, I strongly encourage to recognise pattern or get approach  on how to solve) from [Codeforces — ITMO Academy: Pilot Course](https://codeforces.com/edu/course/2) _(Enroll in this course otherwise cannot access)_ 
+
+### Parallel Binary Search
+
+### Binary seach on rotated array
+
+simple yet tricky and also its kind of special binary search variant i admire. Questions such as
+get peak/low value of unique/duplicate array can be asked. If you know that than any other variations can easily be solved if given roatated array of sorted array
 
 ### Template Competetive Programming
 
 {% tabs cf %}
 {% tab cf CP Template %}
+`firstTSeq` set to `true` when the given solution space in the monotonic sequence of the form `[T,T,F,F]`
+`Lbound` lower_bound
+
 ```cpp
 template <typename T, typename U>
 T bsearch(T l, T r, U condition, bool Lbound = true, bool firstTSeq = false) {
@@ -316,9 +423,13 @@ T bsearch(T l, T r, U condition, bool Lbound = true, bool firstTSeq = false) {
   return (Lbound ? l : l - 1);
 }
 ```
+
 {% endtab %}
 
 {% tab cf Mostly Branchless BSearch Template %}
+
+Not recommended but can be used to slighly improvement run time milli seconds.
+
 ```cpp
 template <typename T, typename Pred>
 T bsearch(T l, T r, const Pred &pred, bool Lbound = true, bool firstTSeq = false) {
@@ -354,5 +465,12 @@ T bsearch(T l, T r, const Pred &pred, bool Lbound = true, bool firstTSeq = false
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
+
+### Special Problems
+
+- [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+- [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array)
+- [Search in 2D matrix](https://leetcode.com/problems/search-a-2d-matrix)
