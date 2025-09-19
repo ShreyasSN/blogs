@@ -8,6 +8,6 @@ header-img: "img/post/dsu.png"
 header-mask: 0.3
 catalog:    true
 tags:
-    - C++
-    - Algorithms
+  - Data Structures
+  - Level-2
 ---

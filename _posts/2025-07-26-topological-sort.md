@@ -8,6 +8,6 @@ header-img: "img/post/topsort.png"
 header-mask: 0.3
 catalog:    true
 tags:
-    - C++
-    - Algorithms
+  - Algorithms
+  - Level-2
 ---

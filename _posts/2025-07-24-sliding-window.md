@@ -8,7 +8,8 @@ header-img: "img/post/slidingwindow.png"
 header-mask: 0.3
 catalog:    true
 tags:
-    - Algorithms
+  - Algorithms
+  - Level-2
 ---
 
 # Classical Problems of DP

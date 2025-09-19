@@ -8,6 +8,6 @@ header-img: "img/home-bg-art.jpg"
 header-mask: 0.3
 catalog:    true
 tags:
-    - C++
-    - Algorithms
+  - Algorithms
+  - Level-2
 ---

@@ -28,6 +28,8 @@
     
     <meta property="article:tag" content="Algorithms">
     
+    <meta property="article:tag" content="Level-1">
+    
     
     <meta property="og:image" content="http://localhost:4000https://github.com/shreyassn.png">
     <meta property="og:url" content="http://localhost:4000/2025/07/25/classical-dp/">
@@ -276,6 +278,8 @@
               
               <a class="tag" href="/archive/?tag=Algorithms" title="Algorithms">Algorithms</a>
               
+              <a class="tag" href="/archive/?tag=Level-1" title="Level-1">Level-1</a>
+              
             </div>
             <h1>Classical Dynamic Programming</h1>
             
@@ -311,15 +315,304 @@
   <p>dots connecting to reach goal where each dots is a sub-task that builds up to solution</p>
 </blockquote>
 
+<h3 id="what-is-dynamic-programming">What is Dynamic Programming</h3>
+
+<p>DP is just a caching the recursion tree. DP optimizes recursive algorithms by storing and reusing the results of overlapping subproblems (i.e., repeated states in the recursion tree), ensuring that each distinct state is computed only once and if subtask needs to be computed again then it can be get result in $O(1)$. This technique transforms exponential time complexity of recursion solution such as $O(\text{#choices}^N)$ into a more efficient polynomial or pseudo-polynomial complexity, commonly $O(\text{#choices}*N)$
+or $O(N^\text{#choices})$, depending on state representation and problem constraints. This is huge optimization as for array of size $ N \leq 10^4 $ and choices are $\text{take, not-take}$. So $O(2^N) \ggg O(N^2)$</p>
+
+<p>If you are a beginnner then you $must$ first come up with recursion solution. I have observed that lot of video/editorial explaination of DP problems are already optimised solution(iterative DP) which can be understood for current problem but if you see varient of another DP problem then you are most likey gonna feel hard to come up with solution.</p>
+
+<h3 id="understanding-of-optimization">Understanding of optimization</h3>
+
+<p>Problem-1. Fibonacci Series</p>
+
+<p>Fibonacci series is sum of previous two numbers. Series start with $[0, 1]$ and second number is determined by privous 2 numbers that is $[0,1,1,2,3,5,8,13,…]$</p>
+
+\[F_n =
+\begin{cases}
+0 &amp; \text{if } n = 0 \\
+1 &amp; \text{if } n = 1 \\
+F_{n-1} + F_{n-2} &amp; \text{if } n &gt; 1
+\end{cases}\]
+
+\[F_n = \frac{\varphi^n - \psi^n}{\sqrt{5}},
+\quad \varphi = \frac{1+\sqrt{5}}{2},\
+\psi = \frac{1-\sqrt{5}}{2}.\]
+
+\[\sum_{n=0}^\infty F_n x^n = \frac{x}{1-x-x^2},\quad |x|&lt;\frac{1}{\varphi}.\]
+
+<details>
+  <summary>Bonus: Matrix Exponention To Get Sequential Series in $O(log(n))$</summary>
+
+<div class="details-content">
+
+<b>Matrix Representation</b><br />
+$$
+\begin{pmatrix}
+F_{n+1} &amp; F_n \\
+F_n &amp; F_{n-1}
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 &amp; 1 \\
+1 &amp; 0
+\end{pmatrix}^{\!n}
+$$
+This states that calculating Fibonacci numbers can be expressed as raising a $2 \times 2$ matrix to the $n$th power. Using exponentiation by squaring, this allows computation of $F_n$ in $O(\log n)$ time.
+<br /><br />
+
+Introduction<br />
+Many problems in computer science and mathematics involve sequences defined by recurrence relations.  
+The Fibonacci sequence is the most famous example:  
+
+$$
+F(n) = F(n-1) + F(n-2), \quad F(0) = 0, \quad F(1) = 1
+$$
+
+Naively computing $F(n)$ using recursion or iteration takes $O(n)$ time.  
+However, by representing the recurrence as a matrix multiplication problem and using matrix exponentiation, we can compute $F(n)$ in $O(\log n)$ time.<br /><br />
+
+This tutorial covers:  
+- How to represent linear recurrences as matrix multiplication  
+- How to perform fast matrix exponentiation  
+- Generalizing the method to other recurrence relations  
+
+<br />
+
+Step 1: Representing the Recurrence as a Matrix Equation<br />
+Take Fibonacci as an example. Its recurrence can be written as:  
+
+$$
+\begin{bmatrix}
+F(n) \\
+F(n-1)
+\end{bmatrix}
+= 
+\begin{bmatrix}
+1 &amp; 1 \\
+1 &amp; 0
+\end{bmatrix}
+\times
+\begin{bmatrix}
+F(n-1) \\
+F(n-2)
+\end{bmatrix}
+$$
+
+Define the matrix:  
+
+$$
+M =
+\begin{bmatrix}
+1 &amp; 1 \\
+1 &amp; 0
+\end{bmatrix}
+$$
+
+So,  
+
+$$
+\begin{bmatrix}
+F(n) \\
+F(n-1)
+\end{bmatrix} = M \times \begin{bmatrix} F(n-1) \\ F(n-2) \end{bmatrix}
+$$
+
+Applying repeatedly,  
+
+$$
+\begin{bmatrix}
+F(n) \\
+F(n-1)
+\end{bmatrix} = M^{n-1} \times \begin{bmatrix} F(1) \\ F(0) \end{bmatrix}
+$$
+
+Thus, computing $F(n)$ reduces to computing $M^{n-1}$.<br /><br />
+
+Step 2: Fast Matrix Exponentiation Using Exponentiation by Squaring<br />
+Naively multiplying $M$ $n-1$ times is $O(n)$, but we can reduce it:  
+
+- If $n$ is even: $M^n = (M^{n/2}) \times (M^{n/2})$  
+- If $n$ is odd: $M^n = M \times M^{n-1}$  
+
+This gives $O(\log n)$ complexity.<br /><br />
+
+<b>Algorithm (Python style):</b>  
+
+```python
+def matrix_power(M, n):
+    if n == 1:
+        return M
+    half = matrix_power(M, n // 2)
+    half_squared = matrix_multiply(half, half)
+    if n % 2 == 0:
+        return half_squared
+    else:
+        return matrix_multiply(half_squared, M)
+````
+
+<br />
+
+Step 3: Generalizing to Other Recurrence Relations<br />
+Any linear homogeneous recurrence of order $k$:  
+
+$$
+T(n) = c_1 T(n-1) + c_2 T(n-2) + \ldots + c_k T(n-k)
+$$
+
+can be written as:
+
+$$
+\begin{bmatrix}
+T(n) \\
+T(n-1) \\
+\vdots \\
+T(n-k+1)
+\end{bmatrix}
+=
+M \times
+\begin{bmatrix}
+T(n-1) \\
+T(n-2) \\
+\vdots \\
+T(n-k)
+\end{bmatrix}
+$$
+
+where \$M\$ is the \$k \times k\$ companion matrix:
+
+$$
+M = \begin{bmatrix}
+c_1 &amp; c_2 &amp; \cdots &amp; c_k \\
+1 &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; 1 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; 1
+\end{bmatrix}
+$$
+
+Then:
+
+$$
+\begin{bmatrix}
+T(n) \\
+T(n-1) \\
+\vdots \\
+T(n-k+1)
+\end{bmatrix}
+= M^{n-k+1} \times
+\begin{bmatrix}
+T(k) \\
+T(k-1) \\
+\vdots \\
+T(1)
+\end{bmatrix}
+$$
+
+<br />
+
+Step 4: Practical Example<br />
+Consider:  
+
+$$
+T(n) = 2T(n-1) + 3T(n-2), \quad T(1) = 1, \quad T(2) = 2
+$$
+
+Matrix form:
+
+$$
+M =
+\begin{bmatrix}
+2 &amp; 3 \\
+1 &amp; 0
+\end{bmatrix}, \quad
+\text{Initial vector} =
+\begin{bmatrix}
+T(2) \\
+T(1)
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 \\
+1
+\end{bmatrix}
+$$
+
+Compute $M^{n-2} \times \text{Initial vector}$ to get $T(n)$.<br /><br />
+
+Step 5: Summary and Tips<br />
+- Matrix exponentiation optimizes recurrences from $O(n)$ to $O(\log n)$.<br />
+- Works for any linear homogeneous recurrence.<br />
+- Construct the companion matrix $M$ carefully.<br />
+- Use exponentiation by squaring.<br />
+- Handle base cases with the initial state vector.<br />
+
+
+More formulaes can be studied from <a href="https://r-knott.surrey.ac.uk/fibonacci/fibformulae.html" style="color:yellow">Fibonacci Formulae (R. Knott)</a>
+
+
+</div>
+</details>
+
+<h3 id="table-of-contents">Table of Contents</h3>
+
+<ol>
+  <li><a href="#linear-dp">Linear DP</a></li>
+  <li><a href="#kadanes-algorithm">Kadane’s Algorithm</a></li>
+  <li><a href="#01-and-unbound-knapsack">0/1 and Unbound Knapsack</a></li>
+  <li><a href="#2d-grid-traversal">2D Grid Traversal</a></li>
+  <li><a href="#edit-distance">Edit Distance</a></li>
+  <li><a href="#longest-substring">Longest Substring</a></li>
+  <li><a href="#longest-subsequence">Longest Subsequence</a></li>
+  <li><a href="#longest-common-subsequence">Longest common Subsequence</a></li>
+  <li><a href="#cumulative-sum-dp">Cumulative Sum DP</a></li>
+  <li><a href="#string-dp">String DP</a></li>
+  <li><a href="#interval-dp">Interval DP</a></li>
+  <li><a href="#bitmask-dp">Bitmask DP</a></li>
+  <li><a href="#digit-dp">Digit DP</a></li>
+  <li><a href="#multi-dimensional-dp">Multi Dimensional DP</a></li>
+  <li><a href="#probability-dp">Probability DP</a></li>
+  <li><a href="#sigma-dp">Sigma DP</a></li>
+  <li><a href="#divide-and-conquer-dp">Divide and Conquer DP</a></li>
+  <li><a href="#sum-over-subset">Sum Over Subset</a></li>
+  <li><a href="#tree-dp">Tree DP</a></li>
+  <li><a href="#graph-dp">Graph DP</a></li>
+  <li><a href="#profile-dp">Profile DP</a></li>
+  <li><a href="#knuth-optimization-dp">Knuth Optimization DP</a></li>
+  <li><a href="#convex-hull-trick-dp">Convex Hull Trick DP</a></li>
+  <li><a href="#monotonic-queue-optimization-dp">Monotonic Queue Optimization DP</a></li>
+  <li><a href="#matrix-exponentiation-dp">Matrix Exponentiation DP</a></li>
+  <li><a href="#game-theory-dp">Game Theory DP</a></li>
+  <li><a href="#expectationvariance-dp">Expectation/Variance DP</a></li>
+  <li><a href="#onlinestreaming-dp">Online/Streaming DP</a></li>
+</ol>
+
+<h3 id="linear-dp">Linear DP</h3>
+
+<h3 id="reference-and-thanks-to">Reference and thanks to</h3>
+
+<ul>
+  <li><a href="https://leetcode.com/discuss/post/1000929/solved-all-dynamic-programming-dp-proble-8m82/">LeetCode – DP Problems List</a> @chuka231</li>
+  <li><a href="https://cp-algorithms.com/dynamic_programming/intro-to-dp.html#classic-dynamic-programming-problems">CP-Algorithms – Intro to DP</a> @cp-algorithms</li>
+  <li><a href="https://usaco.guide/CPH.pdf#page=75">Competitive Programmer’s Handbook (PDF, p.75)</a> @AnttiLaaksonen</li>
+  <li><a href="https://codeforces.com/blog/entry/67679">Codeforces Blog – DP Tutorial</a> @Ahnaf.Shahriar.Asif</li>
+  <li><a href="https://atcoder.jp/contests/dp/tasks">AtCoder – Educational DP Contest</a> @atcoder</li>
+  <li><a href="https://nwatx.me/post/dpbitmasks">Bitmask DP – Blog</a> @NeoWang</li>
+  <li><a href="https://codeforces.com/blog/entry/98663">Codeforces Blog – Knapsack &amp; Subset Sum</a> @Errorgorn</li>
+  <li><a href="https://codeforces.com/blog/entry/47764">Codeforces Blog – DP Tricks</a> @zscoder</li>
+  <li><a href="https://www.spoj.com/problems/PR003004/">SPOJ – Digit Sum Problem</a> @spoj</li>
+  <li><a href="https://codeforces.com/blog/entry/45223">Codeforces Blog – SOS DP</a> @usaxena95</li>
+</ul>
+
 
         <hr style="visibility: hidden;">
         <ul class="pager">
           
           <li class="previous">
-            <a href="/2025/07/25/binary-search/" data-toggle="tooltip"
-              data-placement="top" title="Binary Search">
+            <a href="/2025/07/25/bitmask/" data-toggle="tooltip"
+              data-placement="top" title="DP with bitmasking">
               Previous<br>
-              <span>Binary Search</span>
+              <span>DP with bitmasking</span>
             </a>
           </li>
           
@@ -379,15 +672,25 @@
         
         
         
-                <a data-sort="0004" 
+                <a data-sort="0017" 
                     href="/archive/?tag=C%2B%2B"
                     title="C++"
-                    rel="12">C++</a>
+                    rel="5">C++</a>
         
-                <a data-sort="0000" 
+                <a data-sort="0005" 
                     href="/archive/?tag=Algorithms"
                     title="Algorithms"
-                    rel="16">Algorithms</a>
+                    rel="17">Algorithms</a>
+        
+                <a data-sort="0014" 
+                    href="/archive/?tag=Level-1"
+                    title="Level-1"
+                    rel="8">Level-1</a>
+        
+                <a data-sort="0016" 
+                    href="/archive/?tag=Level-2"
+                    title="Level-2"
+                    rel="6">Level-2</a>
     </div>
 </section>
 
