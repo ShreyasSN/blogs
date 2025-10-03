@@ -9,5 +9,5 @@ header-mask: 0.3
 catalog:    true
 tags:
   - Data Structures
-  - Level-2
+  
 ---

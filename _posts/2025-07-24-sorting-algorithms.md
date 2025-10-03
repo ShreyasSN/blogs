@@ -9,7 +9,7 @@ header-mask: 0.3
 catalog:    true
 tags:
   - Algorithms
-  - Level-1
+  
 ---
 
 # Classical Problems of DP

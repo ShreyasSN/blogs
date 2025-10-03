@@ -1,5 +1,5 @@
 body {
-  font-family: 'Montaga', serif; 
+  font-family: 'Montaga', serif;
 }
 
 .pager.centered {
@@ -34,7 +34,7 @@ body {
 }
 
 .subheading {
-  font-family: 'Montaga', serif; 
+  font-family: 'Montaga', serif;
   color: #ffffff;
 }
 
@@ -42,12 +42,16 @@ body {
 /* //////////////////  */
 
 h1 {
-  font-family: 'Montaga', serif; 
+  font-family: 'Montaga', serif;
   color: white;
 }
 
-h2, h3, h4, h5, h6 {
-  font-family: 'Montaga', serif; 
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montaga', serif;
   color: rgb(209, 209, 209);
 }
 
@@ -55,21 +59,34 @@ h2, h3, h4, h5, h6 {
   font-size: 16px;
   text-align: justify;
   text-justify: inter-word;
-  align-items: stretch;  
+  align-items: stretch;
 }
 
 .blog-full-content {
-  background: #1a1919;
+  background: #1a1515;
+  /* background: #1a1919; */
   /* color: #bdbdbd; */
   color: rgb(170, 170, 170);
 }
 
+/* background: #27374D; */
+/* .blog-grid-item {
+  background: #19183B;
+  background: rgba(28, 23, 23, 0.791);
+  background-image: url('../img/blog-bg-pattern.jpg');
+  border-radius: 5px;
+} */
 .blog-grid-item {
-  background: #27374D;
+  background:
+    linear-gradient(rgba(25, 24, 59, 0.96), rgba(25, 24, 59, 0.96)),
+    url('../img/blog-bg-pattern.jpg') center/cover no-repeat;
+  border-radius: 5px;
 }
 
+
 .blog-grid-tags .tag {
-  background: #9DB2BF;
+  /* background: #9DB2BF; */
+  background: #293abd6d;
 }
 
 details {
@@ -83,6 +100,7 @@ details {
 details[open] {
   padding-bottom: 12px;
 }
+
 .details-content {
   padding: 1.5em;
   border-radius: 8px;
@@ -164,7 +182,11 @@ details[open] summary::before {
 
 .blog-grid-item:hover {
   /* box-shadow: 0 0 6px rgba(0, 0, 0, 0.3); */
-  background: #202d3f;
+  /* background: #202d3f; */
+  /* background: #19183B; */
+  background:
+    linear-gradient(rgba(35, 34, 80, 0.96), rgba(25, 24, 59, 0.96)),
+    url('../img/blog-bg-pattern.jpg') center/cover no-repeat;
   transition-duration: 0.25s;
 }
 
@@ -178,7 +200,7 @@ details[open] summary::before {
 
 
 .blog-grid-title {
-  font-family: 'Montaga', serif; 
+  font-family: 'Montaga', serif;
   font-size: 22px;
   font-weight: 400;
   margin-bottom: 8px;
@@ -192,7 +214,8 @@ details[open] summary::before {
 .blog-grid-tags .tag {
   display: inline-block;
   /* background: #f0f0f0; */
-  color: #333;
+  /* color: #333; */
+  color: #9DB2BF;
   font-size: 12px;
   font-style: italic;
   border-radius: 3px;
@@ -213,13 +236,43 @@ details[open] summary::before {
 }
 
 @media (max-width: 768px) {
-  .blog-grid {
+  /* .blog-grid {
     grid-template-columns: 1fr;
+  } */
+
+  .blog-grid-title {
+    font-size: 16px;
   }
 
-  /* .blog-grid-title {
-    font-size: 6px;
+  .blog-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+  }
+
+  .blog-grid-item {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-grid-tags {
+    font-size: 10px;
+  }
+
+  /* .blog-grid-tags .tag {
+    background: #293abd;
+    color: #9DB2BF;
   } */
+
+  .blog-grid-image {
+    flex: 1;
+    padding: 12px 12px 0 12px;
+  }
+
+  .blog-grid-content {
+    padding: 8px;
+    flex: 0 0 auto;
+  }
 }
 
 /* ///////// JEKYLL TABS //////////  */
@@ -228,19 +281,21 @@ details[open] summary::before {
   list-style: none;
   margin-bottom: 0;
   padding: 0;
-  border-bottom: 1px solid #30363d; /* GitHub dark border */
+  border-bottom: 1px solid #30363d;
+  /* GitHub dark border */
 }
 
-.tab > li {
+.tab>li {
   margin: 0;
 }
 
-.tab > li > a {
+.tab>li>a {
   display: block;
   padding: 8px 20px;
   font-size: 17px;
   font-weight: 500;
-  color: #c9d1d9; /* GitHub text color */
+  color: #c9d1d9;
+  /* GitHub text color */
   text-decoration: none;
   border: 1px solid transparent;
   border-bottom: none;
@@ -249,13 +304,15 @@ details[open] summary::before {
   transition: background-color 0.2s ease;
 }
 
-.tab > li > a:hover {
-  background-color: #21262d; /* GitHub hover background */
+.tab>li>a:hover {
+  background-color: #21262d;
+  /* GitHub hover background */
   color: #f0f6fc;
 }
 
-.tab > li.active > a {
-  background-color: #003380; /* Matches dark background */
+.tab>li.active>a {
+  background-color: #003380;
+  /* Matches dark background */
   border-color: #30363d #30363d transparent;
   /* color: #f0f6fc; */
   color: #bcdeff;
@@ -269,11 +326,11 @@ details[open] summary::before {
   padding: 16px;
 }
 
-.tab-content > li {
+.tab-content>li {
   display: none;
 }
 
-.tab-content > li.active {
+.tab-content>li.active {
   display: block;
 }
 

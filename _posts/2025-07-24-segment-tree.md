@@ -10,7 +10,7 @@ catalog:    true
 mathjax: true
 tags:
   - Algorithms
-  - Level-2
+  
 ---
 
 
