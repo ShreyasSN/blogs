@@ -27,7 +27,7 @@
     {
       "title"    : "Two Pointers",
       "subtitle" : "If not you then he type of vibe",
-      "tags"     : "Algorithms, Level-1",
+      "tags"     : "Algorithms",
       "url"      : "/2025/07/25/two-pointers/",
       "date"     : "2025-07-25 00:00:00 +0530"
     } ,
@@ -35,7 +35,7 @@
     {
       "title"    : "Tree Concepts",
       "subtitle" : "All patterns of binary search",
-      "tags"     : "Algorithms, Level-3",
+      "tags"     : "Algorithms",
       "url"      : "/2025/07/25/tree-concepts/",
       "date"     : "2025-07-25 00:00:00 +0530"
     } ,
@@ -43,7 +43,7 @@
     {
       "title"    : "Topological Sort",
       "subtitle" : "All patterns of binary search",
-      "tags"     : "Algorithms, Level-2",
+      "tags"     : "Algorithms",
       "url"      : "/2025/07/25/topological-sort/",
       "date"     : "2025-07-25 00:00:00 +0530"
     } ,
@@ -51,7 +51,7 @@
     {
       "title"    : "Shortest Path In Graph",
       "subtitle" : "All patterns of binary search",
-      "tags"     : "Algorithms, Level-2",
+      "tags"     : "Algorithms",
       "url"      : "/2025/07/25/shortest-path/",
       "date"     : "2025-07-25 00:00:00 +0530"
     } ,
@@ -59,7 +59,7 @@
     {
       "title"    : "Monotoneous Stack",
       "subtitle" : "All patterns of binary search",
-      "tags"     : "Algorithms, Level-1",
+      "tags"     : "Algorithms",
       "url"      : "/2025/07/25/monotoneous-stack/",
       "date"     : "2025-07-25 00:00:00 +0530"
     } ,
@@ -67,7 +67,7 @@
     {
       "title"    : "Linked List - Best For Designing Data Structure?",
       "subtitle" : "All patterns of binary search",
-      "tags"     : "Algorithms, Level-1",
+      "tags"     : "Algorithms",
       "url"      : "/2025/07/25/linked-list/",
       "date"     : "2025-07-25 00:00:00 +0530"
     } ,
@@ -75,7 +75,7 @@
     {
       "title"    : "Lazy Segment Tree",
       "subtitle" : "All patterns of binary search",
-      "tags"     : "Algorithms, Level-2",
+      "tags"     : "Algorithms",
       "url"      : "/2025/07/25/lazy-segment-tree/",
       "date"     : "2025-07-25 00:00:00 +0530"
     } ,
@@ -91,7 +91,7 @@
     {
       "title"    : "Power of Disjoint Union Set",
       "subtitle" : "All patterns of binary search",
-      "tags"     : "Data Structures, Level-2",
+      "tags"     : "Data Structures",
       "url"      : "/2025/07/25/disjoint-union-set/",
       "date"     : "2025-07-25 00:00:00 +0530"
     } ,
@@ -99,7 +99,7 @@
     {
       "title"    : "Graph Traversing",
       "subtitle" : "All patterns of binary search",
-      "tags"     : "Algorithms, Level-1",
+      "tags"     : "Algorithms",
       "url"      : "/2025/07/25/dfs-and-bfs/",
       "date"     : "2025-07-25 00:00:00 +0530"
     } ,
@@ -107,7 +107,7 @@
     {
       "title"    : "Binary Search Tree",
       "subtitle" : "All patterns of binary search",
-      "tags"     : "Algorithms, Level-1",
+      "tags"     : "Algorithms",
       "url"      : "/2025/07/25/binary-search-tree/",
       "date"     : "2025-07-25 00:00:00 +0530"
     } ,
@@ -115,7 +115,7 @@
     {
       "title"    : "Sorting Algorithms",
       "subtitle" : "All patterns of classical dp",
-      "tags"     : "Algorithms, Level-1",
+      "tags"     : "Algorithms",
       "url"      : "/2025/07/25/sorting-algorithms/",
       "date"     : "2025-07-25 00:00:00 +0530"
     } ,
@@ -123,7 +123,7 @@
     {
       "title"    : "Sliding Window",
       "subtitle" : "All patterns of classical dp",
-      "tags"     : "Algorithms, Level-2",
+      "tags"     : "Algorithms",
       "url"      : "/2025/07/25/sliding-window/",
       "date"     : "2025-07-25 00:00:00 +0530"
     } ,
@@ -131,7 +131,7 @@
     {
       "title"    : "Simple Segment Tree",
       "subtitle" : "All patterns of classical dp",
-      "tags"     : "Algorithms, Level-2",
+      "tags"     : "Algorithms",
       "url"      : "/2025/07/25/segment-tree/",
       "date"     : "2025-07-25 00:00:00 +0530"
     } ,
@@ -139,7 +139,7 @@
     {
       "title"    : "Classical Dynamic Programming",
       "subtitle" : "All patterns of classical bs",
-      "tags"     : "Algorithms, Level-1",
+      "tags"     : "Algorithms",
       "url"      : "/2025/07/25/classical-dp/",
       "date"     : "2025-07-25 00:00:00 +0530"
     } ,
