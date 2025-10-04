@@ -137,6 +137,14 @@
     } ,
   
     {
+      "title"    : "Life at NIT Calicut",
+      "subtitle" : "Can I be able to put all together in words?",
+      "tags"     : "C++, Algorithms",
+      "url"      : "/2025/07/25/nitc-life/",
+      "date"     : "2025-07-25 00:00:00 +0530"
+    } ,
+  
+    {
       "title"    : "Classical Dynamic Programming",
       "subtitle" : "All patterns of classical bs",
       "tags"     : "Algorithms",

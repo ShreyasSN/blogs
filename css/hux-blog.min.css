@@ -125,19 +125,20 @@
 .side-catalog .catalog-body .h2_nav {
   margin-left: 0;
   font-size: 13px;
-  font-weight: 700
+  /* font-weight: 700 */
 }
 
 .side-catalog .catalog-body .h3_nav {
-  margin-left: 6px;
+  margin-left: 12px;
   font-size: 13px;
-  font-weight: 700
+  /* font-weight: 700 */
 }
 
 .side-catalog .catalog-body .h4_nav {
-  margin-left: 12px;
+  margin-left: 24px;
   font-size: 12px
 }
+
 
 .side-catalog .catalog-body .h4_nav a {
   max-width: 170px
@@ -615,7 +616,8 @@ pre.highlight {
   font-size: 14px;
   font-weight: bold;
   line-height: 1.5;
-  color: #555;
+  /* color: #555; */
+  color: rgb(255, 170, 0);
   background: 0 0;
   border: 0;
   margin: 0;
@@ -750,6 +752,7 @@ pre.highlight {
 .search-page #search-results {
   overflow: auto;
   height: 100%;
+  color: #000 !important;
   -webkit-overflow-scrolling: touch;
   padding-bottom: 80px
 }
