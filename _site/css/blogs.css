@@ -36,6 +36,7 @@ body {
 .subheading {
   font-family: 'Montaga', serif;
   color: #ffffff;
+  border: none;
 }
 
 
@@ -51,8 +52,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montaga', serif;
-  color: rgb(209, 209, 209);
+  font-family: 'Quintessential', 'Montaga', serif;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
 }
 
 p {
@@ -222,6 +224,7 @@ details[open] summary::before {
   font-weight: 400;
   margin-bottom: 8px;
   flex-shrink: 0;
+  border: none;
 }
 
 .blog-grid-tags {

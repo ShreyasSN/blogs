@@ -607,6 +607,7 @@ pre.highlight {
 
 .highlighter-rouge .highlight {
   margin-bottom: 10px;
+  margin-top: 10px;
   border: 0.5px solid #00246B;
   border-radius: 3px;
   padding: 14px;
@@ -878,7 +879,7 @@ table.table>tbody th,
 table.table>thead th,
 table.table>tbody td,
 table.table>thead td {
-  border: 1px solid #eee !important
+  border: 0.5px solid #3367d6a2 !important
 }
 
 @media screen and (max-width:767px) {
@@ -903,7 +904,7 @@ pre code {
   display: block;
   width: auto;
   white-space: pre;
-  word-wrap: normal
+  word-wrap: normal;
 }
 
 code,
@@ -945,13 +946,23 @@ samp {
   margin-top: 20px
 }
 
-.post-container h2::before {
+/* .post-container h2::after {
   content: " ";
   display: block;
-  border-bottom: 1px solid #ececec;
+  border-bottom:1px solid rgb(48, 48, 48);
   margin-top: 44px;
   margin-bottom: 30px
+} */
+
+.post-container 
+h1,
+h2,
+h3,
+h4{
+  display:block;
+  border-bottom:1px solid rgb(48, 48, 48);
 }
+
 
 .post-container h4 {
   font-size: 22px;
@@ -1000,14 +1011,13 @@ samp {
 
 .post-container ul,
 .post-container ol {
-  margin-bottom: 40px
+  margin-bottom: 15px
 }
 
 @media screen and (max-width:768px) {
-
   .post-container ul,
   .post-container ol {
-    padding-left: 30px
+    padding-left: 10px
   }
 }
 
@@ -1015,7 +1025,7 @@ samp {
 
   .post-container ul,
   .post-container ol {
-    padding-left: 20px
+    padding-left: 5px
   }
 }
 
@@ -1023,12 +1033,13 @@ samp {
 .post-container ol ul,
 .post-container ul ol,
 .post-container ul ul {
-  margin-bottom: 5px
+  /* margin-bottom: 1px */
+  margin: 0;
 }
 
 .post-container li p {
   margin: 0;
-  margin-bottom: 5px
+  /* margin-bottom: 1px */
 }
 
 .post-container li h1,
@@ -1038,7 +1049,7 @@ samp {
 .post-container li h5,
 .post-container li h6 {
   line-height: 2;
-  margin-top: 20px
+  margin-top: 10px
 }
 
 .post-container .pager li {
@@ -1405,7 +1416,8 @@ samp {
   line-height: 1.4;
   font-weight: 400;
   margin: 10px 0 30px;
-  margin-top: -5px
+  margin-top: -5px;
+ border: none;
 }
 
 .intro-header .post-heading .meta {
