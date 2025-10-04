@@ -15,14 +15,4 @@ tags:
 > - Python Libraries: 
 > - Good to know: 
 
-### What is image processing? 
-
-### Why it is important for AI Models? 
-
-### Case based image processing techniques 
-
-### Critical awareness
-
-### Face Detection & Recognition 
-
-### 
+ 

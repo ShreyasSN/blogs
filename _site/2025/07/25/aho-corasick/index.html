@@ -15,7 +15,7 @@
         content="Aho-Corasick Automation - Shreyas's Blog">
     
     <meta property="og:type" content="article">
-    <meta property="og:description" content="
+    <meta property="og:description" content="CPUs are controlled with machine language, which is just a stream of binary-encoded instructions that specify
 ">
     
     <meta property="article:published_time" content=" 2025-07-25T00:00:00Z">
@@ -309,7 +309,159 @@
         <!-- Multi-Lingual -->
         
 
-        
+        <p>CPUs are controlled with <em>machine language</em>, which is just a stream of binary-encoded instructions that specify</p>
+
+<ul>
+  <li>the instruction number (called <em>opcode</em>),</li>
+  <li>what its <em>operands</em> are (if there are any),</li>
+  <li>and where to store the <em>result</em> (if one is produced).</li>
+</ul>
+
+<p>A much more human-friendly rendition of machine language, called <em>assembly language</em>, uses mnemonic codes to refer to machine code instructions and symbolic names to refer to registers and other storage locations.</p>
+
+<p>Jumping right into it, here is how you add two numbers (<code class="language-plaintext highlighter-rouge">*c = *a + *b</code>) in Arm assembly:</p>
+
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">; *a = x0, *b = x1, *c = x2</span>
+<span class="nf">ldr</span> <span class="nv">w0</span><span class="p">,</span> <span class="p">[</span><span class="nv">x0</span><span class="p">]</span>    <span class="c1">; load 4 bytes from wherever x0 points into w0</span>
+<span class="nf">ldr</span> <span class="nv">w1</span><span class="p">,</span> <span class="p">[</span><span class="nv">x1</span><span class="p">]</span>    <span class="c1">; load 4 bytes from wherever x1 points into w1</span>
+<span class="nf">add</span> <span class="nv">w0</span><span class="p">,</span> <span class="nv">w0</span><span class="p">,</span> <span class="nv">w1</span>  <span class="c1">; add w0 with w1 and save the result to w0</span>
+<span class="nf">str</span> <span class="nv">w0</span><span class="p">,</span> <span class="p">[</span><span class="nv">x2</span><span class="p">]</span>    <span class="c1">; write contents of w0 to wherever x2 points</span>
+</code></pre></div></div>
+
+<p>Here is the same operation in x86 assembly:</p>
+
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">; *a = rsi, *b = rdi, *c = rdx </span>
+<span class="nf">mov</span> <span class="nb">eax</span><span class="p">,</span> <span class="kt">DWORD</span> <span class="nv">PTR</span> <span class="p">[</span><span class="nb">rsi</span><span class="p">]</span>  <span class="c1">; load 4 bytes from wherever rsi points into eax</span>
+<span class="nf">add</span> <span class="nb">eax</span><span class="p">,</span> <span class="kt">DWORD</span> <span class="nv">PTR</span> <span class="p">[</span><span class="nb">rdi</span><span class="p">]</span>  <span class="c1">; add whatever is stored at rdi to eax</span>
+<span class="nf">mov</span> <span class="kt">DWORD</span> <span class="nv">PTR</span> <span class="p">[</span><span class="nb">rdx</span><span class="p">],</span> <span class="nb">eax</span>  <span class="c1">; write contents of eax to wherever rdx points</span>
+</code></pre></div></div>
+
+<p>Assembly is very simple in the sense that it doesn’t have many syntactical constructions compared to high-level programming languages. From what you can observe from the examples above:</p>
+
+<ul>
+  <li>A program is a sequence of instructions, each written as its name followed by a variable number of operands.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">[reg]</code> syntax is used for “dereferencing” a pointer stored in a register, and on x86 you need to prefix it with size information (<code class="language-plaintext highlighter-rouge">DWORD</code> here means 32 bit).</li>
+  <li>The <code class="language-plaintext highlighter-rouge">;</code> sign is used for line comments, similar to <code class="language-plaintext highlighter-rouge">#</code> and <code class="language-plaintext highlighter-rouge">//</code> in other languages.</li>
+</ul>
+
+<p>Assembly is a very minimal language because it needs to be. It reflects the machine language as closely as possible, up to the point where there is almost 1:1 correspondence between machine code and assembly. In fact, you can turn any compiled program back into its assembly form using a process called <em>disassembly</em><sup id="fnref:disassembly"><a href="#fn:disassembly" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> — although everything non-essential like comments will not be preserved.</p>
+
+<p>Note that the two snippets above are not just syntactically different. Both are optimized codes produced by a compiler, but the Arm version uses 4 instructions, while the x86 version uses 3. The <code class="language-plaintext highlighter-rouge">add eax, [rdi]</code> instruction is what’s called <em>fused instruction</em> that does a load and an add in one go — this is one of the perks that the <a href="../isa#risc-vs-cisc">CISC</a> approach can provide.</p>
+
+<p>Since there are far more differences between the architectures than just this one, from here on and for the rest of the book we will only provide examples for x86, which is probably what most of our readers will optimize for, although many of the introduced concepts will be architecture-agnostic.</p>
+
+<h3 id="instructions-and-registers">Instructions and Registers</h3>
+
+<p>For historical reasons, instruction mnemonics in most assembly languages are very terse. Back when people used to write assembly by hand and repeatedly wrote the same set of common instructions, one less character to type was one step away from insanity.</p>
+
+<p>For example, <code class="language-plaintext highlighter-rouge">mov</code> is for “store/load a word,” <code class="language-plaintext highlighter-rouge">inc</code> is for “increment by 1,” <code class="language-plaintext highlighter-rouge">mul</code> is for “multiply,” and <code class="language-plaintext highlighter-rouge">idiv</code> is for “integer division.” You can look up the description of an instruction by its name in <a href="https://www.felixcloutier.com/x86/">one of x86 references</a>, but most instructions do what you’d think they do.</p>
+
+<p>Most instructions write their result into the first operand, which can also be involved in the computation like in the <code class="language-plaintext highlighter-rouge">add eax, [rdi]</code> example we saw before. Operands can be either registers, constant values, or memory locations.</p>
+
+<p><strong>Registers</strong> are named <code class="language-plaintext highlighter-rouge">rax</code>, <code class="language-plaintext highlighter-rouge">rbx</code>, <code class="language-plaintext highlighter-rouge">rcx</code>, <code class="language-plaintext highlighter-rouge">rdx</code>, <code class="language-plaintext highlighter-rouge">rdi</code>, <code class="language-plaintext highlighter-rouge">rsi</code>, <code class="language-plaintext highlighter-rouge">rbp</code>, <code class="language-plaintext highlighter-rouge">rsp</code>, and <code class="language-plaintext highlighter-rouge">r8</code>-<code class="language-plaintext highlighter-rouge">r15</code> for a total of 16 of them. The “letter” ones are named like that for historical reasons: <code class="language-plaintext highlighter-rouge">rax</code> is “accumulator,” <code class="language-plaintext highlighter-rouge">rcx</code> is “counter,” <code class="language-plaintext highlighter-rouge">rdx</code> is “data” and so on — but, of course, they don’t have to be used only for that.</p>
+
+<p>There are also 32-, 16-bit and 8-bit registers that have similar names (<code class="language-plaintext highlighter-rouge">rax</code> → <code class="language-plaintext highlighter-rouge">eax</code> → <code class="language-plaintext highlighter-rouge">ax</code> → <code class="language-plaintext highlighter-rouge">al</code>). They are not fully separate but <em>aliased</em>: the lowest 32 bits of <code class="language-plaintext highlighter-rouge">rax</code> are <code class="language-plaintext highlighter-rouge">eax</code>, the lowest 16 bits of <code class="language-plaintext highlighter-rouge">eax</code> are <code class="language-plaintext highlighter-rouge">ax</code>, and so on. This is made to save die space while maintaining compatibility, and it is also the reason why basic type casts in compiled programming languages are usually free.</p>
+
+<p>These are just the <em>general-purpose</em> registers that you can, with <a href="../functions">some exceptions</a>, use however you like in most instructions. There is also a separate set of registers for <a href="/hpc/arithmetic/float">floating-point arithmetic</a>, a bunch of very wide registers used in <a href="/hpc/simd">vector extensions</a>, and a few special ones that are needed for <a href="../loops">control flow</a>, but we’ll get there in time.</p>
+
+<p><strong>Constants</strong> are just integer or floating-point values: <code class="language-plaintext highlighter-rouge">42</code>, <code class="language-plaintext highlighter-rouge">0x2a</code>, <code class="language-plaintext highlighter-rouge">3.14</code>, <code class="language-plaintext highlighter-rouge">6.02e23</code>. They are more commonly called <em>immediate values</em> because they are embedded right into the machine code. Because it may considerably increase the complexity of the instruction encoding, some instructions don’t support immediate values or allow just a fixed subset of them. In some cases, you have to load a constant value into a register and then use it instead of an immediate value.</p>
+
+<p>Apart from numeric values, there are also string constants such as <code class="language-plaintext highlighter-rouge">hello</code> or <code class="language-plaintext highlighter-rouge">world\n</code> with their own little subset of operations, but that is a somewhat obscure corner of the assembly language that we are not going to explore here.</p>
+
+<h3 id="moving-data">Moving Data</h3>
+
+<p>Some instructions may have the same mnemonic, but have different operand types, in which case they are considered distinct instructions as they may perform slightly different operations and take different times to execute. The <code class="language-plaintext highlighter-rouge">mov</code> instruction is a vivid example of that, as it comes in around 20 different forms, all related to moving data: either between the memory and registers or just between two registers. Despite the name, it doesn’t <em>move</em> a value into a register, but <em>copies</em> it, preserving the original.</p>
+
+<p>When used to copy data between two registers, the <code class="language-plaintext highlighter-rouge">mov</code> instruction instead performs <em>register renaming</em> internally — informs the CPU that the value referred by register X is actually stored in register Y — without causing any additional delay except for maybe reading and decoding the instruction itself. For the same reason, the <code class="language-plaintext highlighter-rouge">xchg</code> instruction that swaps two registers also doesn’t cost anything.</p>
+
+<p>As we’ve seen above with the fused <code class="language-plaintext highlighter-rouge">add</code>, you don’t have to use <code class="language-plaintext highlighter-rouge">mov</code> for every memory operation: some arithmetic instructions conveniently support memory locations as operands.</p>
+
+<!--
+
+Some operations are fused like `add r m` or `inc m` (this is one of the rare instructions that doesn't use any register values as operands).
+
+When address is used,
+
+Mirroring
+
+-->
+
+<h3 id="addressing-modes">Addressing Modes</h3>
+
+<p>Memory addressing is done with the <code class="language-plaintext highlighter-rouge">[]</code> operator, but it can do more than just reinterpret a value stored in a register as a memory location. The address operand takes up to 4 parameters presented in the syntax:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SIZE PTR [base + index * scale + displacement]
+</code></pre></div></div>
+
+<p>where <code class="language-plaintext highlighter-rouge">displacement</code> needs to be an integer constant and <code class="language-plaintext highlighter-rouge">scale</code> can be either 2, 4, or 8. What it does is calculate the pointer <code class="language-plaintext highlighter-rouge">base + index * scale + displacement</code> and dereferences it.</p>
+
+<!-- You can use them in any order: the assembler will figure it out. -->
+
+<p>Using complex addressing is <a href="/hpc/cpu-cache/pointers">at most one cycle slower</a> than dereferencing a pointer directly, and it can be useful when you have, for example, an array of structures and want to load a specific field of its $i$-th element.</p>
+
+<p>Addressing operator needs to be prefixed with a size specifier for how many bits of data are needed:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">BYTE</code> for 8 bits</li>
+  <li><code class="language-plaintext highlighter-rouge">WORD</code> for 16 bits</li>
+  <li><code class="language-plaintext highlighter-rouge">DWORD</code> for 32 bits</li>
+  <li><code class="language-plaintext highlighter-rouge">QWORD</code> for 64 bits</li>
+</ul>
+
+<p>There is also a more rare <code class="language-plaintext highlighter-rouge">TBYTE</code> for <a href="/hpc/arithmetic/float">80 bits</a>, and <code class="language-plaintext highlighter-rouge">XMMWORD</code>, <code class="language-plaintext highlighter-rouge">YMMWORD</code>, and <code class="language-plaintext highlighter-rouge">ZMMWORD</code> for <a href="/hpc/simd">128, 256, and 512 bits</a> respectively. All these types don’t have to be written in uppercase, but this is how most compilers emit them.</p>
+
+<p>The address computation is often useful by itself: the <code class="language-plaintext highlighter-rouge">lea</code> (“load effective address”) instruction calculates the memory address of the operand and stores it in a register in one cycle, without doing any actual memory operations. While its intended use is for actually computing memory addresses, it is also often used as an arithmetic trick that would otherwise involve 1 multiplication and 2 additions — for example, you can multiply by 3, 5, and 9 with it.</p>
+
+<p>It also frequently serves as a replacement for <code class="language-plaintext highlighter-rouge">add</code> because it doesn’t need a separate <code class="language-plaintext highlighter-rouge">mov</code> instruction if you need to move the result somewhere else: <code class="language-plaintext highlighter-rouge">add</code> only works in the two-register <code class="language-plaintext highlighter-rouge">a += b</code> mode, while <code class="language-plaintext highlighter-rouge">lea</code> lets you do <code class="language-plaintext highlighter-rouge">a = b + c</code> (or even <code class="language-plaintext highlighter-rouge">a = b + c + d</code> if one of them is a constant).</p>
+
+<h3 id="alternative-syntax">Alternative Syntax</h3>
+
+<p>There are actually multiple <em>assemblers</em> (the programs that produce machine code from assembly) with different assembly languages, but only two x86 syntaxes are widely used now. They are commonly called after the two companies that used them and had a dominant influence on programming during that era:</p>
+
+<ul>
+  <li>The <em>AT&amp;T syntax</em>, used by default by all Linux tools.</li>
+  <li>The <em>Intel syntax</em>, used by default, well, by Intel.</li>
+</ul>
+
+<p>These syntaxes are also sometimes called <em>GAS</em> and <em>NASM</em> respectively, by the names of the two primary assemblers that use them (<em>GNU Assembler</em> and <em>Netwide Assembler</em>).</p>
+
+<p>We used Intel syntax in this chapter and will continue to preferably use it for the rest of the book. For comparison, here is how the same <code class="language-plaintext highlighter-rouge">*c = *a + *b</code> example looks like in AT&amp;T asm:</p>
+
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">movl</span> <span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">),</span> <span class="o">%</span><span class="nb">eax</span>
+<span class="nf">addl</span> <span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nb">eax</span>
+<span class="nf">movl</span> <span class="o">%</span><span class="nb">eax</span><span class="p">,</span> <span class="p">(</span><span class="o">%</span><span class="nb">rdx</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The key differences can be summarized as follows:</p>
+
+<ol>
+  <li>The <em>last</em> operand is used to specify the destination.</li>
+  <li>Registers and constants need to be prefixed by <code class="language-plaintext highlighter-rouge">%</code> and <code class="language-plaintext highlighter-rouge">$</code> respectively (e.g., <code class="language-plaintext highlighter-rouge">addl $1, %rdx</code> increments <code class="language-plaintext highlighter-rouge">rdx</code>).</li>
+  <li>Memory addressing looks like this: <code class="language-plaintext highlighter-rouge">displacement(%base, %index, scale)</code>.</li>
+  <li>Both <code class="language-plaintext highlighter-rouge">;</code> and <code class="language-plaintext highlighter-rouge">#</code> can be used for line comments, and also <code class="language-plaintext highlighter-rouge">/* */</code> can be used for block comments.</li>
+</ol>
+
+<p>And, most importantly, in AT&amp;T syntax, the instruction names need to be “suffixed” (<code class="language-plaintext highlighter-rouge">addq</code>, <code class="language-plaintext highlighter-rouge">movl</code>, <code class="language-plaintext highlighter-rouge">cmpq</code>, etc.) to specify what size operands are being manipulated:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">b</code> = byte (8 bit)</li>
+  <li><code class="language-plaintext highlighter-rouge">w</code> = word (16 bit)</li>
+  <li><code class="language-plaintext highlighter-rouge">l</code> = long (32 bit integer or 64-bit floating-point)</li>
+  <li><code class="language-plaintext highlighter-rouge">q</code> = quad (64 bit)</li>
+  <li><code class="language-plaintext highlighter-rouge">s</code> = single (32-bit floating-point)</li>
+  <li><code class="language-plaintext highlighter-rouge">t</code> = ten bytes (80-bit floating-point)</li>
+</ul>
+
+<p>In Intel syntax, this information is inferred from operands (which is why you also need to specify sizes of pointers).</p>
+
+<p>Most tools that produce or consume x86 assembly can do so in both syntaxes, so you can just pick the one you like more and don’t worry.</p>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:disassembly">
+      <p>On Linux, to disassemble a compiled program, you can call <code class="language-plaintext highlighter-rouge">objdump -d {path-to-binary}</code>. <a href="#fnref:disassembly" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
 
         <hr style="visibility: hidden;">
@@ -374,12 +526,12 @@
                 <a data-sort="0017" 
                     href="/archive/?tag=C%2B%2B"
                     title="C++"
-                    rel="5">C++</a>
+                    rel="6">C++</a>
         
                 <a data-sort="0005" 
                     href="/archive/?tag=Algorithms"
                     title="Algorithms"
-                    rel="17">Algorithms</a>
+                    rel="18">Algorithms</a>
     </div>
 </section>
 
