@@ -18,6 +18,8 @@ tags:
 >
 > - [TopCoder Binary Search Article](https://www.topcoder.com/community/competitive-programming/tutorials/binary-search)
 
+## Binary Search 
+
 ### Binary Search
 
 Searching for an element in a given array has always been an interesting task, but when it comes to retrieving it with the most optimal time and space complexity, we often fall into the trap of looping approaches. Binary Search, however, is a method that comes in handy, as it strikes a balance between both time and auxiliary complexities. It works in $O(log n)$ time and uses $O(1)$ space. Additionally, we can even implement a [branchless binary search](https://probablydance.com/2023/04/27/beautiful-branchless-binary-search/) for low-level hardware usage to optimize CPU operations.
