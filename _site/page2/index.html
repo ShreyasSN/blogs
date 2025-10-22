@@ -12,7 +12,7 @@
 
     <!-- Open Graph -->
     <meta property="og:title"
-        content="Shreyas's Blog">
+        content="Shreyas' Blog">
     
     <meta property="og:type" content="website">
     <meta property="og:description"
@@ -20,9 +20,9 @@
     
     <meta property="og:image" content="http://localhost:4000https://github.com/shreyassn.png">
     <meta property="og:url" content="http://localhost:4000/page2/">
-    <meta property="og:site_name" content="Shreyas's Blog">
+    <meta property="og:site_name" content="Shreyas' Blog">
 
-    <title>Shreyas's Blog</title>
+    <title>Shreyas' Blog</title>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/pwa/manifest.json">
@@ -83,7 +83,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Shreyas's Blogs</a>
+                <a class="navbar-brand" href="/">
+                    <img src="/img/blog-logo.svg" alt="logo" class="brand-logo" width="40" height="40">
+                    Shreyas' Blogs
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -124,6 +127,12 @@
                         
                         
                         
+                        <!-- <li class="theme-icon">
+                            <a href="javascript:void(0)" role="button" aria-label="Toggle dark theme" aria-pressed="false" title="Toggle theme" tabindex="0">
+                                <i class="fa fa-moon-o" aria-hidden="true"></i>
+                            </a>
+                        </li> -->
+
                         <li class="search-icon">
                             <a href="javascript:void(0)">
                                 <i class="fa fa-search"></i>
@@ -262,7 +271,7 @@
           
             <div class="site-heading">
               
-              <h1>Shreyas's Blogs</h1>
+              <h1>Shreyas' Blogs</h1>
               <span class="subheading">Everything is a process</span>
             </div>
           </div>
@@ -280,6 +289,24 @@
 
     <div class="col-lg-12 postlist-container">
       <div class="blog-grid">
+        
+        <div class="blog-grid-item">
+          <a href="/2025/07/25/disjoint-union-set/">
+            
+            <div class="blog-grid-image">
+              <img style="cursor: pointer;" src="http://localhost:4000/img/post/dsu.png" alt="Power of Disjoint Union Set" />
+            </div>
+            
+            <div class="blog-grid-content">
+              <h3 class="blog-grid-title">Power of Disjoint Union Set</h3>
+              <div class="blog-grid-tags">
+                
+                <span class="tag">Data Structures</span>
+                
+              </div>
+            </div>
+          </a>
+        </div>
         
         <div class="blog-grid-item">
           <a href="/2025/07/25/dfs-and-bfs/">
@@ -526,9 +553,9 @@
                 <a data-sort="0017" 
                     href="/archive/?tag=C%2B%2B"
                     title="C++"
-                    rel="6">C++</a>
+                    rel="7">C++</a>
         
-                <a data-sort="0005" 
+                <a data-sort="0006" 
                     href="/archive/?tag=Algorithms"
                     title="Algorithms"
                     rel="18">Algorithms</a>
@@ -585,7 +612,7 @@
 </ul>
 
                 <p class="copyright text-muted">
-                    Copyright &copy; Shreyas's Blogs 2025
+                    Copyright &copy; Shreyas' Blogs 2025
                     <br>
                     <!-- Powered by <a href="http://huangxuan.me">Hux Blog</a> |
                     <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="100px"
@@ -793,6 +820,9 @@
         });
     });
 </script>
+
+<!-- Theme toggle script (handles dark/light and persists choice) -->
+<script src="/js/theme-toggle.js"></script>
 
 
 <!-- Image to hack wechat -->

@@ -12,26 +12,28 @@
 
     <!-- Open Graph -->
     <meta property="og:title"
-        content="Favourite Problem Set From Competetive Programming Contests - Shreyas' Blog">
+        content="Object Oriented Programming - Shreyas' Blog">
     
     <meta property="og:type" content="article">
-    <meta property="og:description" content="
+    <meta property="og:description" content="Object Oriented Programming
 ">
     
-    <meta property="article:published_time" content=" 2025-07-25T00:00:00Z">
+    <meta property="article:published_time" content=" 2025-10-01T00:00:00Z">
     
     
     <meta property="article:author" content="Shreyas S N">
     
     
-    <meta property="article:tag" content="Problem-list">
+    <meta property="article:tag" content="C++">
+    
+    <meta property="article:tag" content="OOP">
     
     
     <meta property="og:image" content="http://localhost:4000https://github.com/shreyassn.png">
-    <meta property="og:url" content="http://localhost:4000/2025/07/25/favourite-competetive-programming-questions/">
+    <meta property="og:url" content="http://localhost:4000/2025/10/01/oop/">
     <meta property="og:site_name" content="Shreyas' Blog">
 
-    <title>Favourite Problem Set From Competetive Programming Contests - Shreyas' Blog</title>
+    <title>Object Oriented Programming - Shreyas' Blog</title>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/pwa/manifest.json">
@@ -40,7 +42,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="http://localhost:4000/2025/07/25/favourite-competetive-programming-questions/">
+    <link rel="canonical" href="http://localhost:4000/2025/10/01/oop/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -228,7 +230,7 @@
 
     <!-- Image to hack wechat -->
 <!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
-<!-- <img src="/img/post-bg-universe.jpg" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-os-metro.jpg" width="0" height="0"> -->
 
 <!-- Post Header -->
 
@@ -237,7 +239,7 @@
 <style type="text/css">
   header.intro-header {
     position: relative;
-    background-image: url('/img/post-bg-universe.jpg');
+    background-image: url('/img/post-bg-os-metro.jpg');
 
     background: {
         {
@@ -282,14 +284,16 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/archive/?tag=Problem-list" title="Problem-list">Problem-list</a>
+              <a class="tag" href="/archive/?tag=C%2B%2B" title="C++">C++</a>
+              
+              <a class="tag" href="/archive/?tag=OOP" title="OOP">OOP</a>
               
             </div>
-            <h1>Favourite Problem Set From Competetive Programming Contests</h1>
+            <h1>Object Oriented Programming</h1>
             
             <h2 class="subheading">All patterns of binary search</h2>
             <span class="meta">Posted by Shreyas S N on
-              July 25, 2025</span>
+              October 1, 2025</span>
           </div>
         </div>
       </div>
@@ -315,28 +319,185 @@
         <!-- Multi-Lingual -->
         
 
-        
+        <h1 id="object-oriented-programming">Object Oriented Programming</h1>
+
+<h3 id="what-is-oop-">What is OOP ?</h3>
+<p>It is simply a programming paradigm in which it organizes software desing around object and classes rather than merely functions and logic through this we can reduce code complexity and reuse similar behaviour and states. OOP is based on mainly 4 principles and its often be called as 4 pillars of object oriented programming. Before getting into principles let us understand what is class and object really means for? Picture this- you are sitting down a tallest, cold wind surfing down of heavely leaves and branches hiding sun and sky, isnt too dramatic? haha it should be dude. Now tree has [leaf, branch, roots, photosynthesis, xylem, phloem.. etc] but all together you call it tree. yes you are almost there to understand. Ok my question is,</p>
+<ol>
+  <li>can you see how photosynthesis being carried out?</li>
+  <li>why not exposed inside anatomy of tree?</li>
+  <li>How come a leaf can do multiple task like respirations, CO_2 cycle, etc</li>
+</ol>
+
+<p>To be able to understand metophor along with OOP, I will give you clue for terms of 4 pillars</p>
+<ul>
+  <li>Encapsulation: just like medicin capsule. Its protecting layer around objects and enforce whether it should be accessed by public or children or self only.</li>
+  <li>Abstraction: Why should something highly secure ATM should show how it calculates debt and credit/ amount etc ? Defently its a bad idea right? Likewise abstract class is made to show just necessary things and abstract method which has no defination but supposed to be extend by the children.</li>
+  <li>Inheritance: Biggest bussiness success is nearly impossible(but never 0) to achieve in one life time, it definetly it can be when it inherits to next generation. practically Dhirubhai ambani started (parent class) now mukesh ambani(subclass/ derieved class) is in charge which are inherited by parent class and again next Anant ambani will continue. generally each class has someting to make changes(polymorphism::override) and decision to create new outcomes.</li>
+  <li>Polyphorphism: Something that does same task in different way, it may be Anant Ambani that he is [son, husband, friend, person] (pholyphorphism::override) or Mukesh Ambani manages many businesses like telecom, retail, energy, all under one name, Reliance(polyphormism::overloading) one function name doing different tasks depending on the input.</li>
+</ul>
+
+<h3 id="4-pillars-of-oop-and-its-types">4 pillars of OOP and it’s types</h3>
+
+<ol>
+  <li>Encapsulation
+    <ul>
+      <li>Public</li>
+      <li>Protected</li>
+      <li>Private</li>
+    </ul>
+  </li>
+  <li>Abstraction
+    <ul>
+      <li>Abstract class</li>
+      <li>Abstract method</li>
+    </ul>
+  </li>
+  <li>Inheritance
+    <ul>
+      <li>Simple Inheritance</li>
+      <li>Multilevel Inheritance</li>
+      <li>Multiple Inheritance</li>
+      <li>Hybrid Inheritance</li>
+      <li>Hirarchical Inheritance</li>
+    </ul>
+  </li>
+  <li>Polymorphism
+    <ul>
+      <li>Overloading/ Static/ Compile-time</li>
+      <li>Overriding/ Dynamic/ Runtime</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="encapsulation">Encapsulation</h3>
+
+<p>Binding together data and methods into single unit and keeping it safe from outer interference to avoid misuse. We achieve encapsulation by declaring methods and data using access specfiers.
+Access specifiers are private, protected, public.
+Private is valid only for that class where it is declared and protected can be accesed in declared class and subclass which is derieved. Public is open to all to access and modify.</p>
+
+<p>Example that I think make sense is Tree. Yes, a tree. As you know</p>
+<ul id="enc" class="tab" data-tab="09dd6019-5786-4934-b9f7-cf900150b4ee" data-name="enc">
+  
+      <li class="active" id="enc-c--">
+          <a href="#">C++ </a>
+      </li>
+  
+      <li id="enc-python">
+          <a href="#">Python </a>
+      </li>
+  
+      <li id="enc-java">
+          <a href="#">Java </a>
+      </li>
+  
+</ul>
+<ul class="tab-content" id="09dd6019-5786-4934-b9f7-cf900150b4ee" data-name="enc">
+  
+      <li class="active">
+<p>C++ has keyword to enforce encapsulation ie, <code class="language-plaintext highlighter-rouge">public</code> <code class="language-plaintext highlighter-rouge">protected</code> <code class="language-plaintext highlighter-rouge">private</code>. By default class is private</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="k">class</span> <span class="nc">ThreeDPoints</span> <span class="p">{</span>
+<span class="nl">private:</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>
+<span class="nl">public:</span>
+  <span class="n">ThreeDPoints</span><span class="p">(</span><span class="kt">int</span> <span class="n">_x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_z</span><span class="p">)</span> <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">_x</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">_y</span><span class="p">),</span> <span class="n">z</span><span class="p">(</span><span class="n">_z</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">protected</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="nf">printPoitns</span><span class="p">(){</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="n">z</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+</li>
+  
+      <li>
+<p>Unlike C++ and Java, python is different in terms of access specifers. Python trust on naming convetion ie,</p>
+
+<ul>
+  <li>Protected: Prefix single underscore</li>
+  <li>Private: Prefix double underscore
+This is becaus python believes that all are adults here and merely trust the progrommer to not</li>
+</ul>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">class</span> <span class="nc">ThreeDPoints</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">__x</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">__y</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">__z</span> <span class="o">=</span> <span class="n">z</span>
+
+  <span class="k">def</span> <span class="nf">_print_points</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">__x</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">__y</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">__z</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+</li>
+  
+      <li>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreeDPoints</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">z</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">ThreeDPoints</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">,</span> <span class="kt">int</span> <span class="n">z</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">z</span> <span class="o">=</span> <span class="n">z</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">printPoints</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">z</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+</li>
+  
+</ul>
+
 
 
         <hr style="visibility: hidden;">
         <ul class="pager">
           
           <li class="previous">
-            <a href="/2025/07/25/disjoint-union-set/" data-toggle="tooltip"
-              data-placement="top" title="Power of Disjoint Union Set">
+            <a href="/2025/07/25/image-processing/" data-toggle="tooltip"
+              data-placement="top" title="Binary Search">
               Previous<br>
-              <span>Power of Disjoint Union Set</span>
+              <span>Binary Search</span>
             </a>
           </li>
           
-          
-          <li class="next">
-            <a href="/2025/07/25/lazy-segment-tree/" data-toggle="tooltip"
-              data-placement="top" title="Lazy Segment Tree">
-              Next<br>
-              <span>Lazy Segment Tree</span>
-            </a>
-          </li>
           
         </ul>
         <hr style="visibility: hidden;">
@@ -408,6 +569,26 @@
 
 <script src="/js/jekyll-tabs.js"></script>
 <!-- add support for mathjax by voleking-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: { autoNumber: "all" },
+      tagSide: "right"
+    },
+    SVG: {
+      scale: 90
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/mathjax/MathJax@legacy-v2-develop/unpacked/MathJax.js?config=TeX-AMS_CHTML"></script>
+<!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> -->
 
 
 

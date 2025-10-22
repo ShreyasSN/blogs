@@ -12,7 +12,7 @@
 
     <!-- Open Graph -->
     <meta property="og:title"
-        content="Aho-Corasick Automation - Shreyas's Blog">
+        content="Aho-Corasick Automation - Shreyas' Blog">
     
     <meta property="og:type" content="article">
     <meta property="og:description" content="CPUs are controlled with machine language, which is just a stream of binary-encoded instructions that specify
@@ -31,9 +31,9 @@
     
     <meta property="og:image" content="http://localhost:4000https://github.com/shreyassn.png">
     <meta property="og:url" content="http://localhost:4000/2025/07/25/aho-corasick/">
-    <meta property="og:site_name" content="Shreyas's Blog">
+    <meta property="og:site_name" content="Shreyas' Blog">
 
-    <title>Aho-Corasick Automation - Shreyas's Blog</title>
+    <title>Aho-Corasick Automation - Shreyas' Blog</title>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/pwa/manifest.json">
@@ -94,7 +94,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Shreyas's Blogs</a>
+                <a class="navbar-brand" href="/">
+                    <img src="/img/blog-logo.svg" alt="logo" class="brand-logo" width="40" height="40">
+                    Shreyas' Blogs
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -135,6 +138,12 @@
                         
                         
                         
+                        <!-- <li class="theme-icon">
+                            <a href="javascript:void(0)" role="button" aria-label="Toggle dark theme" aria-pressed="false" title="Toggle theme" tabindex="0">
+                                <i class="fa fa-moon-o" aria-hidden="true"></i>
+                            </a>
+                        </li> -->
+
                         <li class="search-icon">
                             <a href="javascript:void(0)">
                                 <i class="fa fa-search"></i>
@@ -322,20 +331,29 @@
 
 <p>Jumping right into it, here is how you add two numbers (<code class="language-plaintext highlighter-rouge">*c = *a + *b</code>) in Arm assembly:</p>
 
-<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">; *a = x0, *b = x1, *c = x2</span>
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="c1">; *a = x0, *b = x1, *c = x2</span>
 <span class="nf">ldr</span> <span class="nv">w0</span><span class="p">,</span> <span class="p">[</span><span class="nv">x0</span><span class="p">]</span>    <span class="c1">; load 4 bytes from wherever x0 points into w0</span>
 <span class="nf">ldr</span> <span class="nv">w1</span><span class="p">,</span> <span class="p">[</span><span class="nv">x1</span><span class="p">]</span>    <span class="c1">; load 4 bytes from wherever x1 points into w1</span>
 <span class="nf">add</span> <span class="nv">w0</span><span class="p">,</span> <span class="nv">w0</span><span class="p">,</span> <span class="nv">w1</span>  <span class="c1">; add w0 with w1 and save the result to w0</span>
 <span class="nf">str</span> <span class="nv">w0</span><span class="p">,</span> <span class="p">[</span><span class="nv">x2</span><span class="p">]</span>    <span class="c1">; write contents of w0 to wherever x2 points</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Here is the same operation in x86 assembly:</p>
 
-<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">; *a = rsi, *b = rdi, *c = rdx </span>
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="c1">; *a = rsi, *b = rdi, *c = rdx </span>
 <span class="nf">mov</span> <span class="nb">eax</span><span class="p">,</span> <span class="kt">DWORD</span> <span class="nv">PTR</span> <span class="p">[</span><span class="nb">rsi</span><span class="p">]</span>  <span class="c1">; load 4 bytes from wherever rsi points into eax</span>
 <span class="nf">add</span> <span class="nb">eax</span><span class="p">,</span> <span class="kt">DWORD</span> <span class="nv">PTR</span> <span class="p">[</span><span class="nb">rdi</span><span class="p">]</span>  <span class="c1">; add whatever is stored at rdi to eax</span>
 <span class="nf">mov</span> <span class="kt">DWORD</span> <span class="nv">PTR</span> <span class="p">[</span><span class="nb">rdx</span><span class="p">],</span> <span class="nb">eax</span>  <span class="c1">; write contents of eax to wherever rdx points</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Assembly is very simple in the sense that it doesn’t have many syntactical constructions compared to high-level programming languages. From what you can observe from the examples above:</p>
 
@@ -391,8 +409,9 @@ Mirroring
 
 <p>Memory addressing is done with the <code class="language-plaintext highlighter-rouge">[]</code> operator, but it can do more than just reinterpret a value stored in a register as a memory location. The address operand takes up to 4 parameters presented in the syntax:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SIZE PTR [base + index * scale + displacement]
-</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>SIZE PTR [base + index * scale + displacement]
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>where <code class="language-plaintext highlighter-rouge">displacement</code> needs to be an integer constant and <code class="language-plaintext highlighter-rouge">scale</code> can be either 2, 4, or 8. What it does is calculate the pointer <code class="language-plaintext highlighter-rouge">base + index * scale + displacement</code> and dereferences it.</p>
 
@@ -428,10 +447,13 @@ Mirroring
 
 <p>We used Intel syntax in this chapter and will continue to preferably use it for the rest of the book. For comparison, here is how the same <code class="language-plaintext highlighter-rouge">*c = *a + *b</code> example looks like in AT&amp;T asm:</p>
 
-<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">movl</span> <span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">),</span> <span class="o">%</span><span class="nb">eax</span>
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nf">movl</span> <span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">),</span> <span class="o">%</span><span class="nb">eax</span>
 <span class="nf">addl</span> <span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nb">eax</span>
 <span class="nf">movl</span> <span class="o">%</span><span class="nb">eax</span><span class="p">,</span> <span class="p">(</span><span class="o">%</span><span class="nb">rdx</span><span class="p">)</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>The key differences can be summarized as follows:</p>
 
@@ -527,9 +549,9 @@ Mirroring
                 <a data-sort="0017" 
                     href="/archive/?tag=C%2B%2B"
                     title="C++"
-                    rel="6">C++</a>
+                    rel="7">C++</a>
         
-                <a data-sort="0005" 
+                <a data-sort="0006" 
                     href="/archive/?tag=Algorithms"
                     title="Algorithms"
                     rel="18">Algorithms</a>
@@ -651,7 +673,7 @@ Mirroring
 </ul>
 
                 <p class="copyright text-muted">
-                    Copyright &copy; Shreyas's Blogs 2025
+                    Copyright &copy; Shreyas' Blogs 2025
                     <br>
                     <!-- Powered by <a href="http://huangxuan.me">Hux Blog</a> |
                     <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="100px"
@@ -859,6 +881,9 @@ Mirroring
         });
     });
 </script>
+
+<!-- Theme toggle script (handles dark/light and persists choice) -->
+<script src="/js/theme-toggle.js"></script>
 
 
 <!-- Image to hack wechat -->

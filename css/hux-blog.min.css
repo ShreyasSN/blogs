@@ -1,4 +1,4 @@
-@media (min-width:1200px) {
+/* @media (min-width:1200px) {
 
   .post-container,
   .sidebar-container {
@@ -10,7 +10,7 @@
   .post-container {
     padding-right: 5%
   }
-}
+} */
 
 .sidebar-container {
   color: #bfbfbf;
@@ -155,11 +155,12 @@
 
 .side-catalog .catalog-body .active {
   border-radius: 4px;
-  background-color: #003380;
+  /* background-color: #003380; */
 }
 
 .side-catalog .catalog-body .active a {
-  color: wheat !important
+  text-decoration: underline;
+  color: #0085a1 !important
 }
 
 @media (max-width:1200px) {
@@ -335,7 +336,22 @@ button.paper-button {
   border-radius: 2px
 }
 
+/* CODE BLOCK COLOR  */
 .highlight,
+pre.highlight {
+  background: #1c1e21;
+  color: #abb2bf;
+}
+
+.highlight pre {
+  background: #1c1e21
+}
+
+.highlight .hll {
+  background: #1c1e21
+}
+
+/* .highlight,
 pre.highlight {
   background: #282c34;
   color: #abb2bf
@@ -347,7 +363,7 @@ pre.highlight {
 
 .highlight .hll {
   background: #282c34
-}
+} */
 
 .highlight .c {
   color: #5c6370;
@@ -360,7 +376,7 @@ pre.highlight {
 }
 
 .language-coq .highlight .err {
-  
+
   : transparent
 }
 
@@ -606,19 +622,18 @@ pre.highlight {
 }
 
 .highlighter-rouge .highlight {
-  margin-bottom: 10px;
-  margin-top: 10px;
-  border: 0.5px solid #00246B;
+  margin: 5px 20px 5px 20px;
+  /* border: 0.5px solid #00246B; */
   border-radius: 3px;
-  padding: 14px;
+  /* padding: 14px; */
 }
 
 .highlighter-rouge .highlight pre {
   font-size: 14px;
   font-weight: bold;
   line-height: 1.5;
-  /* color: #555; */
-  color: rgb(255, 170, 0);
+  color: #555;
+  /* color: #e5c07b; */
   background: 0 0;
   border: 0;
   margin: 0;
@@ -687,7 +702,7 @@ pre.highlight {
   bottom: 0;
   left: 0;
   z-index: 100;
-  background: #fff;
+  background: #101010;
   -webkit-transition: all 400ms cubic-bezier(0.32, 1, .23, 1);
   transition: all 400ms cubic-bezier(0.32, 1, .23, 1);
   -webkit-transform: translate(0, 100%);
@@ -753,7 +768,7 @@ pre.highlight {
 .search-page #search-results {
   overflow: auto;
   height: 100%;
-  color: #000 !important;
+  color: #9900ff;
   -webkit-overflow-scrolling: touch;
   padding-bottom: 80px
 }
@@ -762,7 +777,7 @@ pre.highlight {
 .search-icon-close {
   cursor: pointer;
   font-size: 30px;
-  color: #311e3e;
+  color: #9900ff;
   -webkit-transition: all .25s;
   transition: all .25s
 }
@@ -933,7 +948,7 @@ samp {
 .post-container h4,
 .post-container h5,
 .post-container h6 {
-  margin: 50px 0 20px;
+  margin: 25px 0 20px;
   line-height: 1.4
 }
 
@@ -954,13 +969,13 @@ samp {
   margin-bottom: 30px
 } */
 
-.post-container 
-h1,
-h2,
-h3,
-h4{
-  display:block;
-  border-bottom:1px solid rgb(48, 48, 48);
+.post-container h2,
+.post-container h3,
+.post-container h4,
+.post-container h5,
+.post-container h6 {
+  display: block;
+  border-bottom: 1px solid rgb(77, 77, 77)
 }
 
 
@@ -1015,9 +1030,10 @@ h4{
 }
 
 @media screen and (max-width:768px) {
+
   .post-container ul,
   .post-container ol {
-    padding-left: 10px
+    padding-left: 30px
   }
 }
 
@@ -1025,7 +1041,7 @@ h4{
 
   .post-container ul,
   .post-container ol {
-    padding-left: 5px
+    padding-left: 20px
   }
 }
 
@@ -1255,11 +1271,12 @@ h4{
     backface-visibility: hidden
   }
 
-  .navbar-custom.is-fixed { 
+  .navbar-custom.is-fixed {
     position: fixed;
     top: -61px;
     /* NAVBAR */
-    background-color: #8AB6F9;
+    /* background-color: #8AB6F9; */
+    background-color: #000f2a;
     /* background-color: rgba(255, 255, 255, .9); */
     border-bottom: 1px solid #000000;
     -webkit-transition: -webkit-transform .3s;
@@ -1268,21 +1285,28 @@ h4{
   }
 
   .navbar-custom.is-fixed .navbar-brand {
-    color: #404040
+    color: white;
+    /* color: #0077ff; */
+    font-family: 'AGaramond Pro', 'Garamond', 'Times New Roman', serif;
+    font-size: 2em;
+    font-style: italic;
   }
 
   .navbar-custom.is-fixed .navbar-brand:hover,
   .navbar-custom.is-fixed .navbar-brand:focus {
-    color: #00246B
+    color: #1f87ff
   }
 
   .navbar-custom.is-fixed .nav li a {
-    color: #404040
+    color: white;
+    font-family: 'Montaga';
+    font-size: 1.1em;
+    text-transform: capitalize;
   }
 
   .navbar-custom.is-fixed .nav li a:hover,
   .navbar-custom.is-fixed .nav li a:focus {
-    color: #00246B
+    color: #499eff;
   }
 
   .navbar-custom.is-visible {
@@ -1417,7 +1441,7 @@ h4{
   font-weight: 400;
   margin: 10px 0 30px;
   margin-top: -5px;
- border: none;
+  border: none;
 }
 
 .intro-header .post-heading .meta {
@@ -1468,7 +1492,7 @@ h4{
 }
 
 .post-preview>a {
-  color: #404040
+  color: #adbfff
 }
 
 .post-preview>a:hover,
