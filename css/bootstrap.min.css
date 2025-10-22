@@ -1917,7 +1917,8 @@ code {
   padding: 2px 4px;
   font-size: 90%;
   /* color: #c7254e; */
-  color: rgb(141, 137, 255);
+  /* color: rgb(141, 137, 255); */
+  color: rgb(190, 190, 190);
   background-color: #2f2f2f;
   /* CODE COLOR */
   /* background-color: #f9f2f4; */

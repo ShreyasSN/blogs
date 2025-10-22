@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Object Oriented Programming",
+      "subtitle" : "All patterns of binary search",
+      "tags"     : "C++, OOP",
+      "url"      : "/2025/10/01/oop/",
+      "date"     : "2025-10-01 00:00:00 +0530"
+    } ,
+  
+    {
       "title"    : "Binary Search",
       "subtitle" : "All patterns of binary search",
       "tags"     : "",

@@ -13,7 +13,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
+                <a class="navbar-brand" href="{{ site.baseurl }}/">
+                    <img src="{{ '/img/blog-logo.svg' | prepend: site.baseurl }}" alt="logo" class="brand-logo" width="40" height="40">
+                    {{ site.title }}
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -30,6 +33,12 @@
                         </li>
                         {% endif %}
                         {% endfor %}
+                        <!-- <li class="theme-icon">
+                            <a href="javascript:void(0)" role="button" aria-label="Toggle dark theme" aria-pressed="false" title="Toggle theme" tabindex="0">
+                                <i class="fa fa-moon-o" aria-hidden="true"></i>
+                            </a>
+                        </li> -->
+
                         <li class="search-icon">
                             <a href="javascript:void(0)">
                                 <i class="fa fa-search"></i>

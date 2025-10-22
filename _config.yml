@@ -1,6 +1,6 @@
 # Site settings
-title: Shreyas's Blogs
-SEOTitle: Shreyas's Blog
+title: Shreyas' Blogs
+SEOTitle: Shreyas' Blog
 header-img: img/home-bg.jpg
 email: shreyassnhere@gmail.com
 description: "Place to share my thoughts and experiences in the tech world."
@@ -54,8 +54,8 @@ kramdown:
     span:
       line_numbers: false
     block:
-      line_numbers: false
-      # start_line: 1
+      line_numbers: true
+      start_line: 1
 
 # Disqus settings
 disqus_username:

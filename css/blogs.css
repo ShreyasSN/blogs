@@ -15,7 +15,6 @@ body {
 
 .hint {
   border-left: 4px solid #2b90d9;
-  background: #f0f6fc;
   padding: 0.75em 1em;
   margin: 1em 0;
   border-radius: 4px;
@@ -40,6 +39,14 @@ body {
 }
 
 
+/* /////////font-family/////////  */
+
+@font-face {
+  font-family: 'AGaramondPro';
+  src: url('../fonts/AGaramondPro-Regular.otf') format('opentype');
+}
+
+
 /* //////////////////  */
 
 h1 {
@@ -47,13 +54,16 @@ h1 {
   color: white;
 }
 
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Quintessential', 'Montaga', serif;
-  color: rgb(255, 255, 255);
+.post-container h1,
+.post-container h2,
+.post-container h3,
+.post-container h4,
+.post-container h5,
+.post-container h6 {
+  /* font-family: 'Quintessential', 'Montaga', serif; */
+  /* color: rgb(255, 255, 255); */
+  color: whitesmoke;
+  font-size: 1.5em;
   font-weight: 500;
 }
 
@@ -67,16 +77,20 @@ p+p {
 }
 
 .post-container {
-  font-size: 15px;
+  font-size: 20px;
+  font-family: 'AGaramondPro', 'Montaga', serif;
   text-align: justify;
   text-justify: inter-word;
   align-items: stretch;
 }
 
 .blog-full-content {
-  background: #1a1515;
-  /* background: #1a1919; */
-  /* color: #bdbdbd; */
+  /* background: #ffffff; */
+
+  /* color: #c7c7c7; */
+  /* color:#0d1117; */
+  background: #222;
+  /* background: #101010; */
   color: rgb(170, 170, 170);
 }
 
@@ -304,53 +318,90 @@ details[open] summary::before {
 }
 
 /* ///////// JEKYLL TABS //////////  */
-.tab {
+/* .tab {
   display: flex;
   list-style: none;
-  margin-bottom: 0;
+  margin-top: 10px;
   padding: 0;
-  border-bottom: 1px solid #30363d;
-  /* GitHub dark border */
+  border: 1px solid #30363d;
 }
 
 .tab>li {
-  margin: 0;
+  margin: 5px;
+  border: 1px solid #444;
+  border-radius: 5px;
 }
 
 .tab>li>a {
   display: block;
-  padding: 8px 20px;
+  padding: 5px 10px;
   font-size: 17px;
   font-weight: 500;
   color: #c9d1d9;
-  /* GitHub text color */
   text-decoration: none;
   border: 1px solid transparent;
-  border-bottom: none;
-  background-color: transparent;
-  border-radius: 6px 6px 0 0;
+  border-radius: 5px;
   transition: background-color 0.2s ease;
 }
 
 .tab>li>a:hover {
   background-color: #21262d;
-  /* GitHub hover background */
   color: #f0f6fc;
 }
 
 .tab>li.active>a {
+  background-color: #393939;
   background-color: #003380;
-  /* Matches dark background */
   border-color: #30363d #30363d transparent;
-  /* color: #f0f6fc; */
+  color: #f0f6fc;
   color: #bcdeff;
-  /* font-weight: 600; */
+  font-weight: 600;
+} */
+
+
+
+.tab {
+  display: flex;
+  list-style: none;
+  margin-top: 10px;
+  padding: 0 !important;
+  border-bottom: 1px solid #30363d;
+}
+
+.tab>li {
+  border: 2px solid #30363d;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.tab>li>a {
+  display: block;
+  padding: 8px 16px;
+  color: #c9d1d9;
+  text-decoration: none;
+  background-color: #282828;
+  font-size: 17px;
+  border-top: 1px solid #2e2e2e;
+  /* border-bottom: 2px solid #303030; */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.tab>li>a:hover {
+  background-color: #242b34;
+  color: #ffffff;
+}
+
+.tab>li.active>a {
+  background-color: #161b22;
+  color: #ffffff;
+  border-bottom: 3px solid #58a6ff;
+  cursor: default;
 }
 
 .tab-content {
-  background-color: #0d1117;
+  background-color: #0d11177b;
   border: 1px solid #30363d;
-  border-radius: 0 6px 6px 6px;
+  margin-top: -15px;
+  border-radius: 0 0 10px 10px;
   padding: 16px;
 }
 
@@ -361,6 +412,27 @@ details[open] summary::before {
 .tab-content>li.active {
   display: block;
 }
+
+
+/* Tab content area */
+/* .tab-content {
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-top: none;
+  padding: 16px;
+  color: #c9d1d9;
+  font-size: 15px;
+  border-radius: 0 0 6px 6px;
+}
+
+.tab-content > li {
+  display: none;
+}
+
+.tab-content > li.active {
+  display: block;
+} */
+
 
 /* The 2 following blocks can be removed if the script is not configured to show the toast message */
 #jekyll-tabs-copy-to-clipboard-message {
@@ -382,4 +454,95 @@ details[open] summary::before {
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Dark theme: toggled by adding `.dark-theme` to <body> */
+
+.blog-full-content.dark-theme {
+  background: #ffffff;
+  color: #0d1117;
+}
+
+:root {
+  --bg: #0b0b0c;
+  --panel: #0f1113;
+  --muted: #9aa4ad;
+  --text: #e6eef6;
+  --accent: #66b2ff;
+  --tag-bg: rgba(41, 58, 189, 0.42);
+}
+
+body.dark-theme .post-container h1,
+body.dark-theme .post-container h2,
+body.dark-theme .post-container h3,
+body.dark-theme .post-container h4,
+body.dark-theme .post-container h5,
+body.dark-theme .post-container h6 {
+  color: #0077ff;
+}
+
+body.dark-theme .post-container code,
+body.dark-theme .post-container kbd,
+body.dark-theme .post-container samp,
+body.dark-theme .post-container code,
+body.dark-theme .post-container pre,
+body.dark-theme .post-container pre code,
+body.dark-theme .post-container .highlight pre {
+  background-color: #f8f8f8 !important;
+  color: #0b0b0b !important;
+  /* border-radius: 3px; */
+  /* padding: .15em .3em; */
+  /* border: 1px solid rgba(0, 0, 0, 0.06); */
+}
+
+body.dark-theme .post-container pre {
+  padding: 12px !important;
+  overflow: auto;
+}
+
+body.dark-theme .post-container pre,
+body.dark-theme .post-container pre code,
+body.dark-theme .post-container .highlight {
+  background-color: #f8f8f8 !important;
+  color: #0b0b0b !important;
+}
+
+/* 
+body.dark-theme .post-container .post-container kbd,
+body.dark-theme .post-container .post-container samp,
+body.dark-theme .post-container .post-container code,
+body.dark-theme .post-container .post-container pre,
+body.dark-theme .post-container .post-container pre code,
+body.dark-theme .post-container .post-container .highlight pre {
+  background-color: #f1f1f1 !important;
+  color: black !important;
+} */
+
+
+/* Brand logo inside navbar: align left of site title */
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-brand .brand-logo {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+body.dark-theme .highlighter-rouge .highlight {
+  border: 1px solid rgb(209, 209, 209);
+}
+
+.post-container code,
+.post-container kbd,
+.post-container samp,
+.post-container code,
+.post-container pre,
+/* .post-container pre code, */
+.post-container .highlight pre {
+  border: 1px solid rgba(255, 255, 255, 0.098);
 }

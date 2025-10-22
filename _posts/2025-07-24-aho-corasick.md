@@ -13,7 +13,6 @@ tags:
   - Algorithms
 ---
 
-
 CPUs are controlled with *machine language*, which is just a stream of binary-encoded instructions that specify
 
 - the instruction number (called *opcode*),

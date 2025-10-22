@@ -12,7 +12,7 @@
 
     <!-- Open Graph -->
     <meta property="og:title"
-        content="Binary Search - Shreyas's Blog">
+        content="Binary Search - Shreyas' Blog">
     
     <meta property="og:type" content="article">
     <meta property="og:description" content="
@@ -39,9 +39,9 @@
     
     <meta property="og:image" content="http://localhost:4000https://github.com/shreyassn.png">
     <meta property="og:url" content="http://localhost:4000/2025/07/25/binary-search/">
-    <meta property="og:site_name" content="Shreyas's Blog">
+    <meta property="og:site_name" content="Shreyas' Blog">
 
-    <title>Binary Search - Shreyas's Blog</title>
+    <title>Binary Search - Shreyas' Blog</title>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/pwa/manifest.json">
@@ -102,7 +102,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Shreyas's Blogs</a>
+                <a class="navbar-brand" href="/">
+                    <img src="/img/blog-logo.svg" alt="logo" class="brand-logo" width="40" height="40">
+                    Shreyas' Blogs
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -143,6 +146,12 @@
                         
                         
                         
+                        <!-- <li class="theme-icon">
+                            <a href="javascript:void(0)" role="button" aria-label="Toggle dark theme" aria-pressed="false" title="Toggle theme" tabindex="0">
+                                <i class="fa fa-moon-o" aria-hidden="true"></i>
+                            </a>
+                        </li> -->
+
                         <li class="search-icon">
                             <a href="javascript:void(0)">
                                 <i class="fa fa-search"></i>
@@ -366,7 +375,18 @@ when asked to retrieve <code class="language-plaintext highlighter-rouge">Kth op
 
 <p>take a closer look on $ l \leq r $. We use $\leq$ when we have to return answer within the loop.</p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">binarySearch</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="kt">int</span> <span class="nf">binarySearch</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
     <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
@@ -377,7 +397,7 @@ when asked to retrieve <code class="language-plaintext highlighter-rouge">Kth op
     <span class="p">}</span>
     <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="questionlist-1-get-exact-position-of-target">QuestionList-1: Get exact position of target</h3>
 
@@ -409,7 +429,7 @@ when asked to retrieve <code class="language-plaintext highlighter-rouge">Kth op
   </tbody>
 </table>
 
-<ul id="bs" class="tab" data-tab="28786979-02d7-4262-b100-555f5abfd11e" data-name="bs">
+<ul id="bs" class="tab" data-tab="f2089b25-61f8-470b-af83-b4a8da90f41b" data-name="bs">
   
       <li class="active" id="bs-first-occurrence">
           <a href="#">first occurrence </a>
@@ -420,12 +440,22 @@ when asked to retrieve <code class="language-plaintext highlighter-rouge">Kth op
       </li>
   
 </ul>
-<ul class="tab-content" id="28786979-02d7-4262-b100-555f5abfd11e" data-name="bs">
+<ul class="tab-content" id="f2089b25-61f8-470b-af83-b4a8da90f41b" data-name="bs">
   
       <li class="active">
 <p>make sure use of $\leq$ as this will help pointer to slide to very begining of target of multiple occurrence.</p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">firstOccurrence</span><span class="p">()</span> <span class="p">{</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="kt">int</span> <span class="nf">firstOccurrence</span><span class="p">()</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
@@ -435,12 +465,22 @@ when asked to retrieve <code class="language-plaintext highlighter-rouge">Kth op
     <span class="c1">// return (arr.size() &gt; l &amp;&amp; arr[l] == k) ? l : -1;</span>
     <span class="k">return</span> <span class="n">l</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 </li>
   
       <li>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">lastOccurrence</span><span class="p">()</span> <span class="p">{</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="kt">int</span> <span class="nf">lastOccurrence</span><span class="p">()</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
@@ -450,7 +490,7 @@ when asked to retrieve <code class="language-plaintext highlighter-rouge">Kth op
     <span class="c1">// return (l &gt; 0 &amp;&amp; arr[l-1] == k) ? l-1 : -1;</span>
     <span class="k">return</span> <span class="n">l</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 </li>
   
@@ -469,7 +509,7 @@ Seen in problems where we construct a candidate solution and check if the curren
 
 <p>This pattern frequently appears in medium-to-hard problems.</p>
 
-<ul id="var" class="tab" data-tab="4093e725-3361-4c41-ab18-e3233ed5d2ff" data-name="var">
+<ul id="var" class="tab" data-tab="3979b709-0051-4c58-a3e1-b0d9d9fa6895" data-name="var">
   
       <li class="active" id="var-variations-1">
           <a href="#">variations_1 </a>
@@ -480,10 +520,19 @@ Seen in problems where we construct a candidate solution and check if the curren
       </li>
   
 </ul>
-<ul class="tab-content" id="4093e725-3361-4c41-ab18-e3233ed5d2ff" data-name="var">
+<ul class="tab-content" id="3979b709-0051-4c58-a3e1-b0d9d9fa6895" data-name="var">
   
       <li class="active">
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">firstTrueSeq</span><span class="p">()</span> <span class="p">{</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kt">int</span> <span class="nf">firstTrueSeq</span><span class="p">()</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
@@ -492,12 +541,21 @@ Seen in problems where we construct a candidate solution and check if the curren
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">l</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 </li>
   
       <li>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">firstTrueSeq</span><span class="p">()</span> <span class="p">{</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kt">int</span> <span class="nf">firstTrueSeq</span><span class="p">()</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
@@ -506,7 +564,7 @@ Seen in problems where we construct a candidate solution and check if the curren
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">l</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 </li>
   
@@ -519,7 +577,7 @@ Seen in problems where we construct a candidate solution and check if the curren
 <p>lets say $f_i$ be <em>find first element</em> i will be using fi in below like fi &gt; target, which translates to find first element &gt; target</p>
 
 <p>This functions were compiled from <a href="https://codeforces.com/blog/entry/113032">blog</a>.</p>
-<ul id="stl" class="tab" data-tab="108330f0-d096-45c3-a5a1-ccd30e47054f" data-name="stl">
+<ul id="stl" class="tab" data-tab="16e6d559-66ce-44c1-9c50-b5f27fa357ce" data-name="stl">
   
       <li class="active" id="stl--f-i----target">
           <a href="#">$f_i$ &gt; Target </a>
@@ -530,29 +588,37 @@ Seen in problems where we construct a candidate solution and check if the curren
       </li>
   
 </ul>
-<ul class="tab-content" id="108330f0-d096-45c3-a5a1-ccd30e47054f" data-name="stl">
+<ul class="tab-content" id="16e6d559-66ce-44c1-9c50-b5f27fa357ce" data-name="stl">
   
       <li class="active">
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kt">int</span> <span class="nf">firstGreater</span><span class="p">(</span><span class="n">vector</span> <span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>  <span class="kt">int</span> <span class="nf">firstGreater</span><span class="p">(</span><span class="n">vector</span> <span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">upper_bound</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">target</span><span class="p">);</span>
       <span class="k">return</span> <span class="n">it</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">it</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
   <span class="p">}</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 </li>
   
       <li>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kt">int</span> <span class="nf">firstGreaterEqual</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>  <span class="kt">int</span> <span class="nf">firstGreaterEqual</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">lower_bound</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">target</span><span class="p">);</span>
       <span class="k">return</span> <span class="n">it</span> <span class="o">==</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">it</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
   <span class="p">}</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 </li>
   
 </ul>
 
-<ul id="stl1" class="tab" data-tab="daced972-56f5-41a2-8ce5-ee15ee329d32" data-name="stl1">
+<ul id="stl1" class="tab" data-tab="8066d99b-d3dc-402f-8395-8fe58db33bfd" data-name="stl1">
   
       <li class="active" id="stl1--f-i----target">
           <a href="#">$f_i$ &lt; Target </a>
@@ -563,25 +629,35 @@ Seen in problems where we construct a candidate solution and check if the curren
       </li>
   
 </ul>
-<ul class="tab-content" id="daced972-56f5-41a2-8ce5-ee15ee329d32" data-name="stl1">
+<ul class="tab-content" id="8066d99b-d3dc-402f-8395-8fe58db33bfd" data-name="stl1">
   
       <li class="active">
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kt">int</span> <span class="nf">firstLess</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span> <span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>  <span class="kt">int</span> <span class="nf">firstLess</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span> <span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">lower_bound</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">arr</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">target</span><span class="p">);</span>
       <span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">==</span> <span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
       <span class="k">return</span> <span class="p">(</span><span class="n">it</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
   <span class="p">}</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 </li>
   
       <li>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kt">int</span> <span class="nf">firstLessEqual</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span> <span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>  <span class="kt">int</span> <span class="nf">firstLessEqual</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span> <span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">upper_bound</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">target</span><span class="p">);</span>
       <span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">==</span> <span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
       <span class="k">return</span> <span class="p">(</span><span class="n">it</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
   <span class="p">}</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 </li>
   
@@ -592,7 +668,36 @@ Seen in problems where we construct a candidate solution and check if the curren
 <p>Usually hard-level in LeetCode.
 When a question is about <code class="language-plaintext highlighter-rouge">minimizing the maximum value</code>, it can often be solved using the minimax binary search pattern.</p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">minimax_binarySearch</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre></td><td class="rouge-code"><pre><span class="kt">int</span> <span class="nf">minimax_binarySearch</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="o">*</span><span class="n">min_element</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
     <span class="kt">int</span> <span class="n">h</span> <span class="o">=</span> <span class="n">accumulate</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="mi">0ll</span><span class="p">);</span>
 
@@ -621,13 +726,40 @@ When a question is about <code class="language-plaintext highlighter-rouge">mini
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">l</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="finding-the-k-th-element">Finding the K-th Element</h3>
 
 <p>Fixed-start binary search on subarrays ending with a monotonic window.</p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ll</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span> <span class="n">ll</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre></td><td class="rouge-code"><pre><span class="n">ll</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span> <span class="n">ll</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
     <span class="n">ll</span> <span class="n">totalCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
@@ -654,7 +786,7 @@ When a question is about <code class="language-plaintext highlighter-rouge">mini
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">totalCount</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <ul>
   <li><a href="https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/">Kth Smallest Element in a Sorted Matrix</a></li>
@@ -680,7 +812,81 @@ Segment Tree is useful for operations like max/min, OR/AND, GCD/LCM, frequency c
 
 <p>Below code implements LeetCode <code class="language-plaintext highlighter-rouge">3171. Find Subarray With Bitwise OR Closest to K</code>.</p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">namespace</span> <span class="n">rangeQuery</span> <span class="p">{</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+</pre></td><td class="rouge-code"><pre><span class="k">namespace</span> <span class="n">rangeQuery</span> <span class="p">{</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">S</span><span class="p">,</span> <span class="k">auto</span> <span class="n">op</span><span class="p">,</span> <span class="k">auto</span> <span class="n">e</span><span class="p">&gt;</span>
   <span class="k">struct</span> <span class="nc">init</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -754,7 +960,7 @@ Segment Tree is useful for operations like max/min, OR/AND, GCD/LCM, frequency c
         <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">};</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 <blockquote>
   <p style="color:gree; font-size:2em"> I strongly encaourage to enroll this in codeforce and try to solve </p>
   <p>As of now should be able to solve the problems(not necesserly to get AC, I strongly encourage to recognise pattern or get approach  on how to solve) from <a href="https://codeforces.com/edu/course/2">Codeforces — ITMO Academy: Pilot Course</a> <em>(Enroll in this course otherwise cannot access)</em></p>
@@ -769,7 +975,7 @@ get peak/low value of unique/duplicate array can be asked. If you know that than
 
 <h3 id="template-competetive-programming">Template Competetive Programming</h3>
 
-<ul id="cf" class="tab" data-tab="37310311-1133-4dae-abbe-6992641218b0" data-name="cf">
+<ul id="cf" class="tab" data-tab="60fbe4b6-872b-41d1-85b1-befe0d2efd17" data-name="cf">
   
       <li class="active" id="cf-cp-template">
           <a href="#">CP Template </a>
@@ -780,13 +986,22 @@ get peak/low value of unique/duplicate array can be asked. If you know that than
       </li>
   
 </ul>
-<ul class="tab-content" id="37310311-1133-4dae-abbe-6992641218b0" data-name="cf">
+<ul class="tab-content" id="60fbe4b6-872b-41d1-85b1-befe0d2efd17" data-name="cf">
   
       <li class="active">
 <p><code class="language-plaintext highlighter-rouge">firstTSeq</code> set to <code class="language-plaintext highlighter-rouge">true</code> when the given solution space in the monotonic sequence of the form <code class="language-plaintext highlighter-rouge">[T,T,F,F]</code>
 <code class="language-plaintext highlighter-rouge">Lbound</code> lower_bound</p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span> <span class="k">typename</span> <span class="nc">U</span><span class="p">&gt;</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span> <span class="k">typename</span> <span class="nc">U</span><span class="p">&gt;</span>
 <span class="n">T</span> <span class="nf">bsearch</span><span class="p">(</span><span class="n">T</span> <span class="n">l</span><span class="p">,</span> <span class="n">T</span> <span class="n">r</span><span class="p">,</span> <span class="n">U</span> <span class="n">condition</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">Lbound</span> <span class="o">=</span> <span class="nb">true</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">firstTSeq</span> <span class="o">=</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">while</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">T</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span> <span class="o">+</span> <span class="n">firstTSeq</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
@@ -795,14 +1010,47 @@ get peak/low value of unique/duplicate array can be asked. If you know that than
   <span class="p">}</span>
   <span class="k">return</span> <span class="p">(</span><span class="n">Lbound</span> <span class="o">?</span> <span class="n">l</span> <span class="o">:</span> <span class="n">l</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 </li>
   
       <li>
 <p>Not recommended but can be used to slighly improvement run time milli seconds.</p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span> <span class="k">typename</span> <span class="nc">Pred</span><span class="p">&gt;</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+</pre></td><td class="rouge-code"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span> <span class="k">typename</span> <span class="nc">Pred</span><span class="p">&gt;</span>
 <span class="n">T</span> <span class="nf">bsearch</span><span class="p">(</span><span class="n">T</span> <span class="n">l</span><span class="p">,</span> <span class="n">T</span> <span class="n">r</span><span class="p">,</span> <span class="k">const</span> <span class="n">Pred</span> <span class="o">&amp;</span><span class="n">pred</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">Lbound</span> <span class="o">=</span> <span class="nb">true</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">firstTSeq</span> <span class="o">=</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">using</span> <span class="n">CT</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">common_type_t</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">ptrdiff_t</span><span class="o">&gt;</span><span class="p">;</span>
   <span class="k">using</span> <span class="n">U</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unsigned_t</span><span class="o">&lt;</span><span class="n">CT</span><span class="o">&gt;</span><span class="p">;</span>
@@ -835,7 +1083,7 @@ get peak/low value of unique/duplicate array can be asked. If you know that than
     <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">out_ct</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 </li>
   
@@ -920,9 +1168,9 @@ get peak/low value of unique/duplicate array can be asked. If you know that than
                 <a data-sort="0017" 
                     href="/archive/?tag=C%2B%2B"
                     title="C++"
-                    rel="6">C++</a>
+                    rel="7">C++</a>
         
-                <a data-sort="0005" 
+                <a data-sort="0006" 
                     href="/archive/?tag=Algorithms"
                     title="Algorithms"
                     rel="18">Algorithms</a>
@@ -1044,7 +1292,7 @@ get peak/low value of unique/duplicate array can be asked. If you know that than
 </ul>
 
                 <p class="copyright text-muted">
-                    Copyright &copy; Shreyas's Blogs 2025
+                    Copyright &copy; Shreyas' Blogs 2025
                     <br>
                     <!-- Powered by <a href="http://huangxuan.me">Hux Blog</a> |
                     <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="100px"
@@ -1252,6 +1500,9 @@ get peak/low value of unique/duplicate array can be asked. If you know that than
         });
     });
 </script>
+
+<!-- Theme toggle script (handles dark/light and persists choice) -->
+<script src="/js/theme-toggle.js"></script>
 
 
 <!-- Image to hack wechat -->
