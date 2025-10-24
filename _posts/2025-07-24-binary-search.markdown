@@ -432,41 +432,6 @@ T bsearch(T l, T r, U condition, bool Lbound = true, bool firstTSeq = false) {
 
 Not recommended but can be used to slighly improvement run time milli seconds.
 
-```cpp
-template <typename T, typename Pred>
-T bsearch(T l, T r, const Pred &pred, bool Lbound = true, bool firstTSeq = false) {
-  using CT = std::common_type_t<T, std::ptrdiff_t>;
-  using U = std::make_unsigned_t<CT>;
-  CT base_ct = static_cast<CT>(l);
-  U n = static_cast<U>(static_cast<CT>(r) - base_ct) + static_cast<U>(firstTSeq ? 1u : 0u);
-  if (n == 0) {
-    if (firstTSeq)  return Lbound ? l : static_cast<T>(base_ct - 1);
-    else return Lbound ? r : static_cast<T>(base_ct - 1);
-  }
-  U pos = 0;
-  U step = U(1) << (std::bit_width(n) - 1);
-  for (; step; step >>= 1) {
-    U nxt = pos + step;
-    U inRange = static_cast<U>(nxt <= n);
-    U mask_in = static_cast<U>(0) - inRange;
-    U safe_idx = ((nxt - 1) & mask_in) | ((n - 1) & ~mask_in);
-    T candidate = static_cast<T>(static_cast<CT>(base_ct + static_cast<CT>(safe_idx)));
-    U pred_v = static_cast<U>(static_cast<bool>(pred(candidate)));
-    U move_cond = firstTSeq ? pred_v : static_cast<U>(!pred_v);
-    U take_mask = static_cast<U>(0) - (inRange & move_cond);
-    pos += step & take_mask;
-  }
-  if (firstTSeq) {
-    U pos_nonzero = static_cast<U>(pos != 0);
-    CT out_ct = base_ct + static_cast<CT>(pos) - static_cast<CT>(pos_nonzero);
-    CT final_ct = out_ct - static_cast<CT>(Lbound ? 0 : 1);
-    return static_cast<T>(final_ct);
-  } else {
-    CT out_ct = base_ct + static_cast<CT>(pos) - static_cast<CT>(Lbound ? 0 : 1);
-    return static_cast<T>(out_ct);
-  }
-}
-```
 
 {% endtab %}
 {% endtabs %}

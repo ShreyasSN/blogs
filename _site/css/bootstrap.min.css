@@ -5858,7 +5858,7 @@ fieldset[disabled] .navbar-inverse .btn-link:hover {
   display: inline-block;
   padding: 5px 14px;
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid #333;
   border-radius: 15px
 }
 
