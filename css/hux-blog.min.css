@@ -894,7 +894,7 @@ table.table>tbody th,
 table.table>thead th,
 table.table>tbody td,
 table.table>thead td {
-  border: 0.5px solid #3367d6a2 !important
+  border: 0.5px solid #ddd !important
 }
 
 @media screen and (max-width:767px) {
@@ -1275,10 +1275,10 @@ samp {
     position: fixed;
     top: -61px;
     /* NAVBAR */
-    /* background-color: #8AB6F9; */
-    background-color: #000f2a;
+    background-color: #222;
+    /* background-color: #000f2a; */
     /* background-color: rgba(255, 255, 255, .9); */
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #4e4e4e;
     -webkit-transition: -webkit-transform .3s;
     -moz-transition: -moz-transform .3s;
     transition: transform .3s
@@ -1646,7 +1646,8 @@ footer .copyright a:focus {
   font-weight: 800;
   letter-spacing: 1px;
   padding: 10px;
-  background-color: #fff;
+  background-color: #1c1e21;
+  /* background-color: #fff; */
   border-radius: 0
 }
 
@@ -1660,14 +1661,15 @@ footer .copyright a:focus {
 }
 
 .pager li>a {
-  color: #404040
+  /* color: #404040 */
+  color: #2764c0;
 }
 
 .pager li>a:hover,
 .pager li>a:focus {
   color: #fff;
-  background-color: #0085a1;
-  border: 1px solid #0085a1
+  background-color: #0a2040;
+  border: 1px solid #103266
 }
 
 .pager li>a:hover>span,

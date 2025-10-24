@@ -13,5 +13,6 @@ tags:
   
 ---
 
+# Segment Tree 
 
 <img src="{{ "/img/in-post/post-segment-tree/seg1.svg" | prepend: site.baseurl }}" />
