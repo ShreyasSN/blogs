@@ -3,6 +3,7 @@
   var body = document.body;
   var themeIconLink = document.querySelector('.theme-icon a');
   var themeIconElement = document.querySelector('.theme-icon i');
+  var hljsThemeLink = document.getElementById('hljs-theme');
 
   function applyTheme(dark) {
     if (dark) {
@@ -13,6 +14,11 @@
         // accessibility
         if (themeIconLink) themeIconLink.setAttribute('aria-pressed', 'true');
       }
+      // switch highlight.js stylesheet for code blocks if link exists
+      if (hljsThemeLink) {
+        hljsThemeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs.css';
+        try { if (window.hljs && typeof hljs.highlightAll === 'function') hljs.highlightAll(); } catch (e) {}
+      }
     } else {
       body.classList.remove('dark-theme');
       if (themeIconElement) {
@@ -20,6 +26,10 @@
         themeIconElement.classList.add('fa-moon-o');
         // accessibility
         if (themeIconLink) themeIconLink.setAttribute('aria-pressed', 'false');
+      }
+      if (hljsThemeLink) {
+        hljsThemeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.css';
+        try { if (window.hljs && typeof hljs.highlightAll === 'function') hljs.highlightAll(); } catch (e) {}
       }
     }
   }

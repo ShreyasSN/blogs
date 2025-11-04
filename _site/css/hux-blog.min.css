@@ -160,7 +160,8 @@
 
 .side-catalog .catalog-body .active a {
   text-decoration: underline;
-  color: #0085a1 !important
+  color: royalblue !important;
+  /* color: #0085a1 !important */
 }
 
 @media (max-width:1200px) {
@@ -630,7 +631,7 @@ pre.highlight {
 
 .highlighter-rouge .highlight pre {
   font-size: 14px;
-  font-weight: bold;
+  /* font-weight: bold; */
   line-height: 1.5;
   color: #555;
   /* color: #e5c07b; */
@@ -894,7 +895,14 @@ table.table>tbody th,
 table.table>thead th,
 table.table>tbody td,
 table.table>thead td {
-  border: 0.5px solid #ddd !important
+  border: 0.5px solid #444
+}
+
+table.table>thead th {
+  background: #292929;
+  color: whitesmoke;
+  text-align: center;
+  font-weight: 100;
 }
 
 @media screen and (max-width:767px) {
@@ -1287,9 +1295,10 @@ samp {
   .navbar-custom.is-fixed .navbar-brand {
     color: white;
     /* color: #0077ff; */
-    font-family: 'AGaramond Pro', 'Garamond', 'Times New Roman', serif;
+    font-family: 'EB Garamond', 'Gramond', serif;
     font-size: 2em;
     font-style: italic;
+    font-weight: 600;
   }
 
   .navbar-custom.is-fixed .navbar-brand:hover,
@@ -1492,7 +1501,8 @@ samp {
 }
 
 .post-preview>a {
-  color: #adbfff
+  color: royalblue;
+  /* color: #adbfff */
 }
 
 .post-preview>a:hover,
@@ -1695,7 +1705,8 @@ footer .copyright a:focus {
 ::selection {
   color: #fff;
   text-shadow: none;
-  background: #0085a1
+  background: #3427c0;
+  /* background: #2764c0; */
 }
 
 img::selection {
