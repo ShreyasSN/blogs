@@ -40,12 +40,15 @@ body {
 
 
 /* /////////font-family/////////  */
-
 @font-face {
   font-family: 'AGaramondPro';
   src: url('../fonts/AGaramondPro-Regular.otf') format('opentype');
 }
 
+@font-face {
+  font-family: 'helvetica-light';
+  src: url('../fonts/helvetica-neue-ultra-light.ttf') format('opentype');
+}
 
 /* //////////////////  */
 
@@ -60,11 +63,9 @@ h1 {
 .post-container h4,
 .post-container h5,
 .post-container h6 {
+  font-family: 'helvetica-light', sans-serif;
   /* font-family: 'Quintessential', 'Montaga', serif; */
-  /* color: rgb(255, 255, 255); */
-  color: whitesmoke;
-  font-size: 1.5em;
-  font-weight: 500;
+  color: white;
 }
 
 p {
@@ -79,37 +80,35 @@ p+p {
 .post-container {
   font-size: 20px;
   font-family: 'AGaramondPro', 'Montaga', serif;
-  text-align: justify;
-  text-justify: inter-word;
-  align-items: stretch;
+}
+
+@media (min-width: 990px) {
+  .post-container {
+    text-align: justify;
+    text-justify: inter-word;
+    align-items: stretch;
+  }
 }
 
 .blog-full-content {
-  /* background: #ffffff; */
-
-  /* color: #c7c7c7; */
-  /* color:#0d1117; */
   background: #222;
-  /* background: #101010; */
   color: rgb(170, 170, 170);
 }
 
-/* background: #27374D; */
-/* .blog-grid-item {
-  background: #19183B;
-  background: rgba(28, 23, 23, 0.791);
-  background-image: url('../img/blog-bg-pattern.jpg');
-  border-radius: 5px;
-} */
+.post-container code,
+.post-container kbd,
+.post-container samp,
+.post-container code,
+.post-container pre,
+.post-container .highlight pre {
+  border: 1px solid rgba(255, 255, 255, 0.098);
+}
+
 .blog-grid-item {
   background:
     linear-gradient(rgba(42, 40, 113, 0.96), rgba(25, 24, 59, 0.96)),
     url('../img/blog-bg-pattern.jpg') center/cover no-repeat;
   border-radius: 5px;
-  /* background:
-    linear-gradient(rgba(25, 24, 59, 0.96), rgba(25, 24, 59, 0.96)),
-    url('../img/blog-bg-pattern.jpg') center/cover no-repeat;
-  border-radius: 5px; */
 }
 
 
@@ -217,10 +216,6 @@ details[open] summary::before {
     linear-gradient(rgba(42, 40, 113, 0.96), rgba(28, 43, 79, 0.96)),
     url('../img/blog-bg-pattern.jpg') center/cover no-repeat;
   transition-duration: 0.25s;
-  /* background:
-    linear-gradient(rgba(35, 34, 80, 0.96), rgba(25, 24, 59, 0.96)),
-    url('../img/blog-bg-pattern.jpg') center/cover no-repeat;
-  transition-duration: 0.25s; */
 }
 
 .blog-grid-item a {
@@ -457,70 +452,7 @@ details[open] summary::before {
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
-/* Dark theme: toggled by adding `.dark-theme` to <body> */
-
-.blog-full-content.dark-theme {
-  background: #ffffff;
-  color: #0d1117;
-}
-
-:root {
-  --bg: #0b0b0c;
-  --panel: #0f1113;
-  --muted: #9aa4ad;
-  --text: #e6eef6;
-  --accent: #66b2ff;
-  --tag-bg: rgba(41, 58, 189, 0.42);
-}
-
-body.dark-theme .post-container h1,
-body.dark-theme .post-container h2,
-body.dark-theme .post-container h3,
-body.dark-theme .post-container h4,
-body.dark-theme .post-container h5,
-body.dark-theme .post-container h6 {
-  color: #0077ff;
-}
-
-body.dark-theme .post-container code,
-body.dark-theme .post-container kbd,
-body.dark-theme .post-container samp,
-body.dark-theme .post-container code,
-body.dark-theme .post-container pre,
-body.dark-theme .post-container pre code,
-body.dark-theme .post-container .highlight pre {
-  background-color: #f8f8f8 !important;
-  color: #0b0b0b !important;
-  /* border-radius: 3px; */
-  /* padding: .15em .3em; */
-  /* border: 1px solid rgba(0, 0, 0, 0.06); */
-}
-
-body.dark-theme .post-container pre {
-  padding: 12px !important;
-  overflow: auto;
-}
-
-body.dark-theme .post-container pre,
-body.dark-theme .post-container pre code,
-body.dark-theme .post-container .highlight {
-  background-color: #f8f8f8 !important;
-  color: #0b0b0b !important;
-}
-
-/* 
-body.dark-theme .post-container .post-container kbd,
-body.dark-theme .post-container .post-container samp,
-body.dark-theme .post-container .post-container code,
-body.dark-theme .post-container .post-container pre,
-body.dark-theme .post-container .post-container pre code,
-body.dark-theme .post-container .post-container .highlight pre {
-  background-color: #f1f1f1 !important;
-  color: black !important;
-} */
-
-
-/* Brand logo inside navbar: align left of site title */
+/* NAVBAR LOGO */
 .navbar-brand {
   display: inline-flex;
   align-items: center;
@@ -532,18 +464,4 @@ body.dark-theme .post-container .post-container .highlight pre {
   width: 30px;
   height: 30px;
   object-fit: contain;
-}
-
-body.dark-theme .highlighter-rouge .highlight {
-  border: 1px solid rgb(209, 209, 209);
-}
-
-.post-container code,
-.post-container kbd,
-.post-container samp,
-.post-container code,
-.post-container pre,
-/* .post-container pre code, */
-.post-container .highlight pre {
-  border: 1px solid rgba(255, 255, 255, 0.098);
 }

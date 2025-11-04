@@ -46,6 +46,7 @@ Merge-sort uses principle called divide &amp; conquer which means first it divid
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/hux-blog.min.css">
     <link rel="stylesheet" href="/css/blogs.css">
+    <link rel="stylesheet" href="/css/blogs-dark-mode.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -53,8 +54,9 @@ Merge-sort uses principle called divide &amp; conquer which means first it divid
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <!-- <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montaga&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
 
@@ -134,11 +136,11 @@ Merge-sort uses principle called divide &amp; conquer which means first it divid
                         
                         
                         
-                        <!-- <li class="theme-icon">
+                        <li class="theme-icon">
                             <a href="javascript:void(0)" role="button" aria-label="Toggle dark theme" aria-pressed="false" title="Toggle theme" tabindex="0">
                                 <i class="fa fa-moon-o" aria-hidden="true"></i>
                             </a>
-                        </li> -->
+                        </li>
 
                         <li class="search-icon">
                             <a href="javascript:void(0)">
@@ -236,35 +238,17 @@ Merge-sort uses principle called divide &amp; conquer which means first it divid
   header.intro-header {
     position: relative;
     background-image: url('/img/post/merge-sort.png');
-
-    background: {
-        {
-        page.header-bg-css
-      }
-    }
-
-    ;
+    
   }
 
-    {
-    % if page.header-mask %
-  }
-
+  
   header.intro-header .header-mask {
     width: 100%;
     height: 100%;
     position: absolute;
-
-    background: rgba(0, 0, 0, {
-        {
-        page.header-mask
-      }
-    });
+    background: rgba(0, 0, 0, 0.3);
   }
-
-    {
-    % endif %
-  }
+  
 </style>
 
 
@@ -315,16 +299,7 @@ Merge-sort uses principle called divide &amp; conquer which means first it divid
 <p>Merge-sort uses principle called divide &amp; conquer which means first it divides the given input and then tries to build back by applying some of special tricks and techniques. Likewise for merge-sort first it divides given array into half recursively till it hits base case $\text{if(l &gt;= r) return;}$ and build back by comparing minimum/maximum element to carefully place in sorted order.</p>
 
 <p>Dividing array into left and right half.</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="rouge-code"><pre><span class="kt">void</span> <span class="nf">mergeSort</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">temp</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">mergeSort</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">temp</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">left</span> <span class="o">&gt;=</span> <span class="n">right</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
 
     <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="p">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
@@ -333,36 +308,13 @@ Merge-sort uses principle called divide &amp; conquer which means first it divid
 
     <span class="n">merge</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">temp</span><span class="p">);</span>
 <span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <h3 id="divide-and-conquer-principle-and-beyond">Divide-and-conquer principle and beyond</h3>
 
 <h3 id="code-template">Code Template</h3>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-</pre></td><td class="rouge-code"><pre><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span> <span class="k">typename</span> <span class="nc">Compare</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">less</span><span class="o">&lt;</span><span class="n">T</span><span class="p">&gt;,</span> 
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span> <span class="k">typename</span> <span class="nc">Compare</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">less</span><span class="o">&lt;</span><span class="n">T</span><span class="p">&gt;,</span> 
          <span class="k">typename</span> <span class="n">Hook</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="p">,</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;&gt;</span>
 <span class="kt">void</span> <span class="nf">mergesort</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="n">Compare</span> <span class="n">cmp</span> <span class="o">=</span> <span class="n">Compare</span><span class="p">(),</span> <span class="n">Hook</span> <span class="n">pre_merge_hook</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">a</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
@@ -385,7 +337,7 @@ Merge-sort uses principle called divide &amp; conquer which means first it divid
         <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">;</span> <span class="o">++</span><span class="n">t</span><span class="p">)</span> <span class="n">a</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">t</span><span class="p">]);</span>
     <span class="p">};</span> <span class="n">dnc</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
 <span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 
         <hr style="visibility: hidden;">
@@ -481,10 +433,6 @@ Merge-sort uses principle called divide &amp; conquer which means first it divid
 
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: { autoNumber: "all" },
-      tagSide: "right"
-    },
     SVG: {
       scale: 90
     },
@@ -636,14 +584,22 @@ Merge-sort uses principle called divide &amp; conquer which means first it divid
      - https://help.github.com/articles/creating-and-highlighting-code-blocks/
      - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
 -->
-<!--
-    <script>
+
+    <!-- <script>
         async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
             hljs.initHighlightingOnLoad();
         })
+    </script> -->
+    <script>
+        async("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
     </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
--->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script> -->
+    <!-- Highlight.js theme link - href will be switched by theme-toggle.js -->
+    <link id="hljs-theme" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.css" rel="stylesheet">
+   
+
 
 
 

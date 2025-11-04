@@ -4,8 +4,8 @@ title: "Binary Search"
 subtitle: "All patterns of binary search"
 date: 2025-07-25
 author: "Shreyas S N"
-header-img: "img/post/binarysearch.png"
-header-mask: 0.3
+header-img: "img/post/bg-poster/43.png"
+header-mask: 0.5
 catalog: true
 mathjax: true
 tags:
@@ -18,13 +18,18 @@ tags:
 >
 > - [TopCoder Binary Search Article](https://www.topcoder.com/community/competitive-programming/tutorials/binary-search)
 
-## Binary Search 
+### Why do we need $binary search$
 
-### Binary Search
+So simple yet so powerful algorithm, and this is one of the algorithm which i admire the most because of its verstility and applications. If in any scenario you realise after some `true` sequecence everything is gonna be `false` or vice-versa, then you can blindly apply binary search. To make it clear let me tell this way, Lets hope a solution space which has clear boundary between `FALSE` & `TRUE` -> array: `[FALSE, FALSE, FALSE, TRUE, TRUE, TRUE]` in this all you have to do is to find where that bounday lies that seperates `FALSE` and `TRUE` sequence. Too much, too less explaination ->  sorted array: $[1,2,3,4,5]$ and $target=3$, Question: find index where target present in sorted array; first lets define
+boundary line condition: left of 3 (`arr[i] < 3`) and right of 3 (`arr[i] > 3`), so find boundary(`arr[i] == 3`) that leads to finding index in which $target=3$ is present in array but here you need to take care of whether the input is `sorted` are not because it only applies to sorted array as we seen, to define boundary condition. Lets keep this small, I will explain later.
+
+Searching an element in an unsorted array takes $O(N)$ time complexity, where `N` is number of elements in input array. But if the input array in in sorted order then we can reduce to $O(log_2N)$ by appling binary search. This is huge optimization as you know that when you go from `N` → `2N`, the $log_2$ increments just by 1.
+
+It's worth to take note on advantage of first sorting an input array which takes $O(Nlog_2N)$ in case of searcing a target inside `for i in range(M)`, so summing up all. the time complexity will be $O(Nlog_2N) + O(Mlog_2N)$ ie, sorting + (for loop upto M + binary search inside loop). Through this approach we can apply on broader problems which will be discussed on below sections.
+
+### Let's understand bit more clear on working principle
 
 Searching for an element in a given array has always been an interesting task, but when it comes to retrieving it with the most optimal time and space complexity, we often fall into the trap of looping approaches. Binary Search, however, is a method that comes in handy, as it strikes a balance between both time and auxiliary complexities. It works in $O(log n)$ time and uses $O(1)$ space. Additionally, we can even implement a [branchless binary search](https://probablydance.com/2023/04/27/beautiful-branchless-binary-search/) for low-level hardware usage to optimize CPU operations.
-
-### How does Binary Search work?
 
 For any given `sorted array`, we can apply binary search to retrieve the index of a target element.
 

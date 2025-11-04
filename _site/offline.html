@@ -39,6 +39,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/hux-blog.min.css">
     <link rel="stylesheet" href="/css/blogs.css">
+    <link rel="stylesheet" href="/css/blogs-dark-mode.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -46,8 +47,9 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <!-- <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montaga&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
 
@@ -127,11 +129,11 @@
                         
                         
                         
-                        <!-- <li class="theme-icon">
+                        <li class="theme-icon">
                             <a href="javascript:void(0)" role="button" aria-label="Toggle dark theme" aria-pressed="false" title="Toggle theme" tabindex="0">
                                 <i class="fa fa-moon-o" aria-hidden="true"></i>
                             </a>
-                        </li> -->
+                        </li>
 
                         <li class="search-icon">
                             <a href="javascript:void(0)">
@@ -225,35 +227,10 @@
   header.intro-header {
     position: relative;
     background-image: url('/img/404-bg.jpg');
-
-    background: {
-        {
-        page.header-bg-css
-      }
-    }
-
-    ;
+    
   }
 
-    {
-    % if page.header-mask %
-  }
-
-  header.intro-header .header-mask {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-
-    background: rgba(0, 0, 0, {
-        {
-        page.header-mask
-      }
-    });
-  }
-
-    {
-    % endif %
-  }
+  
 </style>
 
 
@@ -379,14 +356,22 @@
      - https://help.github.com/articles/creating-and-highlighting-code-blocks/
      - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
 -->
-<!--
-    <script>
+
+    <!-- <script>
         async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
             hljs.initHighlightingOnLoad();
         })
+    </script> -->
+    <script>
+        async("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
     </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
--->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script> -->
+    <!-- Highlight.js theme link - href will be switched by theme-toggle.js -->
+    <link id="hljs-theme" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.css" rel="stylesheet">
+   
+
 
 
 

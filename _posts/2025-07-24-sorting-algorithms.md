@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Sorting Algorithms"
-subtitle:   "All patterns of classical dp"
+subtitle:   "Why do we prefer sorting in first place?"
 date:       2025-07-25
 author:     "Shreyas S N"
 header-img: "img/post-bg-unix-linux.jpg"
@@ -12,8 +12,5 @@ tags:
   
 ---
 
-# Classical Problems of DP
+# Sorting Algorithms
 
-## LIS
-
-## LCS

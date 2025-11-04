@@ -50,6 +50,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/hux-blog.min.css">
     <link rel="stylesheet" href="/css/blogs.css">
+    <link rel="stylesheet" href="/css/blogs-dark-mode.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -57,8 +58,9 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <!-- <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montaga&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
 
@@ -138,11 +140,11 @@
                         
                         
                         
-                        <!-- <li class="theme-icon">
+                        <li class="theme-icon">
                             <a href="javascript:void(0)" role="button" aria-label="Toggle dark theme" aria-pressed="false" title="Toggle theme" tabindex="0">
                                 <i class="fa fa-moon-o" aria-hidden="true"></i>
                             </a>
-                        </li> -->
+                        </li>
 
                         <li class="search-icon">
                             <a href="javascript:void(0)">
@@ -240,35 +242,17 @@
   header.intro-header {
     position: relative;
     background-image: url('/img/post-bg-os-metro.jpg');
-
-    background: {
-        {
-        page.header-bg-css
-      }
-    }
-
-    ;
+    
   }
 
-    {
-    % if page.header-mask %
-  }
-
+  
   header.intro-header .header-mask {
     width: 100%;
     height: 100%;
     position: absolute;
-
-    background: rgba(0, 0, 0, {
-        {
-        page.header-mask
-      }
-    });
+    background: rgba(0, 0, 0, 0.3);
   }
-
-    {
-    % endif %
-  }
+  
 </style>
 
 
@@ -377,7 +361,7 @@ Access specifiers are private, protected, public.
 Private is valid only for that class where it is declared and protected can be accesed in declared class and subclass which is derieved. Public is open to all to access and modify.</p>
 
 <p>Example that I think make sense is Tree. Yes, a tree. As you know</p>
-<ul id="enc" class="tab" data-tab="b36d9bda-1883-45a8-bc8a-6941610c2e95" data-name="enc">
+<ul id="enc" class="tab" data-tab="710da5a0-d83f-48bf-a47e-694eef713666" data-name="enc">
   
       <li class="active" id="enc-c--">
           <a href="#">C++ </a>
@@ -392,23 +376,12 @@ Private is valid only for that class where it is declared and protected can be a
       </li>
   
 </ul>
-<ul class="tab-content" id="b36d9bda-1883-45a8-bc8a-6941610c2e95" data-name="enc">
+<ul class="tab-content" id="710da5a0-d83f-48bf-a47e-694eef713666" data-name="enc">
   
       <li class="active">
 <p>C++ has keyword to enforce encapsulation ie, <code class="language-plaintext highlighter-rouge">public</code> <code class="language-plaintext highlighter-rouge">protected</code> <code class="language-plaintext highlighter-rouge">private</code>. By default class is private</p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="rouge-code"><pre><span class="k">class</span> <span class="nc">ThreeDPoints</span> <span class="p">{</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ThreeDPoints</span> <span class="p">{</span>
 <span class="nl">private:</span>
   <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>
 <span class="nl">public:</span>
@@ -419,7 +392,7 @@ Private is valid only for that class where it is declared and protected can be a
     <span class="k">return</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 </li>
   
@@ -432,15 +405,7 @@ Private is valid only for that class where it is declared and protected can be a
 This is becaus python believes that all are adults here and merely trust the progrommer to not</li>
 </ul>
 
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre><span class="k">class</span> <span class="nc">ThreeDPoints</span><span class="p">:</span>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ThreeDPoints</span><span class="p">:</span>
   <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
     <span class="n">self</span><span class="p">.</span><span class="n">__x</span> <span class="o">=</span> <span class="n">x</span>
     <span class="n">self</span><span class="p">.</span><span class="n">__y</span> <span class="o">=</span> <span class="n">y</span>
@@ -448,25 +413,12 @@ This is becaus python believes that all are adults here and merely trust the pro
 
   <span class="k">def</span> <span class="nf">_print_points</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
     <span class="nf">print</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">__x</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">__y</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">__z</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 </li>
   
       <li>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreeDPoints</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreeDPoints</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">z</span><span class="o">;</span>
 
     <span class="kd">public</span> <span class="nf">ThreeDPoints</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">,</span> <span class="kt">int</span> <span class="n">z</span><span class="o">)</span> <span class="o">{</span>
@@ -479,7 +431,7 @@ This is becaus python believes that all are adults here and merely trust the pro
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">z</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 </li>
   
@@ -572,10 +524,6 @@ This is becaus python believes that all are adults here and merely trust the pro
 
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: { autoNumber: "all" },
-      tagSide: "right"
-    },
     SVG: {
       scale: 90
     },
@@ -727,14 +675,22 @@ This is becaus python believes that all are adults here and merely trust the pro
      - https://help.github.com/articles/creating-and-highlighting-code-blocks/
      - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
 -->
-<!--
-    <script>
+
+    <!-- <script>
         async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
             hljs.initHighlightingOnLoad();
         })
+    </script> -->
+    <script>
+        async("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
     </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
--->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script> -->
+    <!-- Highlight.js theme link - href will be switched by theme-toggle.js -->
+    <link id="hljs-theme" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.css" rel="stylesheet">
+   
+
 
 
 

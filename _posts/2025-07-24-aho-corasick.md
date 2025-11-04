@@ -4,9 +4,9 @@ title: "Aho-Corasick Automation"
 subtitle: "All patterns of binary search"
 date: 2025-07-25
 author: "Shreyas S N"
-header-img: "img/post/ac-automation.png"
 header-mask: 0.3
-catalog: true
+header-img: "img/post/bg-poster/76.png"
+catalog: false
 mathjax: true
 tags:
   - C++
@@ -94,7 +94,7 @@ Mirroring
 
 Memory addressing is done with the `[]` operator, but it can do more than just reinterpret a value stored in a register as a memory location. The address operand takes up to 4 parameters presented in the syntax:
 
-```
+```text
 SIZE PTR [base + index * scale + displacement]
 ```
 
