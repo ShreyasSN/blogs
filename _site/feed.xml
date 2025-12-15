@@ -5,8 +5,8 @@
     <description>Place to share my thoughts and experiences in the tech world.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 05 Nov 2025 00:23:18 +0530</pubDate>
-    <lastBuildDate>Wed, 05 Nov 2025 00:23:18 +0530</lastBuildDate>
+    <pubDate>Mon, 15 Dec 2025 16:39:30 +0530</pubDate>
+    <lastBuildDate>Mon, 15 Dec 2025 16:39:30 +0530</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
@@ -69,7 +69,7 @@ Access specifiers are private, protected, public.
 Private is valid only for that class where it is declared and protected can be accesed in declared class and subclass which is derieved. Public is open to all to access and modify.&lt;/p&gt;
 
 &lt;p&gt;Example that I think make sense is Tree. Yes, a tree. As you know&lt;/p&gt;
-&lt;ul id=&quot;enc&quot; class=&quot;tab&quot; data-tab=&quot;710da5a0-d83f-48bf-a47e-694eef713666&quot; data-name=&quot;enc&quot;&gt;
+&lt;ul id=&quot;enc&quot; class=&quot;tab&quot; data-tab=&quot;f0a4baa4-3851-4779-9f9d-ef6a90f3d027&quot; data-name=&quot;enc&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;enc-c--&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;C++ &lt;/a&gt;
@@ -84,7 +84,7 @@ Private is valid only for that class where it is declared and protected can be a
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;710da5a0-d83f-48bf-a47e-694eef713666&quot; data-name=&quot;enc&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;f0a4baa4-3851-4779-9f9d-ef6a90f3d027&quot; data-name=&quot;enc&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;C++ has keyword to enforce encapsulation ie, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;protected&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private&lt;/code&gt;. By default class is private&lt;/p&gt;
